@@ -30,6 +30,30 @@ namespace Veterinaria
             InitializeComponent();
         }
 
+        private void AbrirFormHijo(Form formHijo)
+        {
+            if (this.panelContenedor.Controls.Count > 0)
+            {
+                Control anterior = this.panelContenedor.Controls[0];
+                this.panelContenedor.Controls.RemoveAt(0);
+                if (anterior is Form formAnterior)
+                {
+                    formAnterior.Close();
+                    formAnterior.Dispose();
+                }
+            }
+            this.frm = formHijo.GetType();
+            Form fh = formHijo;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.panelContenedor.Controls.Add(fh);
+            this.panelContenedor.Tag = fh;
+            fh.Show();
+        }
+
+
+
+
 
         private void barraTitulo_MouseDown(object sender, MouseEventArgs e)
         {
@@ -88,6 +112,9 @@ namespace Veterinaria
         }
         private void btnClientes_Click(object sender, EventArgs e)
         {
+            if (this.frm == (typeof(FrmCliente)))
+                return;
+            AbrirFormHijo(new FrmCliente());
             btnFormColor(ref btnClientes);
         }
         private void btnPacientes_Click(object sender, EventArgs e)
@@ -100,6 +127,9 @@ namespace Veterinaria
         }
         private void btnHistorial_Click(object sender, EventArgs e)
         {
+            if (this.frm == typeof(FrmHistorial))
+                return;
+            AbrirFormHijo(new FrmHistorial());
             btnFormColor(ref btnHistorial);
         }
         private void btnVeterinarios_Click(object sender, EventArgs e)
