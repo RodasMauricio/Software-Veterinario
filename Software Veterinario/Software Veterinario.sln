@@ -5,6 +5,10 @@ VisualStudioVersion = 17.14.36623.8 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veterinaria", "Veterinaria\Veterinaria.csproj", "{30D760BA-5BDB-4041-8706-9A2D66FD480A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{543983D6-B3EA-4B11-B077-0BC9B5FC2E59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{99703728-D457-45E0-A3AE-597EBD918B54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{30D760BA-5BDB-4041-8706-9A2D66FD480A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30D760BA-5BDB-4041-8706-9A2D66FD480A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30D760BA-5BDB-4041-8706-9A2D66FD480A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{543983D6-B3EA-4B11-B077-0BC9B5FC2E59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543983D6-B3EA-4B11-B077-0BC9B5FC2E59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543983D6-B3EA-4B11-B077-0BC9B5FC2E59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543983D6-B3EA-4B11-B077-0BC9B5FC2E59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99703728-D457-45E0-A3AE-597EBD918B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99703728-D457-45E0-A3AE-597EBD918B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99703728-D457-45E0-A3AE-597EBD918B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99703728-D457-45E0-A3AE-597EBD918B54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
