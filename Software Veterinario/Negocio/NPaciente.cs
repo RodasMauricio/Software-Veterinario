@@ -50,5 +50,77 @@ namespace Negocio
                 }
             }
         }
+
+        public void Agregar(Paciente p)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Insert into PACIENTES (Nombre, IdEspecie, IdRaza, IdCliente, FechaNacimiento, Sexo, ColorPelaje, Peso, ObservacionesGenerales, Activo)values(@Nombre, @IdEspecie, @IdRaza, @IdCliente, @Fecha, @Sexo, @Color, @Peso, @Observacion, @Activo)");
+                    datos.Parametros("@Nombre", p.Nombre);
+                    datos.Parametros("@IdEspecie", p.Especie.Id);
+                    datos.Parametros("@IdRaza", p.Raza.Id);
+                    datos.Parametros("@IdCliente", p.Cliente.Id);
+                    datos.Parametros("@Fecha", p.FechaNacimiento);
+                    datos.Parametros("@Sexo", p.Sexo);
+                    datos.Parametros("@Color", p.ColorPelaje);
+                    datos.Parametros("@Peso", p.Peso);
+                    datos.Parametros("@Observacion", p.Observacion);
+                    datos.Parametros("@Activo", 1);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        public void Modificar(Paciente p)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Update PACIENTES set Nombre = @Nombre, IdEspecie = @IdEspecie, IdRaza = @IdRaza, IdCliente = @IdCliente, FechaNacimiento = @FechaNacimiento, Sexo = @Sexo, ColorPelaje = @Color, Peso = @Peso, ObservacionesGenerales = @Observacion, Activo = @Activo Where Id = @Id");
+                    datos.Parametros("@Nombre", p.Nombre);
+                    datos.Parametros("@IdEspecie", p.Especie.Id);
+                    datos.Parametros("@IdRaza", p.Raza.Id);
+                    datos.Parametros("@IdCliente", p.Cliente.Id);
+                    datos.Parametros("@FechaNacimiento", p.FechaNacimiento);
+                    datos.Parametros("@Sexo", p.Sexo);
+                    datos.Parametros("@Color", p.ColorPelaje);
+                    datos.Parametros("@Peso", p.Peso);
+                    datos.Parametros("@Observacion", p.Observacion);
+                    datos.Parametros("@Activo", 1);
+                    datos.Parametros("@Id", p.Id);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        public void Eliminar(int id)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Update PACIENTES set Activo = @Activo Where Id = @Id");
+                    datos.Parametros("@Activo", 0);
+                    datos.Parametros("@Id", id);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
     }
 }

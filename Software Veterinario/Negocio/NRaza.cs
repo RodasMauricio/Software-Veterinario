@@ -9,5 +9,32 @@ namespace Negocio
 {
     public class NRaza
     {
+        public List<Raza> ListarRazas()
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                List<Raza> listaRazas = new List<Raza>();
+                try
+                {
+                    datos.Consulta("Select R.Id, R.Descripcion, E.Id IdEspecie, E.Descripcion Especie From RAZAS R, ESPECIES E Where R.IdEspecie = E.Id");
+                    datos.EjecutarConsulta();
+                    while (datos.Lector.Read())
+                    {
+                        Raza r = new Raza();
+                        r.Id = (int)datos.Lector["Id"];
+                        r.Descripcion = (string)datos.Lector["Descripcion"];
+                        r.Especie = new Especie();
+                        r.Especie.Id = (int)datos.Lector["IdEspecie"];
+                        r.Especie.Descripcion = (string)datos.Lector["Especie"];
+                        listaRazas.Add(r);
+                    }
+                    return listaRazas;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
     }
 }
