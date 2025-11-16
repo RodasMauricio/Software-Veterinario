@@ -150,6 +150,7 @@
             // 
             lblIdTurno.Anchor = AnchorStyles.Right;
             lblIdTurno.AutoSize = true;
+            lblIdTurno.Enabled = false;
             lblIdTurno.Font = new Font("Segoe UI", 10F);
             lblIdTurno.ForeColor = SystemColors.Window;
             lblIdTurno.Location = new Point(566, 79);
@@ -162,6 +163,7 @@
             // 
             lblMotivoConsulta.Anchor = AnchorStyles.Right;
             lblMotivoConsulta.AutoSize = true;
+            lblMotivoConsulta.Enabled = false;
             lblMotivoConsulta.Font = new Font("Segoe UI", 10F);
             lblMotivoConsulta.ForeColor = SystemColors.Window;
             lblMotivoConsulta.Location = new Point(565, 133);
@@ -174,6 +176,7 @@
             // 
             lblDiagnostico.Anchor = AnchorStyles.Right;
             lblDiagnostico.AutoSize = true;
+            lblDiagnostico.Enabled = false;
             lblDiagnostico.Font = new Font("Segoe UI", 10F);
             lblDiagnostico.ForeColor = SystemColors.Window;
             lblDiagnostico.Location = new Point(565, 187);
@@ -186,6 +189,7 @@
             // 
             lblTratamiento.Anchor = AnchorStyles.Right;
             lblTratamiento.AutoSize = true;
+            lblTratamiento.Enabled = false;
             lblTratamiento.Font = new Font("Segoe UI", 10F);
             lblTratamiento.ForeColor = SystemColors.Window;
             lblTratamiento.Location = new Point(565, 331);
@@ -198,6 +202,7 @@
             // 
             lblPrecioFinal.Anchor = AnchorStyles.Right;
             lblPrecioFinal.AutoSize = true;
+            lblPrecioFinal.Enabled = false;
             lblPrecioFinal.Font = new Font("Segoe UI", 10F);
             lblPrecioFinal.ForeColor = SystemColors.Window;
             lblPrecioFinal.Location = new Point(565, 476);
@@ -211,8 +216,10 @@
             txtIdTurno.Anchor = AnchorStyles.Right;
             txtIdTurno.BackColor = Color.FromArgb(120, 120, 160);
             txtIdTurno.BorderStyle = BorderStyle.FixedSingle;
+            txtIdTurno.Enabled = false;
             txtIdTurno.Font = new Font("Segoe UI", 10F);
             txtIdTurno.Location = new Point(570, 101);
+            txtIdTurno.MaxLength = 50;
             txtIdTurno.Name = "txtIdTurno";
             txtIdTurno.Size = new Size(247, 25);
             txtIdTurno.TabIndex = 10;
@@ -222,8 +229,10 @@
             txtMotivoConsulta.Anchor = AnchorStyles.Right;
             txtMotivoConsulta.BackColor = Color.FromArgb(120, 120, 160);
             txtMotivoConsulta.BorderStyle = BorderStyle.FixedSingle;
+            txtMotivoConsulta.Enabled = false;
             txtMotivoConsulta.Font = new Font("Segoe UI", 10F);
             txtMotivoConsulta.Location = new Point(570, 155);
+            txtMotivoConsulta.MaxLength = 200;
             txtMotivoConsulta.Name = "txtMotivoConsulta";
             txtMotivoConsulta.Size = new Size(247, 25);
             txtMotivoConsulta.TabIndex = 11;
@@ -233,8 +242,10 @@
             txtDiagnostico.Anchor = AnchorStyles.Right;
             txtDiagnostico.BackColor = Color.FromArgb(120, 120, 160);
             txtDiagnostico.BorderStyle = BorderStyle.FixedSingle;
+            txtDiagnostico.Enabled = false;
             txtDiagnostico.Font = new Font("Segoe UI", 10F);
             txtDiagnostico.Location = new Point(570, 209);
+            txtDiagnostico.MaxLength = 500;
             txtDiagnostico.Multiline = true;
             txtDiagnostico.Name = "txtDiagnostico";
             txtDiagnostico.Size = new Size(247, 115);
@@ -245,8 +256,10 @@
             txtTratamiento.Anchor = AnchorStyles.Right;
             txtTratamiento.BackColor = Color.FromArgb(120, 120, 160);
             txtTratamiento.BorderStyle = BorderStyle.FixedSingle;
+            txtTratamiento.Enabled = false;
             txtTratamiento.Font = new Font("Segoe UI", 10F);
             txtTratamiento.Location = new Point(570, 353);
+            txtTratamiento.MaxLength = 500;
             txtTratamiento.Multiline = true;
             txtTratamiento.Name = "txtTratamiento";
             txtTratamiento.Size = new Size(247, 115);
@@ -257,8 +270,10 @@
             txtPrecioFinal.Anchor = AnchorStyles.Right;
             txtPrecioFinal.BackColor = Color.FromArgb(120, 120, 160);
             txtPrecioFinal.BorderStyle = BorderStyle.FixedSingle;
+            txtPrecioFinal.Enabled = false;
             txtPrecioFinal.Font = new Font("Segoe UI", 10F);
             txtPrecioFinal.Location = new Point(570, 497);
+            txtPrecioFinal.MaxLength = 100;
             txtPrecioFinal.Name = "txtPrecioFinal";
             txtPrecioFinal.Size = new Size(247, 25);
             txtPrecioFinal.TabIndex = 14;
@@ -267,6 +282,7 @@
             // 
             btnAceptar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAceptar.BackColor = Color.FromArgb(120, 120, 160);
+            btnAceptar.Enabled = false;
             btnAceptar.FlatAppearance.BorderSize = 0;
             btnAceptar.FlatStyle = FlatStyle.Flat;
             btnAceptar.ForeColor = SystemColors.Window;

@@ -168,6 +168,7 @@
             // 
             btnAceptar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAceptar.BackColor = Color.FromArgb(120, 120, 160);
+            btnAceptar.Enabled = false;
             btnAceptar.FlatAppearance.BorderSize = 0;
             btnAceptar.FlatStyle = FlatStyle.Flat;
             btnAceptar.ForeColor = SystemColors.Window;
@@ -320,6 +321,7 @@
             txtNombre.Font = new Font("Segoe UI", 10F);
             txtNombre.ForeColor = SystemColors.Window;
             txtNombre.Location = new Point(571, 111);
+            txtNombre.MaxLength = 50;
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(228, 25);
             txtNombre.TabIndex = 16;
@@ -334,6 +336,7 @@
             txtSexo.Font = new Font("Segoe UI", 10F);
             txtSexo.ForeColor = SystemColors.Window;
             txtSexo.Location = new Point(571, 322);
+            txtSexo.MaxLength = 1;
             txtSexo.Name = "txtSexo";
             txtSexo.Size = new Size(228, 25);
             txtSexo.TabIndex = 17;
@@ -348,6 +351,7 @@
             txtColorPelaje.Font = new Font("Segoe UI", 10F);
             txtColorPelaje.ForeColor = SystemColors.Window;
             txtColorPelaje.Location = new Point(571, 366);
+            txtColorPelaje.MaxLength = 50;
             txtColorPelaje.Name = "txtColorPelaje";
             txtColorPelaje.Size = new Size(228, 25);
             txtColorPelaje.TabIndex = 18;
@@ -362,6 +366,7 @@
             txtPeso.Font = new Font("Segoe UI", 10F);
             txtPeso.ForeColor = SystemColors.Window;
             txtPeso.Location = new Point(571, 410);
+            txtPeso.MaxLength = 50;
             txtPeso.Name = "txtPeso";
             txtPeso.Size = new Size(228, 25);
             txtPeso.TabIndex = 19;
@@ -377,6 +382,7 @@
             txtObservaciones.Font = new Font("Segoe UI", 10F);
             txtObservaciones.ForeColor = SystemColors.Window;
             txtObservaciones.Location = new Point(571, 455);
+            txtObservaciones.MaxLength = 500;
             txtObservaciones.Name = "txtObservaciones";
             txtObservaciones.Size = new Size(228, 25);
             txtObservaciones.TabIndex = 20;

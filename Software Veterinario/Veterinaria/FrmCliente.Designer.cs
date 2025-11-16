@@ -185,6 +185,7 @@
             txtNombre.Font = new Font("Segoe UI", 10F);
             txtNombre.ForeColor = SystemColors.Window;
             txtNombre.Location = new Point(571, 158);
+            txtNombre.MaxLength = 100;
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(247, 25);
             txtNombre.TabIndex = 7;
@@ -199,6 +200,7 @@
             txtDniCuit.Font = new Font("Segoe UI", 10F);
             txtDniCuit.ForeColor = SystemColors.Window;
             txtDniCuit.Location = new Point(571, 212);
+            txtDniCuit.MaxLength = 20;
             txtDniCuit.Name = "txtDniCuit";
             txtDniCuit.Size = new Size(247, 25);
             txtDniCuit.TabIndex = 8;
@@ -213,6 +215,7 @@
             txtEmail.Font = new Font("Segoe UI", 10F);
             txtEmail.ForeColor = SystemColors.Window;
             txtEmail.Location = new Point(571, 264);
+            txtEmail.MaxLength = 100;
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(247, 25);
             txtEmail.TabIndex = 9;
@@ -227,6 +230,7 @@
             txtTelefono.Font = new Font("Segoe UI", 10F);
             txtTelefono.ForeColor = SystemColors.Window;
             txtTelefono.Location = new Point(571, 316);
+            txtTelefono.MaxLength = 50;
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(247, 25);
             txtTelefono.TabIndex = 10;
@@ -241,6 +245,7 @@
             txtDireccion.Font = new Font("Segoe UI", 10F);
             txtDireccion.ForeColor = SystemColors.Window;
             txtDireccion.Location = new Point(571, 367);
+            txtDireccion.MaxLength = 250;
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(247, 25);
             txtDireccion.TabIndex = 11;
@@ -255,6 +260,7 @@
             txtLocalidad.Font = new Font("Segoe UI", 10F);
             txtLocalidad.ForeColor = SystemColors.Window;
             txtLocalidad.Location = new Point(571, 420);
+            txtLocalidad.MaxLength = 100;
             txtLocalidad.Name = "txtLocalidad";
             txtLocalidad.Size = new Size(247, 25);
             txtLocalidad.TabIndex = 12;
@@ -264,6 +270,7 @@
             // 
             btnAceptar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAceptar.BackColor = Color.FromArgb(120, 120, 160);
+            btnAceptar.Enabled = false;
             btnAceptar.FlatAppearance.BorderSize = 0;
             btnAceptar.FlatStyle = FlatStyle.Flat;
             btnAceptar.ForeColor = SystemColors.Window;

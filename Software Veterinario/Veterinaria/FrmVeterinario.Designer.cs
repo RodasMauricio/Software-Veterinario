@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             dgvVeterinario = new DataGridView();
             lblNombre = new Label();
             lblMatricula = new Label();
@@ -58,36 +58,36 @@
             dgvVeterinario.BackgroundColor = Color.FromArgb(120, 120, 160);
             dgvVeterinario.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             dgvVeterinario.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(40, 40, 60);
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(40, 40, 60);
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.Window;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dgvVeterinario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(40, 40, 60);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(40, 40, 60);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvVeterinario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvVeterinario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = Color.FromArgb(74, 74, 91);
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle11.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(120, 120, 160);
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.Window;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
-            dgvVeterinario.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(74, 74, 91);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(120, 120, 160);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvVeterinario.DefaultCellStyle = dataGridViewCellStyle2;
             dgvVeterinario.EnableHeadersVisualStyles = false;
             dgvVeterinario.Location = new Point(12, 46);
             dgvVeterinario.MultiSelect = false;
             dgvVeterinario.Name = "dgvVeterinario";
             dgvVeterinario.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = Color.FromArgb(74, 74, 91);
-            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle12.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(120, 120, 160);
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
-            dgvVeterinario.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(74, 74, 91);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(120, 120, 160);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvVeterinario.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvVeterinario.RowHeadersVisible = false;
             dgvVeterinario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvVeterinario.Size = new Size(523, 520);
@@ -97,6 +97,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
+            lblNombre.Enabled = false;
             lblNombre.Font = new Font("Segoe UI", 10F);
             lblNombre.ForeColor = SystemColors.Window;
             lblNombre.Location = new Point(567, 182);
@@ -108,6 +109,7 @@
             // lblMatricula
             // 
             lblMatricula.AutoSize = true;
+            lblMatricula.Enabled = false;
             lblMatricula.Font = new Font("Segoe UI", 10F);
             lblMatricula.ForeColor = SystemColors.Window;
             lblMatricula.Location = new Point(566, 236);
@@ -119,6 +121,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
+            lblEmail.Enabled = false;
             lblEmail.Font = new Font("Segoe UI", 10F);
             lblEmail.ForeColor = SystemColors.Window;
             lblEmail.Location = new Point(566, 288);
@@ -130,6 +133,7 @@
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
+            lblTelefono.Enabled = false;
             lblTelefono.Font = new Font("Segoe UI", 10F);
             lblTelefono.ForeColor = SystemColors.Window;
             lblTelefono.Location = new Point(566, 340);
@@ -142,9 +146,11 @@
             // 
             txtNombre.BackColor = Color.FromArgb(120, 120, 160);
             txtNombre.BorderStyle = BorderStyle.FixedSingle;
+            txtNombre.Enabled = false;
             txtNombre.Font = new Font("Segoe UI", 10F);
             txtNombre.ForeColor = SystemColors.Window;
             txtNombre.Location = new Point(571, 204);
+            txtNombre.MaxLength = 100;
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(247, 25);
             txtNombre.TabIndex = 5;
@@ -154,9 +160,11 @@
             // 
             txtMatricula.BackColor = Color.FromArgb(120, 120, 160);
             txtMatricula.BorderStyle = BorderStyle.FixedSingle;
+            txtMatricula.Enabled = false;
             txtMatricula.Font = new Font("Segoe UI", 10F);
             txtMatricula.ForeColor = SystemColors.Window;
             txtMatricula.Location = new Point(571, 258);
+            txtMatricula.MaxLength = 20;
             txtMatricula.Name = "txtMatricula";
             txtMatricula.Size = new Size(247, 25);
             txtMatricula.TabIndex = 6;
@@ -166,9 +174,11 @@
             // 
             txtEmail.BackColor = Color.FromArgb(120, 120, 160);
             txtEmail.BorderStyle = BorderStyle.FixedSingle;
+            txtEmail.Enabled = false;
             txtEmail.Font = new Font("Segoe UI", 10F);
             txtEmail.ForeColor = SystemColors.Window;
             txtEmail.Location = new Point(571, 310);
+            txtEmail.MaxLength = 100;
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(247, 25);
             txtEmail.TabIndex = 7;
@@ -178,9 +188,11 @@
             // 
             txtTelefono.BackColor = Color.FromArgb(120, 120, 160);
             txtTelefono.BorderStyle = BorderStyle.FixedSingle;
+            txtTelefono.Enabled = false;
             txtTelefono.Font = new Font("Segoe UI", 10F);
             txtTelefono.ForeColor = SystemColors.Window;
             txtTelefono.Location = new Point(571, 362);
+            txtTelefono.MaxLength = 50;
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(247, 25);
             txtTelefono.TabIndex = 8;
@@ -231,6 +243,7 @@
             // btnAceptar
             // 
             btnAceptar.BackColor = Color.FromArgb(120, 120, 160);
+            btnAceptar.Enabled = false;
             btnAceptar.FlatAppearance.BorderSize = 0;
             btnAceptar.FlatStyle = FlatStyle.Flat;
             btnAceptar.ForeColor = SystemColors.Window;

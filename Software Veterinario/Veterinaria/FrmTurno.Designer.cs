@@ -102,6 +102,7 @@
             // 
             lblPaciente.Anchor = AnchorStyles.Right;
             lblPaciente.AutoSize = true;
+            lblPaciente.Enabled = false;
             lblPaciente.Font = new Font("Segoe UI", 10F);
             lblPaciente.ForeColor = SystemColors.Window;
             lblPaciente.Location = new Point(563, 100);
@@ -114,6 +115,7 @@
             // 
             lblVeterinario.Anchor = AnchorStyles.Right;
             lblVeterinario.AutoSize = true;
+            lblVeterinario.Enabled = false;
             lblVeterinario.Font = new Font("Segoe UI", 10F);
             lblVeterinario.ForeColor = SystemColors.Window;
             lblVeterinario.Location = new Point(562, 153);
@@ -126,6 +128,7 @@
             // 
             lblServicio.Anchor = AnchorStyles.Right;
             lblServicio.AutoSize = true;
+            lblServicio.Enabled = false;
             lblServicio.Font = new Font("Segoe UI", 10F);
             lblServicio.ForeColor = SystemColors.Window;
             lblServicio.Location = new Point(562, 205);
@@ -138,6 +141,7 @@
             // 
             lblFecha.Anchor = AnchorStyles.Right;
             lblFecha.AutoSize = true;
+            lblFecha.Enabled = false;
             lblFecha.Font = new Font("Segoe UI", 10F);
             lblFecha.ForeColor = SystemColors.Window;
             lblFecha.Location = new Point(562, 258);
@@ -150,6 +154,7 @@
             // 
             lblEstado.Anchor = AnchorStyles.Right;
             lblEstado.AutoSize = true;
+            lblEstado.Enabled = false;
             lblEstado.Font = new Font("Segoe UI", 10F);
             lblEstado.ForeColor = SystemColors.Window;
             lblEstado.Location = new Point(562, 310);
@@ -162,6 +167,7 @@
             // 
             lblNotas.Anchor = AnchorStyles.Right;
             lblNotas.AutoSize = true;
+            lblNotas.Enabled = false;
             lblNotas.Font = new Font("Segoe UI", 10F);
             lblNotas.ForeColor = SystemColors.Window;
             lblNotas.Location = new Point(562, 363);
@@ -175,6 +181,7 @@
             cbPaciente.Anchor = AnchorStyles.Right;
             cbPaciente.BackColor = Color.FromArgb(120, 120, 160);
             cbPaciente.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPaciente.Enabled = false;
             cbPaciente.Font = new Font("Segoe UI", 10F);
             cbPaciente.ForeColor = SystemColors.Window;
             cbPaciente.FormattingEnabled = true;
@@ -188,6 +195,7 @@
             cbVeterinario.Anchor = AnchorStyles.Right;
             cbVeterinario.BackColor = Color.FromArgb(120, 120, 160);
             cbVeterinario.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbVeterinario.Enabled = false;
             cbVeterinario.Font = new Font("Segoe UI", 10F);
             cbVeterinario.ForeColor = SystemColors.Window;
             cbVeterinario.FormattingEnabled = true;
@@ -201,6 +209,7 @@
             cbServicio.Anchor = AnchorStyles.Right;
             cbServicio.BackColor = Color.FromArgb(120, 120, 160);
             cbServicio.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbServicio.Enabled = false;
             cbServicio.Font = new Font("Segoe UI", 10F);
             cbServicio.ForeColor = SystemColors.Window;
             cbServicio.FormattingEnabled = true;
@@ -214,6 +223,7 @@
             cbEstado.Anchor = AnchorStyles.Right;
             cbEstado.BackColor = Color.FromArgb(120, 120, 160);
             cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEstado.Enabled = false;
             cbEstado.Font = new Font("Segoe UI", 10F);
             cbEstado.ForeColor = SystemColors.Window;
             cbEstado.FormattingEnabled = true;
@@ -227,9 +237,11 @@
             txtNotas.Anchor = AnchorStyles.Right;
             txtNotas.BackColor = Color.FromArgb(120, 120, 160);
             txtNotas.BorderStyle = BorderStyle.FixedSingle;
+            txtNotas.Enabled = false;
             txtNotas.Font = new Font("Segoe UI", 10F);
             txtNotas.ForeColor = SystemColors.Window;
             txtNotas.Location = new Point(567, 384);
+            txtNotas.MaxLength = 250;
             txtNotas.Multiline = true;
             txtNotas.Name = "txtNotas";
             txtNotas.Size = new Size(255, 75);
@@ -238,6 +250,7 @@
             // dtpFecha
             // 
             dtpFecha.Anchor = AnchorStyles.Right;
+            dtpFecha.Enabled = false;
             dtpFecha.Location = new Point(567, 280);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(255, 23);
@@ -289,6 +302,7 @@
             // 
             btnAceptar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAceptar.BackColor = Color.FromArgb(120, 120, 160);
+            btnAceptar.Enabled = false;
             btnAceptar.FlatAppearance.BorderSize = 0;
             btnAceptar.FlatStyle = FlatStyle.Flat;
             btnAceptar.ForeColor = SystemColors.Window;
