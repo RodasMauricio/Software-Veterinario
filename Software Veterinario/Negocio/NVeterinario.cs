@@ -36,5 +36,62 @@ namespace Negocio
                 }
             }
         }
+
+        public void Agregar(Veterinario v)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Insert into VETERINARIOS (Nombre, Matricula, Email, Telefono)values(@Nombre, @Matricula, @Email, @Telefono)");
+                    datos.Parametros("@Nombre", v.Nombre);
+                    datos.Parametros("@Matricula", v.Matricula);
+                    datos.Parametros("@Email", v.Email);
+                    datos.Parametros("@Telefono", v.Telefono);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+        public void Modificar(Veterinario v)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Update VETERINARIOS set Nombre = @Nombre, Matricula = @Matricula, Email = @Email, Telefono = @Telefono Where Id = @Id");
+                    datos.Parametros("@Nombre", v.Nombre);
+                    datos.Parametros("@Matricula", v.Matricula);
+                    datos.Parametros("@Email", v.Email);
+                    datos.Parametros("@Telefono", v.Telefono);
+                    datos.Parametros("@Id", v.Id);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+        public void Eliminar(int id)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Delete From VETERINARIOS Where Id = @Id");
+                    datos.Parametros("@Id", id);
+                    datos.EjecutarConsulta();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
     }
 }

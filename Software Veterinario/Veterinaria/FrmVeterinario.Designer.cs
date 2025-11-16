@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             dgvVeterinario = new DataGridView();
             lblNombre = new Label();
             lblMatricula = new Label();
@@ -45,7 +45,7 @@
             btnEliminar = new Button();
             btnAceptar = new Button();
             btnCancelar = new Button();
-            textBox1 = new TextBox();
+            txtFiltroVeterinario = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvVeterinario).BeginInit();
             SuspendLayout();
             // 
@@ -58,40 +58,41 @@
             dgvVeterinario.BackgroundColor = Color.FromArgb(120, 120, 160);
             dgvVeterinario.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             dgvVeterinario.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(40, 40, 60);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(40, 40, 60);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Window;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvVeterinario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(40, 40, 60);
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(40, 40, 60);
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dgvVeterinario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dgvVeterinario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(74, 74, 91);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(120, 120, 160);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Window;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvVeterinario.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = Color.FromArgb(74, 74, 91);
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle11.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(120, 120, 160);
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dgvVeterinario.DefaultCellStyle = dataGridViewCellStyle11;
             dgvVeterinario.EnableHeadersVisualStyles = false;
             dgvVeterinario.Location = new Point(12, 46);
             dgvVeterinario.MultiSelect = false;
             dgvVeterinario.Name = "dgvVeterinario";
             dgvVeterinario.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(74, 74, 91);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(120, 120, 160);
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvVeterinario.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = Color.FromArgb(74, 74, 91);
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle12.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(120, 120, 160);
+            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            dgvVeterinario.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             dgvVeterinario.RowHeadersVisible = false;
             dgvVeterinario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvVeterinario.Size = new Size(523, 520);
             dgvVeterinario.TabIndex = 0;
+            dgvVeterinario.SelectionChanged += dgvVeterinario_SelectionChanged;
             // 
             // lblNombre
             // 
@@ -147,6 +148,7 @@
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(247, 25);
             txtNombre.TabIndex = 5;
+            txtNombre.TextChanged += txtNombre_TextChanged;
             // 
             // txtMatricula
             // 
@@ -158,6 +160,7 @@
             txtMatricula.Name = "txtMatricula";
             txtMatricula.Size = new Size(247, 25);
             txtMatricula.TabIndex = 6;
+            txtMatricula.TextChanged += txtMatricula_TextChanged;
             // 
             // txtEmail
             // 
@@ -169,6 +172,7 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(247, 25);
             txtEmail.TabIndex = 7;
+            txtEmail.TextChanged += txtEmail_TextChanged;
             // 
             // txtTelefono
             // 
@@ -180,6 +184,7 @@
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(247, 25);
             txtTelefono.TabIndex = 8;
+            txtTelefono.TextChanged += txtTelefono_TextChanged;
             // 
             // btnAgregar
             // 
@@ -193,6 +198,7 @@
             btnAgregar.TabIndex = 9;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // btnModificar
             // 
@@ -206,6 +212,7 @@
             btnModificar.TabIndex = 10;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = false;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnEliminar
             // 
@@ -219,6 +226,7 @@
             btnEliminar.TabIndex = 11;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnAceptar
             // 
@@ -232,6 +240,7 @@
             btnAceptar.TabIndex = 12;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = false;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
@@ -245,17 +254,19 @@
             btnCancelar.TabIndex = 13;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
-            // textBox1
+            // txtFiltroVeterinario
             // 
-            textBox1.BackColor = Color.FromArgb(120, 120, 160);
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Font = new Font("Segoe UI", 10F);
-            textBox1.ForeColor = SystemColors.Window;
-            textBox1.Location = new Point(16, 10);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(261, 25);
-            textBox1.TabIndex = 14;
+            txtFiltroVeterinario.BackColor = Color.FromArgb(120, 120, 160);
+            txtFiltroVeterinario.BorderStyle = BorderStyle.FixedSingle;
+            txtFiltroVeterinario.Font = new Font("Segoe UI", 10F);
+            txtFiltroVeterinario.ForeColor = SystemColors.Window;
+            txtFiltroVeterinario.Location = new Point(16, 10);
+            txtFiltroVeterinario.Name = "txtFiltroVeterinario";
+            txtFiltroVeterinario.Size = new Size(261, 25);
+            txtFiltroVeterinario.TabIndex = 14;
+            txtFiltroVeterinario.TextChanged += txtFiltroVeterinario_TextChanged;
             // 
             // FrmVeterinario
             // 
@@ -263,7 +274,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 60, 80);
             ClientSize = new Size(854, 605);
-            Controls.Add(textBox1);
+            Controls.Add(txtFiltroVeterinario);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(btnEliminar);
@@ -303,6 +314,6 @@
         private Button btnEliminar;
         private Button btnAceptar;
         private Button btnCancelar;
-        private TextBox textBox1;
+        private TextBox txtFiltroVeterinario;
     }
 }
