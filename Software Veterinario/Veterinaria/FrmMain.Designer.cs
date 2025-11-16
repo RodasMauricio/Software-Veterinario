@@ -266,7 +266,7 @@
             btnSlide.BackColor = Color.Transparent;
             btnSlide.Font = new Font("Segoe UI Emoji", 17.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSlide.ForeColor = SystemColors.Window;
-            btnSlide.Location = new Point(2, 1);
+            btnSlide.Location = new Point(4, 1);
             btnSlide.Name = "btnSlide";
             btnSlide.Size = new Size(35, 31);
             btnSlide.TabIndex = 2;

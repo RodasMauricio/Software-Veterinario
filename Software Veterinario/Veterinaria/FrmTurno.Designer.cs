@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle37 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle38 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle39 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             dgvTurno = new DataGridView();
             lblPaciente = new Label();
             lblVeterinario = new Label();
@@ -50,6 +50,7 @@
             btnAceptar = new Button();
             btnCancelar = new Button();
             textBox1 = new TextBox();
+            dtpTurno = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dgvTurno).BeginInit();
             SuspendLayout();
             // 
@@ -62,36 +63,36 @@
             dgvTurno.BackgroundColor = Color.FromArgb(120, 120, 160);
             dgvTurno.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             dgvTurno.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle37.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = Color.FromArgb(40, 40, 60);
-            dataGridViewCellStyle37.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
-            dataGridViewCellStyle37.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle37.SelectionBackColor = Color.FromArgb(40, 40, 60);
-            dataGridViewCellStyle37.SelectionForeColor = SystemColors.Window;
-            dataGridViewCellStyle37.WrapMode = DataGridViewTriState.True;
-            dgvTurno.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(40, 40, 60);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(40, 40, 60);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvTurno.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvTurno.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle38.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = Color.FromArgb(74, 74, 91);
-            dataGridViewCellStyle38.Font = new Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle38.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle38.SelectionBackColor = Color.FromArgb(120, 120, 160);
-            dataGridViewCellStyle38.SelectionForeColor = SystemColors.Window;
-            dataGridViewCellStyle38.WrapMode = DataGridViewTriState.False;
-            dgvTurno.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(74, 74, 91);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(120, 120, 160);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvTurno.DefaultCellStyle = dataGridViewCellStyle2;
             dgvTurno.EnableHeadersVisualStyles = false;
             dgvTurno.Location = new Point(12, 46);
             dgvTurno.MultiSelect = false;
             dgvTurno.Name = "dgvTurno";
             dgvTurno.ReadOnly = true;
-            dataGridViewCellStyle39.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = Color.FromArgb(74, 74, 91);
-            dataGridViewCellStyle39.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle39.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle39.SelectionBackColor = Color.FromArgb(120, 120, 160);
-            dataGridViewCellStyle39.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = DataGridViewTriState.True;
-            dgvTurno.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(74, 74, 91);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(120, 120, 160);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvTurno.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvTurno.RowHeadersVisible = false;
             dgvTurno.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvTurno.Size = new Size(523, 520);
@@ -103,7 +104,7 @@
             lblPaciente.AutoSize = true;
             lblPaciente.Font = new Font("Segoe UI", 10F);
             lblPaciente.ForeColor = SystemColors.Window;
-            lblPaciente.Location = new Point(564, 100);
+            lblPaciente.Location = new Point(563, 100);
             lblPaciente.Name = "lblPaciente";
             lblPaciente.Size = new Size(60, 19);
             lblPaciente.TabIndex = 1;
@@ -115,7 +116,7 @@
             lblVeterinario.AutoSize = true;
             lblVeterinario.Font = new Font("Segoe UI", 10F);
             lblVeterinario.ForeColor = SystemColors.Window;
-            lblVeterinario.Location = new Point(563, 153);
+            lblVeterinario.Location = new Point(562, 153);
             lblVeterinario.Name = "lblVeterinario";
             lblVeterinario.Size = new Size(75, 19);
             lblVeterinario.TabIndex = 2;
@@ -127,7 +128,7 @@
             lblServicio.AutoSize = true;
             lblServicio.Font = new Font("Segoe UI", 10F);
             lblServicio.ForeColor = SystemColors.Window;
-            lblServicio.Location = new Point(563, 205);
+            lblServicio.Location = new Point(562, 205);
             lblServicio.Name = "lblServicio";
             lblServicio.Size = new Size(55, 19);
             lblServicio.TabIndex = 3;
@@ -139,7 +140,7 @@
             lblFecha.AutoSize = true;
             lblFecha.Font = new Font("Segoe UI", 10F);
             lblFecha.ForeColor = SystemColors.Window;
-            lblFecha.Location = new Point(563, 258);
+            lblFecha.Location = new Point(562, 258);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(44, 19);
             lblFecha.TabIndex = 4;
@@ -151,7 +152,7 @@
             lblEstado.AutoSize = true;
             lblEstado.Font = new Font("Segoe UI", 10F);
             lblEstado.ForeColor = SystemColors.Window;
-            lblEstado.Location = new Point(563, 310);
+            lblEstado.Location = new Point(562, 310);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(50, 19);
             lblEstado.TabIndex = 5;
@@ -163,7 +164,7 @@
             lblNotas.AutoSize = true;
             lblNotas.Font = new Font("Segoe UI", 10F);
             lblNotas.ForeColor = SystemColors.Window;
-            lblNotas.Location = new Point(563, 363);
+            lblNotas.Location = new Point(562, 363);
             lblNotas.Name = "lblNotas";
             lblNotas.Size = new Size(45, 19);
             lblNotas.TabIndex = 6;
@@ -177,7 +178,7 @@
             cbPaciente.Font = new Font("Segoe UI", 10F);
             cbPaciente.ForeColor = SystemColors.Window;
             cbPaciente.FormattingEnabled = true;
-            cbPaciente.Location = new Point(568, 122);
+            cbPaciente.Location = new Point(567, 122);
             cbPaciente.Name = "cbPaciente";
             cbPaciente.Size = new Size(255, 25);
             cbPaciente.TabIndex = 7;
@@ -190,7 +191,7 @@
             cbVeterinario.Font = new Font("Segoe UI", 10F);
             cbVeterinario.ForeColor = SystemColors.Window;
             cbVeterinario.FormattingEnabled = true;
-            cbVeterinario.Location = new Point(568, 176);
+            cbVeterinario.Location = new Point(567, 176);
             cbVeterinario.Name = "cbVeterinario";
             cbVeterinario.Size = new Size(255, 25);
             cbVeterinario.TabIndex = 8;
@@ -203,7 +204,7 @@
             cbServicio.Font = new Font("Segoe UI", 10F);
             cbServicio.ForeColor = SystemColors.Window;
             cbServicio.FormattingEnabled = true;
-            cbServicio.Location = new Point(568, 228);
+            cbServicio.Location = new Point(567, 228);
             cbServicio.Name = "cbServicio";
             cbServicio.Size = new Size(255, 25);
             cbServicio.TabIndex = 9;
@@ -216,7 +217,7 @@
             cbEstado.Font = new Font("Segoe UI", 10F);
             cbEstado.ForeColor = SystemColors.Window;
             cbEstado.FormattingEnabled = true;
-            cbEstado.Location = new Point(568, 331);
+            cbEstado.Location = new Point(567, 331);
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(255, 25);
             cbEstado.TabIndex = 10;
@@ -228,7 +229,7 @@
             txtNotas.BorderStyle = BorderStyle.FixedSingle;
             txtNotas.Font = new Font("Segoe UI", 10F);
             txtNotas.ForeColor = SystemColors.Window;
-            txtNotas.Location = new Point(568, 384);
+            txtNotas.Location = new Point(567, 384);
             txtNotas.Multiline = true;
             txtNotas.Name = "txtNotas";
             txtNotas.Size = new Size(255, 75);
@@ -237,7 +238,7 @@
             // dtpFecha
             // 
             dtpFecha.Anchor = AnchorStyles.Right;
-            dtpFecha.Location = new Point(568, 280);
+            dtpFecha.Location = new Point(567, 280);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(255, 23);
             dtpFecha.TabIndex = 12;
@@ -323,12 +324,20 @@
             textBox1.Size = new Size(261, 25);
             textBox1.TabIndex = 18;
             // 
+            // dtpTurno
+            // 
+            dtpTurno.Location = new Point(307, 12);
+            dtpTurno.Name = "dtpTurno";
+            dtpTurno.Size = new Size(228, 23);
+            dtpTurno.TabIndex = 19;
+            // 
             // FrmTurno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 60, 80);
             ClientSize = new Size(854, 605);
+            Controls.Add(dtpTurno);
             Controls.Add(textBox1);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
@@ -377,5 +386,6 @@
         private Button btnAceptar;
         private Button btnCancelar;
         private TextBox textBox1;
+        private DateTimePicker dtpTurno;
     }
 }

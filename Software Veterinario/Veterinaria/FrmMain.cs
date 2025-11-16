@@ -140,10 +140,16 @@ namespace Veterinaria
         }
         private void btnVeterinarios_Click(object sender, EventArgs e)
         {
+            if (this.frm == typeof(FrmVeterinario))
+                return;
+            AbrirFormHijo(new FrmVeterinario());
             btnFormColor(ref btnVeterinarios);
         }
         private void btnServicios_Click(object sender, EventArgs e)
         {
+            if (this.frm == typeof(FrmServicio))
+                return;
+            AbrirFormHijo(new FrmServicio());
             btnFormColor(ref btnServicios);
         }
     }
