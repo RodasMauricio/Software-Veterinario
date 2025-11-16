@@ -62,7 +62,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvServicio.DefaultCellStyle = dataGridViewCellStyle2;
             dgvServicio.EnableHeadersVisualStyles = false;
-            dgvServicio.Location = new Point(157, 42);
+            dgvServicio.Location = new Point(137, 39);
             dgvServicio.MultiSelect = false;
             dgvServicio.Name = "dgvServicio";
             dgvServicio.ReadOnly = true;
@@ -76,8 +76,9 @@
             dgvServicio.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvServicio.RowHeadersVisible = false;
             dgvServicio.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvServicio.Size = new Size(523, 520);
+            dgvServicio.Size = new Size(576, 520);
             dgvServicio.TabIndex = 0;
+            dgvServicio.CellFormatting += dgvServicio_CellFormatting;
             // 
             // FrmServicio
             // 
@@ -89,6 +90,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmServicio";
             Text = "FrmServicio";
+            Load += FrmServicio_Load;
             ((System.ComponentModel.ISupportInitialize)dgvServicio).EndInit();
             ResumeLayout(false);
         }

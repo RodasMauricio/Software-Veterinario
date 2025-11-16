@@ -40,5 +40,70 @@ namespace Negocio
                 }
             }
         }
+
+
+        public void Agregar(Cliente c)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Insert into CLIENTES (Nombre, DNI_CUIT, Email, Telefono, Direccion, Localidad, Activo)values(@Nombre, @DniCuit, @Email, @Telefono, @Direccion, @Localidad, @Activo)");
+                    datos.Parametros("@Nombre", c.Nombre);
+                    datos.Parametros("@DniCuit", c.DniCuit);
+                    datos.Parametros("@Email", c.Email);
+                    datos.Parametros("@Telefono", c.Telefono);
+                    datos.Parametros("@Direccion", c.Direccion);
+                    datos.Parametros("@Localidad", c.Localidad);
+                    datos.Parametros("@Activo", 1);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        public void Modificar(Cliente c)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Update CLIENTES set Nombre = @Nombre, DNI_CUIT = @DniCuit, Email = @Email, Telefono = @Telefono, Direccion = @Direccion, Localidad = @Localidad Where Id = @Id");
+                    datos.Parametros("@Nombre", c.Nombre);
+                    datos.Parametros("@DniCuit", c.DniCuit);
+                    datos.Parametros("@Email", c.Email);
+                    datos.Parametros("@Telefono", c.Telefono);
+                    datos.Parametros("@Direccion", c.Direccion);
+                    datos.Parametros("@Localidad", c.Localidad);
+                    datos.Parametros("@Id", c.Id);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        public void Eliminar(int id)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Update CLIENTES set Activo = @Activo Where Id = @Id");
+                    datos.Parametros("@Activo", 0);
+                    datos.Parametros("@Id", id);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

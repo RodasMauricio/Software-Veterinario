@@ -360,6 +360,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmTurno";
             Text = "FrmTurno";
+            Load += FrmTurno_Load;
             ((System.ComponentModel.ISupportInitialize)dgvTurno).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -96,11 +96,13 @@
             dgvCliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCliente.Size = new Size(523, 520);
             dgvCliente.TabIndex = 0;
+            dgvCliente.SelectionChanged += dgvCliente_SelectionChanged;
             // 
             // lblNombre
             // 
             lblNombre.Anchor = AnchorStyles.Right;
             lblNombre.AutoSize = true;
+            lblNombre.Enabled = false;
             lblNombre.Font = new Font("Segoe UI", 10F);
             lblNombre.ForeColor = SystemColors.Window;
             lblNombre.Location = new Point(567, 136);
@@ -113,6 +115,7 @@
             // 
             lblDniCuit.Anchor = AnchorStyles.Right;
             lblDniCuit.AutoSize = true;
+            lblDniCuit.Enabled = false;
             lblDniCuit.Font = new Font("Segoe UI", 10F);
             lblDniCuit.ForeColor = SystemColors.Window;
             lblDniCuit.Location = new Point(566, 190);
@@ -125,6 +128,7 @@
             // 
             lblEmail.Anchor = AnchorStyles.Right;
             lblEmail.AutoSize = true;
+            lblEmail.Enabled = false;
             lblEmail.Font = new Font("Segoe UI", 10F);
             lblEmail.ForeColor = SystemColors.Window;
             lblEmail.Location = new Point(566, 242);
@@ -137,6 +141,7 @@
             // 
             lblTelefono.Anchor = AnchorStyles.Right;
             lblTelefono.AutoSize = true;
+            lblTelefono.Enabled = false;
             lblTelefono.Font = new Font("Segoe UI", 10F);
             lblTelefono.ForeColor = SystemColors.Window;
             lblTelefono.Location = new Point(566, 294);
@@ -149,6 +154,7 @@
             // 
             lblDireccion.Anchor = AnchorStyles.Right;
             lblDireccion.AutoSize = true;
+            lblDireccion.Enabled = false;
             lblDireccion.Font = new Font("Segoe UI", 10F);
             lblDireccion.ForeColor = SystemColors.Window;
             lblDireccion.Location = new Point(566, 346);
@@ -161,6 +167,7 @@
             // 
             lblLocalidad.Anchor = AnchorStyles.Right;
             lblLocalidad.AutoSize = true;
+            lblLocalidad.Enabled = false;
             lblLocalidad.Font = new Font("Segoe UI", 10F);
             lblLocalidad.ForeColor = SystemColors.Window;
             lblLocalidad.Location = new Point(566, 398);
@@ -174,72 +181,84 @@
             txtNombre.Anchor = AnchorStyles.Right;
             txtNombre.BackColor = Color.FromArgb(120, 120, 160);
             txtNombre.BorderStyle = BorderStyle.FixedSingle;
+            txtNombre.Enabled = false;
             txtNombre.Font = new Font("Segoe UI", 10F);
             txtNombre.ForeColor = SystemColors.Window;
             txtNombre.Location = new Point(571, 158);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(247, 25);
             txtNombre.TabIndex = 7;
+            txtNombre.TextChanged += txtNombre_TextChanged;
             // 
             // txtDniCuit
             // 
             txtDniCuit.Anchor = AnchorStyles.Right;
             txtDniCuit.BackColor = Color.FromArgb(120, 120, 160);
             txtDniCuit.BorderStyle = BorderStyle.FixedSingle;
+            txtDniCuit.Enabled = false;
             txtDniCuit.Font = new Font("Segoe UI", 10F);
             txtDniCuit.ForeColor = SystemColors.Window;
             txtDniCuit.Location = new Point(571, 212);
             txtDniCuit.Name = "txtDniCuit";
             txtDniCuit.Size = new Size(247, 25);
             txtDniCuit.TabIndex = 8;
+            txtDniCuit.TextChanged += txtDniCuit_TextChanged;
             // 
             // txtEmail
             // 
             txtEmail.Anchor = AnchorStyles.Right;
             txtEmail.BackColor = Color.FromArgb(120, 120, 160);
             txtEmail.BorderStyle = BorderStyle.FixedSingle;
+            txtEmail.Enabled = false;
             txtEmail.Font = new Font("Segoe UI", 10F);
             txtEmail.ForeColor = SystemColors.Window;
             txtEmail.Location = new Point(571, 264);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(247, 25);
             txtEmail.TabIndex = 9;
+            txtEmail.TextChanged += txtEmail_TextChanged;
             // 
             // txtTelefono
             // 
             txtTelefono.Anchor = AnchorStyles.Right;
             txtTelefono.BackColor = Color.FromArgb(120, 120, 160);
             txtTelefono.BorderStyle = BorderStyle.FixedSingle;
+            txtTelefono.Enabled = false;
             txtTelefono.Font = new Font("Segoe UI", 10F);
             txtTelefono.ForeColor = SystemColors.Window;
             txtTelefono.Location = new Point(571, 316);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(247, 25);
             txtTelefono.TabIndex = 10;
+            txtTelefono.TextChanged += txtTelefono_TextChanged;
             // 
             // txtDireccion
             // 
             txtDireccion.Anchor = AnchorStyles.Right;
             txtDireccion.BackColor = Color.FromArgb(120, 120, 160);
             txtDireccion.BorderStyle = BorderStyle.FixedSingle;
+            txtDireccion.Enabled = false;
             txtDireccion.Font = new Font("Segoe UI", 10F);
             txtDireccion.ForeColor = SystemColors.Window;
             txtDireccion.Location = new Point(571, 367);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(247, 25);
             txtDireccion.TabIndex = 11;
+            txtDireccion.TextChanged += txtDireccion_TextChanged;
             // 
             // txtLocalidad
             // 
             txtLocalidad.Anchor = AnchorStyles.Right;
             txtLocalidad.BackColor = Color.FromArgb(120, 120, 160);
             txtLocalidad.BorderStyle = BorderStyle.FixedSingle;
+            txtLocalidad.Enabled = false;
             txtLocalidad.Font = new Font("Segoe UI", 10F);
             txtLocalidad.ForeColor = SystemColors.Window;
             txtLocalidad.Location = new Point(571, 420);
             txtLocalidad.Name = "txtLocalidad";
             txtLocalidad.Size = new Size(247, 25);
             txtLocalidad.TabIndex = 12;
+            txtLocalidad.TextChanged += txtLocalidad_TextChanged;
             // 
             // btnAceptar
             // 
@@ -254,6 +273,7 @@
             btnAceptar.TabIndex = 13;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = false;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
@@ -268,6 +288,7 @@
             btnCancelar.TabIndex = 14;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // txtFiltroCliente
             // 
@@ -279,6 +300,7 @@
             txtFiltroCliente.Name = "txtFiltroCliente";
             txtFiltroCliente.Size = new Size(261, 25);
             txtFiltroCliente.TabIndex = 15;
+            txtFiltroCliente.TextChanged += txtFiltroCliente_TextChanged;
             // 
             // btnAgregar
             // 
@@ -293,6 +315,7 @@
             btnAgregar.TabIndex = 16;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // btnModificar
             // 
@@ -307,6 +330,7 @@
             btnModificar.TabIndex = 17;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = false;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnEliminar
             // 
@@ -321,6 +345,7 @@
             btnEliminar.TabIndex = 18;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // FrmCliente
             // 

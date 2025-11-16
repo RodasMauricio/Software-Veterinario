@@ -1,9 +1,12 @@
 ﻿using System;
+using System.ClientModel;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +18,8 @@ namespace Veterinaria
     public partial class FrmCliente : Form
     {
         private List<Cliente> listaCliente;
+        private Cliente clienteSeleccion;
+        private Cliente cliente = null;
         public FrmCliente()
         {
             InitializeComponent();
@@ -22,10 +27,206 @@ namespace Veterinaria
 
         private void FrmCliente_Load(object sender, EventArgs e)
         {
+            CargarFrm();
+            AjustarOcultarColumnas();
+        }
+
+        private void CargarFrm()
+        {
             NCliente nCliente = new NCliente();
             listaCliente = nCliente.ListarClientes();
             dgvCliente.DataSource = listaCliente;
-            dgvCliente.Columns["Activo"].Visible = false;
         }
+        private void AjustarOcultarColumnas()
+        {
+            dgvCliente.Columns["Activo"].Visible = false;
+            dgvCliente.Columns["Id"].Width = 50;
+        }
+        private void CargarValoresModificar()
+        {
+            txtNombre.Text = cliente.Nombre;
+            txtDniCuit.Text = cliente.DniCuit;
+            txtEmail.Text = cliente.Email;
+            txtTelefono.Text = cliente.Telefono;
+            txtDireccion.Text = cliente.Direccion;
+            txtLocalidad.Text = cliente.Localidad;
+        }
+        private void EstadoBotones()
+        {
+            if (dgvCliente.Rows.Count == 0)
+            {
+                btnModificar.Enabled = false;
+                btnEliminar.Enabled = false;
+                return;
+            }
+            bool s = dgvCliente.SelectedRows.Count > 0;
+            btnModificar.Enabled = s;
+            btnEliminar.Enabled = s;
+        }
+        private void InsertarValores()
+        {
+            if (cliente == null)
+                cliente = new Cliente();
+            cliente.Nombre = txtNombre.Text;
+            cliente.DniCuit = txtDniCuit.Text;
+            cliente.Email = txtEmail.Text;
+            cliente.Telefono = txtTelefono.Text;
+            cliente.Direccion = txtDireccion.Text;
+            cliente.Localidad = txtLocalidad.Text;
+        }
+        private void LimpiarCarga()
+        {
+            ClassHelper.LimpiarTxt(txtNombre, txtDniCuit, txtEmail, txtTelefono, txtDireccion, txtLocalidad);
+            btnAceptar.Text = "Aceptar";
+        }
+        private void SeleccionCliente()
+        {
+            if (dgvCliente.CurrentRow != null)
+                clienteSeleccion = (Cliente)dgvCliente.CurrentRow.DataBoundItem;
+            else
+                clienteSeleccion = (Cliente)dgvCliente.Rows[0].DataBoundItem;
+        }
+
+
+        private void BloqueoAgregarModificar(bool v)
+        {
+            ClassHelper.HabilitarLbl(v, lblNombre, lblDniCuit, lblEmail, lblTelefono, lblDireccion, lblLocalidad);
+            ClassHelper.HabilitarControles(v, txtNombre, txtDniCuit, txtEmail, txtTelefono, txtDireccion, txtLocalidad, btnAceptar);
+        }
+
+        private void txtFiltroCliente_TextChanged(object sender, EventArgs e)
+        {
+            ClassHelper.ColorTxt(txtFiltroCliente);
+            List<Cliente> filtroRapido;
+            string filtro = txtFiltroCliente.Text.ToUpper();
+            filtroRapido = listaCliente.FindAll(x => x.Nombre.ToUpper().Contains(filtro) || x.DniCuit.Contains(filtro) || x.Email.ToUpper().Contains(filtro) || x.Telefono.Contains(filtro) || x.Direccion.ToUpper().Contains(filtro) || x.Localidad.ToUpper().Contains(filtro));
+
+            dgvCliente.DataSource = null;
+            dgvCliente.DataSource = filtroRapido;
+            AjustarOcultarColumnas();
+        }
+        private void dgvCliente_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvCliente.Rows.Count > 0)
+                {
+                    SeleccionCliente();
+                    LimpiarCarga();
+                    BloqueoAgregarModificar(false);
+                    EstadoBotones();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            LimpiarCarga();
+            BloqueoAgregarModificar(true);
+            cliente = null;
+            btnAceptar.Text = "Agregar";
+        }
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            LimpiarCarga();
+            SeleccionCliente();
+            cliente = clienteSeleccion;
+            BloqueoAgregarModificar(true);
+            CargarValoresModificar();
+            btnAceptar.Text = "Modificar";
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvCliente.Rows.Count > 0)
+            {
+                try
+                {
+                    LimpiarCarga();
+                    BloqueoAgregarModificar(false);
+                    SeleccionCliente();
+                    DialogResult r = MessageBox.Show($"¿Desea eliminar este cliente ({clienteSeleccion.Nombre})?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (r == DialogResult.Yes)
+                    {
+                        NCliente nCliente = new NCliente();
+                        nCliente.Eliminar(clienteSeleccion.Id);
+                        CargarFrm();
+                        AjustarOcultarColumnas();
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (txtNombre.Text != "" && txtDniCuit.Text != "" && (txtEmail.Text != "" || txtTelefono.Text != ""))
+            {
+                DialogResult r = MessageBox.Show($"¿Desea {btnAceptar.Text} este cliente ({txtNombre.Text})?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r == DialogResult.Yes)
+                {
+                    try
+                    {
+                        InsertarValores();
+                        NCliente nCliente = new NCliente();
+                        if (cliente.Id > 0)
+                            nCliente.Modificar(cliente);
+                        else
+                            nCliente.Agregar(cliente);
+                        CargarFrm();
+                        AjustarOcultarColumnas();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe completar los campos necesarios (Nombre - Dni-Cuit - Email o Teléfono)");
+            }
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarCarga();
+            BloqueoAgregarModificar(false);
+        }
+
+
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            ClassHelper.ColorTxt(txtNombre);
+        }
+        private void txtDniCuit_TextChanged(object sender, EventArgs e)
+        {
+            ClassHelper.ColorTxt(txtDniCuit);
+        }
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            ClassHelper.ColorTxt(txtEmail);
+        }
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            ClassHelper.ColorTxt(txtTelefono);
+        }
+        private void txtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            ClassHelper.ColorTxt(txtDireccion);
+        }
+        private void txtLocalidad_TextChanged(object sender, EventArgs e)
+        {
+            ClassHelper.ColorTxt(txtLocalidad);
+        }
+
+
     }
 }
