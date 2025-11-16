@@ -119,10 +119,16 @@ namespace Veterinaria
         }
         private void btnPacientes_Click(object sender, EventArgs e)
         {
+            if (this.frm == typeof(FrmPaciente))
+                return;
+            AbrirFormHijo(new FrmPaciente());
             btnFormColor(ref btnPacientes);
         }
         private void btnTurnos_Click(object sender, EventArgs e)
         {
+            if (this.frm == typeof(FrmTurno))
+                return;
+            AbrirFormHijo(new FrmTurno());
             btnFormColor(ref btnTurnos);
         }
         private void btnHistorial_Click(object sender, EventArgs e)
