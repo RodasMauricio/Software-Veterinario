@@ -50,6 +50,8 @@
             btnAgregar = new Button();
             btnModificar = new Button();
             btnEliminar = new Button();
+            lblPacientes = new Label();
+            btnPaciente = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCliente).BeginInit();
             SuspendLayout();
             // 
@@ -354,12 +356,40 @@
             btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
             // 
+            // lblPacientes
+            // 
+            lblPacientes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblPacientes.AutoSize = true;
+            lblPacientes.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblPacientes.ForeColor = SystemColors.Window;
+            lblPacientes.Location = new Point(12, 579);
+            lblPacientes.Name = "lblPacientes";
+            lblPacientes.Size = new Size(139, 15);
+            lblPacientes.TabIndex = 19;
+            lblPacientes.Text = "Pacientes registrados = ";
+            // 
+            // btnPaciente
+            // 
+            btnPaciente.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnPaciente.BackColor = Color.FromArgb(120, 120, 160);
+            btnPaciente.FlatAppearance.BorderColor = Color.White;
+            btnPaciente.FlatStyle = FlatStyle.Flat;
+            btnPaciente.Location = new Point(148, 575);
+            btnPaciente.Name = "btnPaciente";
+            btnPaciente.Size = new Size(27, 23);
+            btnPaciente.TabIndex = 20;
+            btnPaciente.Text = "0";
+            btnPaciente.UseVisualStyleBackColor = false;
+            btnPaciente.Click += btnPaciente_Click;
+            // 
             // FrmCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 60, 80);
             ClientSize = new Size(854, 605);
+            Controls.Add(btnPaciente);
+            Controls.Add(lblPacientes);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
@@ -379,6 +409,7 @@
             Controls.Add(lblDniCuit);
             Controls.Add(lblNombre);
             Controls.Add(dgvCliente);
+            ForeColor = SystemColors.Window;
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmCliente";
             Text = "FrmCliente";
@@ -409,5 +440,7 @@
         private Button btnAgregar;
         private Button btnModificar;
         private Button btnEliminar;
+        private Label lblPacientes;
+        private Button btnPaciente;
     }
 }

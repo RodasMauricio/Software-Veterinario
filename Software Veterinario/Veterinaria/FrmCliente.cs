@@ -18,8 +18,11 @@ namespace Veterinaria
     public partial class FrmCliente : Form
     {
         private List<Cliente> listaCliente;
+        private List<Paciente> listaPaciente;
+        private List<string> nombrePacientes;
         private Cliente clienteSeleccion;
         private Cliente cliente = null;
+        private NPaciente nPaciente;
         public FrmCliente()
         {
             InitializeComponent();
@@ -34,6 +37,7 @@ namespace Veterinaria
         private void CargarFrm()
         {
             NCliente nCliente = new NCliente();
+            nPaciente = new NPaciente();
             listaCliente = nCliente.ListarClientes();
             dgvCliente.DataSource = listaCliente;
         }
@@ -51,18 +55,35 @@ namespace Veterinaria
             txtDireccion.Text = cliente.Direccion;
             txtLocalidad.Text = cliente.Localidad;
         }
+        private int CantidadPacientes()
+        {
+            listaPaciente = nPaciente.ListarPacientes();
+            nombrePacientes = null;
+            nombrePacientes = new List<string>();
+            int cont = 0;
+            foreach (var p in listaPaciente)
+            {
+                if (clienteSeleccion.Id == p.Cliente.Id)
+                {
+                    cont++;
+                    nombrePacientes.Add(p.Id.ToString() + "    " + p.Nombre);
+                }
+            }
+            return cont;
+        }
         private void EstadoBotones()
         {
-            if (dgvCliente.Rows.Count == 0)
-            {
-                btnModificar.Enabled = false;
-                btnEliminar.Enabled = false;
-                return;
-            }
             bool s = dgvCliente.SelectedRows.Count > 0;
             btnModificar.Enabled = s;
             btnEliminar.Enabled = s;
-        }
+            btnPaciente.Enabled = s;
+            if (btnPaciente.Enabled)
+                btnPaciente.Text = CantidadPacientes().ToString();
+            else
+                btnPaciente.Text = "0";
+            if (btnPaciente.Text == "0")
+                btnPaciente.Enabled = false;
+        } 
         private void InsertarValores()
         {
             if (cliente == null)
@@ -81,10 +102,7 @@ namespace Veterinaria
         }
         private void SeleccionCliente()
         {
-            if (dgvCliente.CurrentRow != null)
-                clienteSeleccion = (Cliente)dgvCliente.CurrentRow.DataBoundItem;
-            else
-                clienteSeleccion = (Cliente)dgvCliente.Rows[0].DataBoundItem;
+            clienteSeleccion = (Cliente)dgvCliente.CurrentRow.DataBoundItem;
         }
 
 
@@ -96,6 +114,7 @@ namespace Veterinaria
 
         private void txtFiltroCliente_TextChanged(object sender, EventArgs e)
         {
+
             ClassHelper.ColorTxt(txtFiltroCliente);
             List<Cliente> filtroRapido;
             string filtro = txtFiltroCliente.Text.ToUpper();
@@ -116,6 +135,7 @@ namespace Veterinaria
                     BloqueoAgregarModificar(false);
                     EstadoBotones();
                 }
+
             }
             catch (Exception)
             {
@@ -198,6 +218,7 @@ namespace Veterinaria
         {
             LimpiarCarga();
             BloqueoAgregarModificar(false);
+            MessageBox.Show(dgvCliente.Rows.Count.ToString());
         }
 
 
@@ -227,6 +248,11 @@ namespace Veterinaria
             ClassHelper.ColorTxt(txtLocalidad);
         }
 
+        private void btnPaciente_Click(object sender, EventArgs e)
+        {
+            string nombres = string.Join("\n", nombrePacientes);
+            MessageBox.Show("Id - Nombre:\n" + nombres, "Pacientes");
+        }
 
     }
 }
