@@ -92,6 +92,8 @@
             dgvHistorial.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHistorial.Size = new Size(523, 520);
             dgvHistorial.TabIndex = 0;
+            dgvHistorial.CellFormatting += dgvHistorial_CellFormatting;
+            dgvHistorial.SelectionChanged += dgvHistorial_SelectionChanged;
             // 
             // txtFiltroHistorial
             // 
@@ -103,6 +105,7 @@
             txtFiltroHistorial.Name = "txtFiltroHistorial";
             txtFiltroHistorial.Size = new Size(261, 25);
             txtFiltroHistorial.TabIndex = 1;
+            txtFiltroHistorial.TextChanged += txtFiltroHistorial_TextChanged;
             // 
             // btnAgregar
             // 
@@ -117,6 +120,7 @@
             btnAgregar.TabIndex = 2;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // btnModificar
             // 
@@ -131,6 +135,7 @@
             btnModificar.TabIndex = 3;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = false;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnEliminar
             // 
@@ -145,6 +150,7 @@
             btnEliminar.TabIndex = 4;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // lblIdTurno
             // 
@@ -218,11 +224,15 @@
             txtIdTurno.BorderStyle = BorderStyle.FixedSingle;
             txtIdTurno.Enabled = false;
             txtIdTurno.Font = new Font("Segoe UI", 10F);
+            txtIdTurno.ForeColor = SystemColors.Window;
             txtIdTurno.Location = new Point(570, 101);
             txtIdTurno.MaxLength = 50;
             txtIdTurno.Name = "txtIdTurno";
+            txtIdTurno.ShortcutsEnabled = false;
             txtIdTurno.Size = new Size(247, 25);
             txtIdTurno.TabIndex = 10;
+            txtIdTurno.TextChanged += txtIdTurno_TextChanged;
+            txtIdTurno.KeyPress += txtIdTurno_KeyPress;
             // 
             // txtMotivoConsulta
             // 
@@ -231,11 +241,13 @@
             txtMotivoConsulta.BorderStyle = BorderStyle.FixedSingle;
             txtMotivoConsulta.Enabled = false;
             txtMotivoConsulta.Font = new Font("Segoe UI", 10F);
+            txtMotivoConsulta.ForeColor = SystemColors.Window;
             txtMotivoConsulta.Location = new Point(570, 155);
             txtMotivoConsulta.MaxLength = 200;
             txtMotivoConsulta.Name = "txtMotivoConsulta";
             txtMotivoConsulta.Size = new Size(247, 25);
             txtMotivoConsulta.TabIndex = 11;
+            txtMotivoConsulta.TextChanged += txtMotivoConsulta_TextChanged;
             // 
             // txtDiagnostico
             // 
@@ -244,12 +256,14 @@
             txtDiagnostico.BorderStyle = BorderStyle.FixedSingle;
             txtDiagnostico.Enabled = false;
             txtDiagnostico.Font = new Font("Segoe UI", 10F);
+            txtDiagnostico.ForeColor = SystemColors.Window;
             txtDiagnostico.Location = new Point(570, 209);
             txtDiagnostico.MaxLength = 500;
             txtDiagnostico.Multiline = true;
             txtDiagnostico.Name = "txtDiagnostico";
             txtDiagnostico.Size = new Size(247, 115);
             txtDiagnostico.TabIndex = 12;
+            txtDiagnostico.TextChanged += txtDiagnostico_TextChanged;
             // 
             // txtTratamiento
             // 
@@ -258,12 +272,14 @@
             txtTratamiento.BorderStyle = BorderStyle.FixedSingle;
             txtTratamiento.Enabled = false;
             txtTratamiento.Font = new Font("Segoe UI", 10F);
+            txtTratamiento.ForeColor = SystemColors.Window;
             txtTratamiento.Location = new Point(570, 353);
             txtTratamiento.MaxLength = 500;
             txtTratamiento.Multiline = true;
             txtTratamiento.Name = "txtTratamiento";
             txtTratamiento.Size = new Size(247, 115);
             txtTratamiento.TabIndex = 13;
+            txtTratamiento.TextChanged += txtTratamiento_TextChanged;
             // 
             // txtPrecioFinal
             // 
@@ -272,11 +288,15 @@
             txtPrecioFinal.BorderStyle = BorderStyle.FixedSingle;
             txtPrecioFinal.Enabled = false;
             txtPrecioFinal.Font = new Font("Segoe UI", 10F);
+            txtPrecioFinal.ForeColor = SystemColors.Window;
             txtPrecioFinal.Location = new Point(570, 497);
             txtPrecioFinal.MaxLength = 100;
             txtPrecioFinal.Name = "txtPrecioFinal";
+            txtPrecioFinal.ShortcutsEnabled = false;
             txtPrecioFinal.Size = new Size(247, 25);
             txtPrecioFinal.TabIndex = 14;
+            txtPrecioFinal.TextChanged += txtPrecioFinal_TextChanged;
+            txtPrecioFinal.KeyPress += txtPrecioFinal_KeyPress;
             // 
             // btnAceptar
             // 
@@ -292,6 +312,7 @@
             btnAceptar.TabIndex = 15;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = false;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
@@ -306,6 +327,7 @@
             btnCancelar.TabIndex = 16;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // FrmHistorial
             // 

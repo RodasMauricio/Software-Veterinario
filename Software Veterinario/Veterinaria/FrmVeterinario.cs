@@ -154,7 +154,7 @@ namespace Veterinaria
                     LimpiarCarga();
                     BloqueoAgregarModificar(false);
                     SeleccionVeterinario();
-                    DialogResult r = MessageBox.Show($"¿Desea eliminar este veterinario ({veterinario.Nombre})?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult r = MessageBox.Show($"¿Desea eliminar este veterinario ({veterinarioSeleccion.Nombre})?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (r == DialogResult.Yes)
                     {
                         NVeterinario nVeterinario = new NVeterinario();
