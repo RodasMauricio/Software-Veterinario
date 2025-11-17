@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
             dgvPropiedad = new DataGridView();
             txtDescripcion = new TextBox();
             cbEspecie = new ComboBox();
@@ -41,9 +41,11 @@
             btnCancelar = new Button();
             lblDescripcion = new Label();
             lblEspecie = new Label();
-            textBox1 = new TextBox();
+            txtFiltro = new TextBox();
             lblX = new Label();
+            barraTitulo = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvPropiedad).BeginInit();
+            barraTitulo.SuspendLayout();
             SuspendLayout();
             // 
             // dgvPropiedad
@@ -55,36 +57,36 @@
             dgvPropiedad.BackgroundColor = Color.FromArgb(120, 120, 160);
             dgvPropiedad.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             dgvPropiedad.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(40, 40, 60);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(40, 40, 60);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Window;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvPropiedad.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = Color.FromArgb(40, 40, 60);
+            dataGridViewCellStyle13.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            dataGridViewCellStyle13.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(40, 40, 60);
+            dataGridViewCellStyle13.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
+            dgvPropiedad.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             dgvPropiedad.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(74, 74, 91);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(120, 120, 160);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Window;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvPropiedad.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = Color.FromArgb(74, 74, 91);
+            dataGridViewCellStyle14.Font = new Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle14.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(120, 120, 160);
+            dataGridViewCellStyle14.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
+            dgvPropiedad.DefaultCellStyle = dataGridViewCellStyle14;
             dgvPropiedad.EnableHeadersVisualStyles = false;
             dgvPropiedad.Location = new Point(13, 73);
             dgvPropiedad.MultiSelect = false;
             dgvPropiedad.Name = "dgvPropiedad";
             dgvPropiedad.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(74, 74, 91);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(120, 120, 160);
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvPropiedad.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = Color.FromArgb(74, 74, 91);
+            dataGridViewCellStyle15.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle15.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(120, 120, 160);
+            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
+            dgvPropiedad.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             dgvPropiedad.RowHeadersVisible = false;
             dgvPropiedad.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPropiedad.Size = new Size(398, 410);
@@ -93,20 +95,29 @@
             // 
             // txtDescripcion
             // 
+            txtDescripcion.BackColor = Color.FromArgb(120, 120, 160);
+            txtDescripcion.BorderStyle = BorderStyle.FixedSingle;
             txtDescripcion.Enabled = false;
+            txtDescripcion.Font = new Font("Segoe UI", 10F);
+            txtDescripcion.ForeColor = SystemColors.Window;
             txtDescripcion.Location = new Point(433, 208);
             txtDescripcion.MaxLength = 100;
             txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(214, 23);
+            txtDescripcion.Size = new Size(214, 25);
             txtDescripcion.TabIndex = 1;
+            txtDescripcion.TextChanged += txtDescripcion_TextChanged;
             // 
             // cbEspecie
             // 
+            cbEspecie.BackColor = Color.FromArgb(120, 120, 160);
+            cbEspecie.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEspecie.Enabled = false;
+            cbEspecie.Font = new Font("Segoe UI", 10F);
+            cbEspecie.ForeColor = SystemColors.Window;
             cbEspecie.FormattingEnabled = true;
             cbEspecie.Location = new Point(433, 272);
             cbEspecie.Name = "cbEspecie";
-            cbEspecie.Size = new Size(214, 23);
+            cbEspecie.Size = new Size(214, 25);
             cbEspecie.TabIndex = 2;
             cbEspecie.Visible = false;
             // 
@@ -205,28 +216,41 @@
             lblEspecie.Text = "Especie";
             lblEspecie.Visible = false;
             // 
-            // textBox1
+            // txtFiltro
             // 
-            textBox1.BackColor = Color.FromArgb(120, 120, 160);
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Font = new Font("Segoe UI", 10F);
-            textBox1.ForeColor = SystemColors.Window;
-            textBox1.Location = new Point(13, 40);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(290, 25);
-            textBox1.TabIndex = 11;
+            txtFiltro.BackColor = Color.FromArgb(120, 120, 160);
+            txtFiltro.BorderStyle = BorderStyle.FixedSingle;
+            txtFiltro.Font = new Font("Segoe UI", 10F);
+            txtFiltro.ForeColor = SystemColors.Window;
+            txtFiltro.Location = new Point(13, 40);
+            txtFiltro.MaxLength = 100;
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(290, 25);
+            txtFiltro.TabIndex = 11;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
             // 
             // lblX
             // 
             lblX.AutoSize = true;
+            lblX.FlatStyle = FlatStyle.Flat;
             lblX.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             lblX.ForeColor = SystemColors.Window;
-            lblX.Location = new Point(646, -4);
+            lblX.Location = new Point(645, -2);
             lblX.Name = "lblX";
             lblX.Size = new Size(25, 28);
             lblX.TabIndex = 8;
             lblX.Text = "X";
             lblX.Click += lblX_Click;
+            // 
+            // barraTitulo
+            // 
+            barraTitulo.BackColor = Color.FromArgb(55, 55, 75);
+            barraTitulo.Controls.Add(lblX);
+            barraTitulo.Dock = DockStyle.Top;
+            barraTitulo.Location = new Point(0, 0);
+            barraTitulo.Name = "barraTitulo";
+            barraTitulo.Size = new Size(669, 30);
+            barraTitulo.TabIndex = 12;
             // 
             // FrmEspecieRaza
             // 
@@ -234,10 +258,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 60, 80);
             ClientSize = new Size(669, 502);
-            Controls.Add(textBox1);
+            Controls.Add(barraTitulo);
+            Controls.Add(txtFiltro);
             Controls.Add(lblEspecie);
             Controls.Add(lblDescripcion);
-            Controls.Add(lblX);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(btnEliminar);
@@ -252,6 +276,8 @@
             Text = "FrmEspecieRaza";
             Load += FrmEspecieRaza_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPropiedad).EndInit();
+            barraTitulo.ResumeLayout(false);
+            barraTitulo.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -268,7 +294,8 @@
         private Button btnCancelar;
         private Label lblDescripcion;
         private Label lblEspecie;
-        private TextBox textBox1;
+        private TextBox txtFiltro;
         private Label lblX;
+        private Panel barraTitulo;
     }
 }

@@ -49,7 +49,7 @@ namespace Veterinaria
                 CargarFrmRaza();
                 HabilitarEspecie();
             }
-
+            AjustarOcultarColumnas();
         }
 
         private void lblX_Click(object sender, EventArgs e)
@@ -68,6 +68,10 @@ namespace Veterinaria
             dgvPropiedad.DataSource = listaRaza;
             CargarFrmEspecie();
             ClassHelper.CargarCbx(cbEspecie, listaEspecie, "Id", "Descripcion");
+        }
+        private void AjustarOcultarColumnas()
+        {
+            dgvPropiedad.Columns["Id"].Width = 50;
         }
         private void HabilitarEspecie()
         {
@@ -114,7 +118,6 @@ namespace Veterinaria
             if (esRaza == true)
                 ClassHelper.LimpiarCbx(cbEspecie);
         }
-
         private void SeleccionPropiedad()
         {
             if (esRaza == false)
@@ -145,6 +148,27 @@ namespace Veterinaria
             }
         }
 
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            ClassHelper.ColorTxt(txtFiltro);
+            string filtro = txtFiltro.Text.ToUpper();
+            if (esRaza == false)
+            {
+                List<Especie> filtroRapido;
+                filtroRapido = listaEspecie.FindAll(x => x.Descripcion.ToUpper().Contains(filtro));
+                dgvPropiedad.DataSource = null;
+                dgvPropiedad.DataSource = filtroRapido;
+            }
+            else
+            {
+                List<Raza> filtroRapido;
+                filtroRapido = listaRaza.FindAll(x => x.Descripcion.ToUpper().Contains(filtro));
+                dgvPropiedad.DataSource = null;
+                dgvPropiedad.DataSource = filtroRapido;
+            }
+            AjustarOcultarColumnas();
+        }
         private void dgvPropiedad_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -173,7 +197,6 @@ namespace Veterinaria
                 raza = null;
             btnAceptar.Text = "Agregar";
         }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             LimpiarCarga();
@@ -186,7 +209,6 @@ namespace Veterinaria
             CargarValoresModificar();
             btnAceptar.Text = "Modificar";
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvPropiedad.Rows.Count > 0)
@@ -212,6 +234,7 @@ namespace Veterinaria
                             nRaza.Eliminar(razaSeleccion.Id);
                             CargarFrmRaza();
                         }
+                        AjustarOcultarColumnas();
                     }
                 }
                 catch (Exception)
@@ -240,6 +263,7 @@ namespace Veterinaria
                                 nEspecie.Agregar(especie);
                             CargarFrmEspecie();
                             dgvPropiedad.DataSource = listaEspecie;
+                            AjustarOcultarColumnas();
                         }
                     }
                     catch (Exception)
@@ -266,6 +290,7 @@ namespace Veterinaria
                         else
                             nRaza.Agregar(raza);
                         CargarFrmRaza();
+                        AjustarOcultarColumnas();
                     }
                 }
                 else
@@ -274,7 +299,6 @@ namespace Veterinaria
                 }
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpiarCarga();
@@ -282,5 +306,9 @@ namespace Veterinaria
         }
 
 
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+            ClassHelper.ColorTxt(txtDescripcion);
+        }
     }
 }
