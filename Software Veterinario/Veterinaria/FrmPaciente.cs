@@ -222,11 +222,13 @@ namespace Veterinaria
 
         private void btnAgregarEspecie_Click(object sender, EventArgs e)
         {
-
+            FrmEspecieRaza ventana = new FrmEspecieRaza();
+            ventana.ShowDialog();
         }
         private void btnAgregarRaza_Click(object sender, EventArgs e)
         {
-
+            FrmEspecieRaza ventana = new FrmEspecieRaza(1);
+            ventana.ShowDialog();
         }
 
 

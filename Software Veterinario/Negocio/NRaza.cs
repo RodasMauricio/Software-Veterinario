@@ -36,5 +36,42 @@ namespace Negocio
                 }
             }
         }
+
+        public void Agregar(Raza r)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Insert into RAZAS (Descripcion, IdEspecie)values(@Descripcion, @IdEspecie)");
+                    datos.Parametros("@Descripcion", r.Descripcion);
+                    datos.Parametros("@IdEspecie", r.Especie.Id);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        public void Eliminar(int id)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Delete From RAZAS Where Id = @Id");
+                    datos.Parametros("@Id", id);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+
     }
 }
