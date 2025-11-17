@@ -7,6 +7,7 @@ using System.Data;
 using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -55,7 +56,6 @@ namespace Veterinaria
         {
             Close();
         }
-
         private void CargarFrmEspecie()
         {
             NEspecie nEspecie = new NEspecie();
@@ -78,11 +78,11 @@ namespace Veterinaria
         {
             if (esRaza == false)
             {
-                txtNombre.Text = especie.Descripcion;
+                txtDescripcion.Text = especie.Descripcion;
             }
             else
             {
-                txtNombre.Text = raza.Descripcion;
+                txtDescripcion.Text = raza.Descripcion;
                 cbEspecie.SelectedValue = raza.Especie.Id;
             }
         }
@@ -94,11 +94,23 @@ namespace Veterinaria
         }
         private void InsertarValores()
         {
-
+            if (esRaza == false)
+            {
+                if (especie == null)
+                    especie = new Especie();
+                especie.Descripcion = txtDescripcion.Text;
+            }
+            else
+            {
+                if (raza == null)
+                    raza = new Raza();
+                raza.Descripcion = txtDescripcion.Text;
+                raza.Especie = (Especie)cbEspecie.SelectedItem;
+            }
         }
         private void LimpiarCarga()
         {
-            ClassHelper.LimpiarTxt(txtNombre);
+            ClassHelper.LimpiarTxt(txtDescripcion);
             if (esRaza == true)
                 ClassHelper.LimpiarCbx(cbEspecie);
         }
@@ -124,8 +136,8 @@ namespace Veterinaria
 
         private void BloqueoAgregarModificar(bool v)
         {
-            ClassHelper.HabilitarLbl(v, lblNombre);
-            ClassHelper.HabilitarControles(v, txtNombre);
+            ClassHelper.HabilitarLbl(v, lblDescripcion);
+            ClassHelper.HabilitarControles(v, txtDescripcion);
             if (esRaza == true)
             {
                 ClassHelper.HabilitarLbl(v, lblEspecie);
@@ -155,7 +167,10 @@ namespace Veterinaria
         {
             LimpiarCarga();
             BloqueoAgregarModificar(true);
-            raza = null;
+            if (esRaza == false)
+                especie = null;
+            else
+                raza = null;
             btnAceptar.Text = "Agregar";
         }
 
@@ -187,7 +202,9 @@ namespace Veterinaria
                         if (esRaza == false)
                         {
                             NEspecie nEspecie = new NEspecie();
-                            //
+                            nEspecie.Eliminar(especieSeleccion.Id);
+                            CargarFrmEspecie();
+                            dgvPropiedad.DataSource = listaEspecie;
                         }
                         else
                         {
@@ -202,6 +219,66 @@ namespace Veterinaria
                     throw;
                 }
             }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (esRaza == false)
+            {
+                if (txtDescripcion.Text != "")
+                {
+                    try
+                    {
+                        DialogResult r = MessageBox.Show($"¿Desea {btnAceptar.Text} esta especie ({txtDescripcion.Text})?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (r == DialogResult.Yes)
+                        {
+                            InsertarValores();
+                            NEspecie nEspecie = new NEspecie();
+                            if (especie.Id > 0)
+                                nEspecie.Modificar(especie);
+                            else
+                                nEspecie.Agregar(especie);
+                            CargarFrmEspecie();
+                            dgvPropiedad.DataSource = listaEspecie;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingresar una descripción.");
+                }
+            }
+            else
+            {
+                if (txtDescripcion.Text != "" && cbEspecie.SelectedIndex != -1)
+                {
+                    DialogResult r = MessageBox.Show($"¿Desea {btnAceptar.Text} esta raza ({txtDescripcion.Text})?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (r == DialogResult.Yes)
+                    {
+                        InsertarValores();
+                        NRaza nRaza = new NRaza();
+                        if (raza.Id > 0)
+                            nRaza.Modificar(raza);
+                        else
+                            nRaza.Agregar(raza);
+                        CargarFrmRaza();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingresar una descripción y seleccionar una especie.");
+                }
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarCarga();
+            BloqueoAgregarModificar(false);
         }
     }
 }

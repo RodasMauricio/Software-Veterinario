@@ -54,6 +54,24 @@ namespace Negocio
                 }
             }
         }
+        public void Modificar(Raza r)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Update RAZAS set Descripcion = @Descripcion, IdEspecie = @IdEspecie Where Id = @Id");
+                    datos.Parametros("@Descripcion", r.Descripcion);
+                    datos.Parametros("@IdEspecie", r.Especie.Id);
+                    datos.Parametros("@Id", r.Id);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
 
         public void Eliminar(int id)
         {

@@ -218,7 +218,6 @@ namespace Veterinaria
         {
             LimpiarCarga();
             BloqueoAgregarModificar(false);
-            MessageBox.Show(dgvCliente.Rows.Count.ToString());
         }
 
 

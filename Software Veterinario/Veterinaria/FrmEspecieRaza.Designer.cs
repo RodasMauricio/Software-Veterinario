@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             dgvPropiedad = new DataGridView();
-            txtNombre = new TextBox();
+            txtDescripcion = new TextBox();
             cbEspecie = new ComboBox();
             btnAgregar = new Button();
             btnModificar = new Button();
@@ -37,7 +37,7 @@
             btnAceptar = new Button();
             btnCancelar = new Button();
             lblX = new Label();
-            lblNombre = new Label();
+            lblDescripcion = new Label();
             lblEspecie = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPropiedad).BeginInit();
             SuspendLayout();
@@ -52,13 +52,14 @@
             dgvPropiedad.TabIndex = 0;
             dgvPropiedad.SelectionChanged += dgvPropiedad_SelectionChanged;
             // 
-            // txtNombre
+            // txtDescripcion
             // 
-            txtNombre.Enabled = false;
-            txtNombre.Location = new Point(466, 134);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(224, 23);
-            txtNombre.TabIndex = 1;
+            txtDescripcion.Enabled = false;
+            txtDescripcion.Location = new Point(466, 134);
+            txtDescripcion.MaxLength = 100;
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(224, 23);
+            txtDescripcion.TabIndex = 1;
             // 
             // cbEspecie
             // 
@@ -124,6 +125,7 @@
             btnAceptar.TabIndex = 6;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = false;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
@@ -137,6 +139,7 @@
             btnCancelar.TabIndex = 7;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // lblX
             // 
@@ -150,17 +153,17 @@
             lblX.Text = "X";
             lblX.Click += lblX_Click;
             // 
-            // lblNombre
+            // lblDescripcion
             // 
-            lblNombre.AutoSize = true;
-            lblNombre.Enabled = false;
-            lblNombre.Font = new Font("Segoe UI", 10F);
-            lblNombre.ForeColor = SystemColors.Window;
-            lblNombre.Location = new Point(464, 112);
-            lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(59, 19);
-            lblNombre.TabIndex = 9;
-            lblNombre.Text = "Nombre";
+            lblDescripcion.AutoSize = true;
+            lblDescripcion.Enabled = false;
+            lblDescripcion.Font = new Font("Segoe UI", 10F);
+            lblDescripcion.ForeColor = SystemColors.Window;
+            lblDescripcion.Location = new Point(464, 112);
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new Size(79, 19);
+            lblDescripcion.TabIndex = 9;
+            lblDescripcion.Text = "Descripción";
             // 
             // lblEspecie
             // 
@@ -182,7 +185,7 @@
             BackColor = Color.FromArgb(60, 60, 80);
             ClientSize = new Size(771, 507);
             Controls.Add(lblEspecie);
-            Controls.Add(lblNombre);
+            Controls.Add(lblDescripcion);
             Controls.Add(lblX);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
@@ -190,7 +193,7 @@
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
             Controls.Add(cbEspecie);
-            Controls.Add(txtNombre);
+            Controls.Add(txtDescripcion);
             Controls.Add(dgvPropiedad);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmEspecieRaza";
@@ -204,7 +207,7 @@
         #endregion
 
         private DataGridView dgvPropiedad;
-        private TextBox txtNombre;
+        private TextBox txtDescripcion;
         private ComboBox cbEspecie;
         private Button btnAgregar;
         private Button btnModificar;
@@ -212,7 +215,7 @@
         private Button btnAceptar;
         private Button btnCancelar;
         private Label lblX;
-        private Label lblNombre;
+        private Label lblDescripcion;
         private Label lblEspecie;
     }
 }
