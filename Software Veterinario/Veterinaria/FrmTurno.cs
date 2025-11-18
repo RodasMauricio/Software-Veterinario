@@ -55,11 +55,11 @@ namespace Veterinaria
         }
         private void CargarValoresModificar()
         {
-            cbPaciente.SelectedIndex = turno.Paciente.Id;
-            cbVeterinario.SelectedIndex = turno.Veterinario.Id;
-            cbServicio.SelectedIndex = turno.Servicio.Id;
+            cbPaciente.SelectedValue = turno.Paciente.Id;
+            cbVeterinario.SelectedValue = turno.Veterinario.Id;
+            cbServicio.SelectedValue = turno.Servicio.Id;
             dtpFecha.Value = turno.FechaHoraInicio;
-            cbEstado.SelectedIndex = turno.Estado.Id;
+            cbEstado.SelectedValue = turno.Estado.Id;
             txtNotas.Text = turno.Notas;
         }
         private void EstadoBotones()
@@ -135,7 +135,6 @@ namespace Veterinaria
             turno = null;
             btnAceptar.Text = "Agregar";
         }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             LimpiarCarga();
@@ -145,7 +144,6 @@ namespace Veterinaria
             CargarValoresModificar();
             btnAceptar.Text = "Modificar";
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvTurno.Rows.Count > 0)
@@ -171,17 +169,41 @@ namespace Veterinaria
             }
         }
 
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (cbPaciente.SelectedIndex != -1 && cbVeterinario.SelectedIndex != -1 && cbServicio.SelectedIndex != -1 && cbEstado.SelectedIndex != -1 && txtNotas.Text != "")
+            {
+                DialogResult r = MessageBox.Show($"¿Desea {btnAceptar.Text} este turno?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r == DialogResult.Yes)
+                {
+                    try
+                    {
+                        InsertarValores();
+                        NTurno nturno = new NTurno();
+                        if (turno.Id > 0)
+                            nturno.Modificar(turno);
+                        else
+                            nturno.Agregar(turno);
+                        CargarFrm();
+                        AjustarOcultarColumnas();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarCarga();
+            BloqueoAgregarModificar(false);
+        }
 
+        private void txtNotas_TextChanged(object sender, EventArgs e)
+        {
+            ClassHelper.ColorTxt(txtNotas);
+        }
 
-
-
-
-
-
-
-
-
-
-        //
     }
 }

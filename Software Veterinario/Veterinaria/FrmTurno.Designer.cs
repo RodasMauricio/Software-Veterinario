@@ -247,6 +247,7 @@
             txtNotas.Name = "txtNotas";
             txtNotas.Size = new Size(255, 75);
             txtNotas.TabIndex = 11;
+            txtNotas.TextChanged += txtNotas_TextChanged;
             // 
             // dtpFecha
             // 
@@ -316,6 +317,7 @@
             btnAceptar.TabIndex = 16;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = false;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
@@ -330,6 +332,7 @@
             btnCancelar.TabIndex = 17;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // txtFiltroTurno
             // 
