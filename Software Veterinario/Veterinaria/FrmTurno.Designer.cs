@@ -49,7 +49,7 @@
             btnEliminar = new Button();
             btnAceptar = new Button();
             btnCancelar = new Button();
-            textBox1 = new TextBox();
+            txtFiltroTurno = new TextBox();
             dtpTurno = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dgvTurno).BeginInit();
             SuspendLayout();
@@ -97,6 +97,7 @@
             dgvTurno.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvTurno.Size = new Size(523, 520);
             dgvTurno.TabIndex = 0;
+            dgvTurno.SelectionChanged += dgvTurno_SelectionChanged;
             // 
             // lblPaciente
             // 
@@ -269,6 +270,7 @@
             btnAgregar.TabIndex = 13;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // btnModificar
             // 
@@ -283,6 +285,7 @@
             btnModificar.TabIndex = 14;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = false;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnEliminar
             // 
@@ -297,6 +300,7 @@
             btnEliminar.TabIndex = 15;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnAceptar
             // 
@@ -327,16 +331,17 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtFiltroTurno
             // 
-            textBox1.BackColor = Color.FromArgb(120, 120, 160);
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Font = new Font("Segoe UI", 10F);
-            textBox1.ForeColor = SystemColors.Window;
-            textBox1.Location = new Point(12, 11);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(261, 25);
-            textBox1.TabIndex = 18;
+            txtFiltroTurno.BackColor = Color.FromArgb(120, 120, 160);
+            txtFiltroTurno.BorderStyle = BorderStyle.FixedSingle;
+            txtFiltroTurno.Font = new Font("Segoe UI", 10F);
+            txtFiltroTurno.ForeColor = SystemColors.Window;
+            txtFiltroTurno.Location = new Point(12, 11);
+            txtFiltroTurno.Name = "txtFiltroTurno";
+            txtFiltroTurno.Size = new Size(261, 25);
+            txtFiltroTurno.TabIndex = 18;
+            txtFiltroTurno.TextChanged += txtFiltroTurno_TextChanged;
             // 
             // dtpTurno
             // 
@@ -352,7 +357,7 @@
             BackColor = Color.FromArgb(60, 60, 80);
             ClientSize = new Size(854, 605);
             Controls.Add(dtpTurno);
-            Controls.Add(textBox1);
+            Controls.Add(txtFiltroTurno);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(btnEliminar);
@@ -400,7 +405,7 @@
         private Button btnEliminar;
         private Button btnAceptar;
         private Button btnCancelar;
-        private TextBox textBox1;
+        private TextBox txtFiltroTurno;
         private DateTimePicker dtpTurno;
     }
 }

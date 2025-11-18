@@ -48,5 +48,66 @@ namespace Negocio
                 }
             }
         }
+        
+        public void Agregar(Turno t)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Insert into TURNOS (IdPaciente, IdVeterinario, IdServicio, FechaHoraInicio, IdEstado, NotasInternas)values(@IdPaciente, @IdVeterinario, @IdServicio, @Fecha, @IdEstado, @Notas)");
+                    datos.Parametros("@IdPaciente", t.Paciente.Id);
+                    datos.Parametros("IdVeterinario", t.Veterinario.Id);
+                    datos.Parametros("@IdServicio", t.Servicio.Id);
+                    datos.Parametros("@Fecha", t.FechaHoraInicio);
+                    datos.Parametros("@IdEstado", t.Estado.Id);
+                    datos.Parametros("@Notas", t.Notas);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+        public void Modificar(Turno t)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Update TURNOS set IdPaciente = @IdPaciente, IdVeterinario = @IdVeterinario, IdServicio = @IdServicio, FechaHoraInicio = @Fecha, IdEstado = @IdEstado, NotasInternas = @Notas Where Id = @Id");
+                    datos.Parametros("@IdPaciente", t.Paciente.Id);
+                    datos.Parametros("IdVeterinario", t.Veterinario.Id);
+                    datos.Parametros("@IdServicio", t.Servicio.Id);
+                    datos.Parametros("@Fecha", t.FechaHoraInicio);
+                    datos.Parametros("@IdEstado", t.Estado.Id);
+                    datos.Parametros("@Notas", t.Notas);
+                    datos.Parametros("@Id", t.Id);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+        public void Eliminar(int id)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Delete From TURNOS Where Id = @Id");
+                    datos.Parametros("@Id", id);
+                    datos.EjecutarConsulta();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+    
     }
 }
