@@ -38,7 +38,7 @@ namespace Veterinaria
         {
             dgvHistorial.Columns["Id"].Visible = false;
             dgvHistorial.Columns["Turno"].Width = 70;
-            dgvHistorial.Columns["PrecioFinal"].Width = 100;
+            dgvHistorial.Columns["PrecioFinal"].Width = 90;
         }
         private void CargarValoresModificar()
         {

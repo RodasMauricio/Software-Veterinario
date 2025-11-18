@@ -58,6 +58,8 @@ namespace Veterinaria
         {
             dgvTurno.Columns["Notas"].Visible = false;
             dgvTurno.Columns["Id"].Width = 50;
+            dgvTurno.Columns["Paciente"].Width = 70;
+            dgvTurno.Columns["Estado"].Width = 80;
         }
         private void CargarTurnosHoy()
         {

@@ -47,6 +47,8 @@ namespace Veterinaria
             dgvPaciente.Columns["Activo"].Visible = false;
             dgvPaciente.Columns["FechaNacimiento"].Visible = false;
             dgvPaciente.Columns["Observacion"].Visible = false;
+            dgvPaciente.Columns["Id"].Width = 50;
+            dgvPaciente.Columns["Sexo"].Width = 40;
         }
         private void CargarValoresModificar()
         {
