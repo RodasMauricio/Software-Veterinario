@@ -108,7 +108,6 @@
             // 
             // txtFiltroPaciente
             // 
-            txtFiltroPaciente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtFiltroPaciente.BackColor = Color.FromArgb(120, 120, 160);
             txtFiltroPaciente.BorderStyle = BorderStyle.FixedSingle;
             txtFiltroPaciente.Font = new Font("Segoe UI", 10F);

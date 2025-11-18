@@ -51,6 +51,7 @@
             btnCancelar = new Button();
             txtFiltroTurno = new TextBox();
             dtpTurno = new DateTimePicker();
+            btnActualizar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvTurno).BeginInit();
             SuspendLayout();
             // 
@@ -348,11 +349,29 @@
             // 
             // dtpTurno
             // 
-            dtpTurno.Location = new Point(307, 12);
+            dtpTurno.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            dtpTurno.Location = new Point(307, 13);
             dtpTurno.Name = "dtpTurno";
             dtpTurno.Size = new Size(228, 23);
             dtpTurno.TabIndex = 19;
             dtpTurno.ValueChanged += dtpTurno_ValueChanged;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnActualizar.BackColor = Color.FromArgb(120, 120, 160);
+            btnActualizar.FlatAppearance.BorderSize = 0;
+            btnActualizar.FlatStyle = FlatStyle.Flat;
+            btnActualizar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnActualizar.ForeColor = SystemColors.Window;
+            btnActualizar.Location = new Point(12, 572);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(22, 27);
+            btnActualizar.TabIndex = 20;
+            btnActualizar.Text = "↻";
+            btnActualizar.TextAlign = ContentAlignment.TopCenter;
+            btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // FrmTurno
             // 
@@ -360,6 +379,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 60, 80);
             ClientSize = new Size(854, 605);
+            Controls.Add(btnActualizar);
             Controls.Add(dtpTurno);
             Controls.Add(txtFiltroTurno);
             Controls.Add(btnCancelar);
@@ -411,5 +431,6 @@
         private Button btnCancelar;
         private TextBox txtFiltroTurno;
         private DateTimePicker dtpTurno;
+        private Button btnActualizar;
     }
 }

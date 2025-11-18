@@ -96,6 +96,7 @@
             // 
             // lblNombre
             // 
+            lblNombre.Anchor = AnchorStyles.Right;
             lblNombre.AutoSize = true;
             lblNombre.Enabled = false;
             lblNombre.Font = new Font("Segoe UI", 10F);
@@ -108,6 +109,7 @@
             // 
             // lblMatricula
             // 
+            lblMatricula.Anchor = AnchorStyles.Right;
             lblMatricula.AutoSize = true;
             lblMatricula.Enabled = false;
             lblMatricula.Font = new Font("Segoe UI", 10F);
@@ -120,6 +122,7 @@
             // 
             // lblEmail
             // 
+            lblEmail.Anchor = AnchorStyles.Right;
             lblEmail.AutoSize = true;
             lblEmail.Enabled = false;
             lblEmail.Font = new Font("Segoe UI", 10F);
@@ -132,6 +135,7 @@
             // 
             // lblTelefono
             // 
+            lblTelefono.Anchor = AnchorStyles.Right;
             lblTelefono.AutoSize = true;
             lblTelefono.Enabled = false;
             lblTelefono.Font = new Font("Segoe UI", 10F);
@@ -144,6 +148,7 @@
             // 
             // txtNombre
             // 
+            txtNombre.Anchor = AnchorStyles.Right;
             txtNombre.BackColor = Color.FromArgb(120, 120, 160);
             txtNombre.BorderStyle = BorderStyle.FixedSingle;
             txtNombre.Enabled = false;
@@ -158,6 +163,7 @@
             // 
             // txtMatricula
             // 
+            txtMatricula.Anchor = AnchorStyles.Right;
             txtMatricula.BackColor = Color.FromArgb(120, 120, 160);
             txtMatricula.BorderStyle = BorderStyle.FixedSingle;
             txtMatricula.Enabled = false;
@@ -172,6 +178,7 @@
             // 
             // txtEmail
             // 
+            txtEmail.Anchor = AnchorStyles.Right;
             txtEmail.BackColor = Color.FromArgb(120, 120, 160);
             txtEmail.BorderStyle = BorderStyle.FixedSingle;
             txtEmail.Enabled = false;
@@ -186,6 +193,7 @@
             // 
             // txtTelefono
             // 
+            txtTelefono.Anchor = AnchorStyles.Right;
             txtTelefono.BackColor = Color.FromArgb(120, 120, 160);
             txtTelefono.BorderStyle = BorderStyle.FixedSingle;
             txtTelefono.Enabled = false;
@@ -202,6 +210,7 @@
             // 
             // btnAgregar
             // 
+            btnAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAgregar.BackColor = Color.SeaGreen;
             btnAgregar.FlatAppearance.BorderSize = 0;
             btnAgregar.FlatStyle = FlatStyle.Flat;
@@ -216,6 +225,7 @@
             // 
             // btnModificar
             // 
+            btnModificar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnModificar.BackColor = Color.FromArgb(120, 120, 160);
             btnModificar.FlatAppearance.BorderSize = 0;
             btnModificar.FlatStyle = FlatStyle.Flat;
@@ -230,6 +240,7 @@
             // 
             // btnEliminar
             // 
+            btnEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEliminar.BackColor = Color.LightCoral;
             btnEliminar.FlatAppearance.BorderSize = 0;
             btnEliminar.FlatStyle = FlatStyle.Flat;
@@ -244,6 +255,7 @@
             // 
             // btnAceptar
             // 
+            btnAceptar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAceptar.BackColor = Color.FromArgb(120, 120, 160);
             btnAceptar.Enabled = false;
             btnAceptar.FlatAppearance.BorderSize = 0;
@@ -259,6 +271,7 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.BackColor = Color.FromArgb(120, 120, 160);
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatStyle = FlatStyle.Flat;

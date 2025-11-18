@@ -57,6 +57,7 @@ namespace Veterinaria
         private void AjustarOcultarColumnas()
         {
             dgvTurno.Columns["Notas"].Visible = false;
+            dgvTurno.Columns["Id"].Width = 50;
         }
         private void CargarTurnosHoy()
         {
@@ -136,7 +137,8 @@ namespace Veterinaria
             ClassHelper.ColorTxt(txtFiltroTurno);
             List<Turno> filtroRapido;
             string filtro = txtFiltroTurno.Text.ToUpper();
-            filtroRapido = listaTurno.FindAll(x => x.Id.ToString().ToUpper().Contains(filtro) || x.Paciente.Nombre.ToUpper().Contains(filtro));
+            filtroRapido = listaTurnoFechaSeleccionada.FindAll(x => x.Id.ToString().ToUpper().Contains(filtro) || x.Paciente.Nombre.ToUpper().Contains(filtro));
+            //filtroRapido = listaTurno.FindAll();
 
             dgvTurno.DataSource = null;
             dgvTurno.DataSource = filtroRapido;
@@ -243,6 +245,11 @@ namespace Veterinaria
         private void dtpTurno_ValueChanged(object sender, EventArgs e)
         {
             TurnoFechaSeleccionada();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            CargarTurnosHoy();
         }
     }
 }
