@@ -34,7 +34,7 @@ namespace Veterinaria
                 ctrl.Enabled = v;
             }
         }
-
+        
 
         public static void LimpiarTxt(params TextBox[] textboxs)
         {

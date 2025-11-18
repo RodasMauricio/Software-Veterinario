@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using Dominio;
 using Negocio;
 
@@ -88,6 +89,18 @@ namespace Veterinaria
             ClassHelper.HabilitarControles(v, txtIdTurno, txtMotivoConsulta, txtDiagnostico, txtTratamiento, txtPrecioFinal, btnAceptar);
         }
 
+        private bool ValidarTurno(int id)
+        {
+            NTurno nTurno = new NTurno();
+            List<Turno> listaTurno = nTurno.ListarTurnos();
+            foreach (var i in listaTurno)
+            {
+                if (id == i.Id)
+                    return true;
+            }
+            return false;
+        }
+
         private void txtFiltroHistorial_TextChanged(object sender, EventArgs e)
         {
             ClassHelper.ColorTxt(txtFiltroHistorial);
@@ -165,24 +178,31 @@ namespace Veterinaria
         {
             if (txtIdTurno.Text != "" && txtMotivoConsulta.Text != "" && txtDiagnostico.Text != "" && txtTratamiento.Text != "" && txtPrecioFinal.Text != "")
             {
-                DialogResult r = MessageBox.Show($"¿Desea {btnAceptar.Text} este historial asociado al turno nro ({txtIdTurno.Text})?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (r == DialogResult.Yes)
+                if (ValidarTurno(int.Parse(txtIdTurno.Text)))
                 {
-                    try
+                    DialogResult r = MessageBox.Show($"¿Desea {btnAceptar.Text} este historial asociado al turno nro ({txtIdTurno.Text})?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (r == DialogResult.Yes)
                     {
-                        InsertarValores();
-                        NHistorial nHistorial = new NHistorial();
-                        if (historial.Id > 0)
-                            nHistorial.Modificar(historial);
-                        else
-                            nHistorial.Agregar(historial);
-                        CargarFrm();
-                        AjustarOcultarColumnas();
+                        try
+                        {
+                            InsertarValores();
+                            NHistorial nHistorial = new NHistorial();
+                            if (historial.Id > 0)
+                                nHistorial.Modificar(historial);
+                            else
+                                nHistorial.Agregar(historial);
+                            CargarFrm();
+                            AjustarOcultarColumnas();
+                        }
+                        catch (Exception)
+                        {
+                            throw;
+                        }
                     }
-                    catch (Exception)
-                    {
-                        throw;
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("El Id del turno no existe.");
                 }
             }
             else

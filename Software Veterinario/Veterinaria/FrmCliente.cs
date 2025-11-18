@@ -83,7 +83,7 @@ namespace Veterinaria
                 btnPaciente.Text = "0";
             if (btnPaciente.Text == "0")
                 btnPaciente.Enabled = false;
-        } 
+        }
         private void InsertarValores()
         {
             if (cliente == null)
@@ -253,5 +253,20 @@ namespace Veterinaria
             MessageBox.Show("Id - Nombre:\n" + nombres, "Pacientes");
         }
 
+        private void txtDniCuit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar)) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar)) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

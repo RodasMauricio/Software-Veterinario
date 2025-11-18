@@ -194,9 +194,11 @@
             txtTelefono.Location = new Point(571, 362);
             txtTelefono.MaxLength = 50;
             txtTelefono.Name = "txtTelefono";
+            txtTelefono.ShortcutsEnabled = false;
             txtTelefono.Size = new Size(247, 25);
             txtTelefono.TabIndex = 8;
             txtTelefono.TextChanged += txtTelefono_TextChanged;
+            txtTelefono.KeyPress += txtTelefono_KeyPress;
             // 
             // btnAgregar
             // 
@@ -275,7 +277,7 @@
             txtFiltroVeterinario.BorderStyle = BorderStyle.FixedSingle;
             txtFiltroVeterinario.Font = new Font("Segoe UI", 10F);
             txtFiltroVeterinario.ForeColor = SystemColors.Window;
-            txtFiltroVeterinario.Location = new Point(16, 10);
+            txtFiltroVeterinario.Location = new Point(12, 9);
             txtFiltroVeterinario.Name = "txtFiltroVeterinario";
             txtFiltroVeterinario.Size = new Size(261, 25);
             txtFiltroVeterinario.TabIndex = 14;

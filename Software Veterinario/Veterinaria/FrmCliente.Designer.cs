@@ -204,9 +204,11 @@
             txtDniCuit.Location = new Point(571, 212);
             txtDniCuit.MaxLength = 20;
             txtDniCuit.Name = "txtDniCuit";
+            txtDniCuit.ShortcutsEnabled = false;
             txtDniCuit.Size = new Size(247, 25);
             txtDniCuit.TabIndex = 8;
             txtDniCuit.TextChanged += txtDniCuit_TextChanged;
+            txtDniCuit.KeyPress += txtDniCuit_KeyPress;
             // 
             // txtEmail
             // 
@@ -234,9 +236,11 @@
             txtTelefono.Location = new Point(571, 316);
             txtTelefono.MaxLength = 50;
             txtTelefono.Name = "txtTelefono";
+            txtTelefono.ShortcutsEnabled = false;
             txtTelefono.Size = new Size(247, 25);
             txtTelefono.TabIndex = 10;
             txtTelefono.TextChanged += txtTelefono_TextChanged;
+            txtTelefono.KeyPress += txtTelefono_KeyPress;
             // 
             // txtDireccion
             // 

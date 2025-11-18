@@ -368,6 +368,7 @@
             txtPeso.Location = new Point(571, 410);
             txtPeso.MaxLength = 50;
             txtPeso.Name = "txtPeso";
+            txtPeso.ShortcutsEnabled = false;
             txtPeso.Size = new Size(228, 25);
             txtPeso.TabIndex = 19;
             txtPeso.TextChanged += txtPeso_TextChanged;
