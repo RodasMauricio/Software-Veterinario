@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             menuVertical = new Panel();
+            lblHora = new Label();
             btnServicios = new Button();
             btnVeterinarios = new Button();
             btnHistorial = new Button();
             btnTurnos = new Button();
             btnPacientes = new Button();
             btnClientes = new Button();
-            button1 = new Button();
+            btnMain = new Button();
+            lblFecha = new Label();
             barraTitulo = new Panel();
             btnMaximizar = new Button();
             btnMinimizar = new Button();
@@ -44,6 +47,7 @@
             btnX = new Button();
             btnSlide = new Label();
             panelContenedor = new Panel();
+            tmHoraFecha = new System.Windows.Forms.Timer(components);
             menuVertical.SuspendLayout();
             barraTitulo.SuspendLayout();
             SuspendLayout();
@@ -51,28 +55,42 @@
             // menuVertical
             // 
             menuVertical.BackColor = Color.FromArgb(40, 40, 60);
+            menuVertical.Controls.Add(lblHora);
             menuVertical.Controls.Add(btnServicios);
             menuVertical.Controls.Add(btnVeterinarios);
             menuVertical.Controls.Add(btnHistorial);
             menuVertical.Controls.Add(btnTurnos);
             menuVertical.Controls.Add(btnPacientes);
             menuVertical.Controls.Add(btnClientes);
-            menuVertical.Controls.Add(button1);
+            menuVertical.Controls.Add(btnMain);
             menuVertical.Dock = DockStyle.Left;
             menuVertical.Location = new Point(0, 0);
             menuVertical.Name = "menuVertical";
             menuVertical.Size = new Size(170, 640);
             menuVertical.TabIndex = 0;
             // 
+            // lblHora
+            // 
+            lblHora.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblHora.AutoSize = true;
+            lblHora.Font = new Font("Segoe UI", 14F);
+            lblHora.ForeColor = SystemColors.Window;
+            lblHora.Location = new Point(-3, 614);
+            lblHora.Name = "lblHora";
+            lblHora.Size = new Size(53, 25);
+            lblHora.TabIndex = 0;
+            lblHora.Text = "Hora";
+            // 
             // btnServicios
             // 
+            btnServicios.Anchor = AnchorStyles.Left;
             btnServicios.FlatAppearance.BorderSize = 0;
             btnServicios.FlatStyle = FlatStyle.Flat;
             btnServicios.Font = new Font("Segoe UI", 12F);
             btnServicios.ForeColor = SystemColors.Window;
             btnServicios.Image = (Image)resources.GetObject("btnServicios.Image");
             btnServicios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnServicios.Location = new Point(0, 377);
+            btnServicios.Location = new Point(0, 390);
             btnServicios.Name = "btnServicios";
             btnServicios.Size = new Size(170, 38);
             btnServicios.TabIndex = 6;
@@ -83,13 +101,14 @@
             // 
             // btnVeterinarios
             // 
+            btnVeterinarios.Anchor = AnchorStyles.Left;
             btnVeterinarios.FlatAppearance.BorderSize = 0;
             btnVeterinarios.FlatStyle = FlatStyle.Flat;
             btnVeterinarios.Font = new Font("Segoe UI", 12F);
             btnVeterinarios.ForeColor = SystemColors.Window;
             btnVeterinarios.Image = (Image)resources.GetObject("btnVeterinarios.Image");
             btnVeterinarios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVeterinarios.Location = new Point(0, 339);
+            btnVeterinarios.Location = new Point(0, 352);
             btnVeterinarios.Name = "btnVeterinarios";
             btnVeterinarios.Size = new Size(170, 38);
             btnVeterinarios.TabIndex = 5;
@@ -100,13 +119,14 @@
             // 
             // btnHistorial
             // 
+            btnHistorial.Anchor = AnchorStyles.Left;
             btnHistorial.FlatAppearance.BorderSize = 0;
             btnHistorial.FlatStyle = FlatStyle.Flat;
             btnHistorial.Font = new Font("Segoe UI", 12F);
             btnHistorial.ForeColor = SystemColors.Window;
             btnHistorial.Image = (Image)resources.GetObject("btnHistorial.Image");
             btnHistorial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHistorial.Location = new Point(0, 301);
+            btnHistorial.Location = new Point(0, 314);
             btnHistorial.Name = "btnHistorial";
             btnHistorial.Size = new Size(170, 38);
             btnHistorial.TabIndex = 4;
@@ -117,13 +137,14 @@
             // 
             // btnTurnos
             // 
+            btnTurnos.Anchor = AnchorStyles.Left;
             btnTurnos.FlatAppearance.BorderSize = 0;
             btnTurnos.FlatStyle = FlatStyle.Flat;
             btnTurnos.Font = new Font("Segoe UI", 12F);
             btnTurnos.ForeColor = SystemColors.Window;
             btnTurnos.Image = (Image)resources.GetObject("btnTurnos.Image");
             btnTurnos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTurnos.Location = new Point(0, 263);
+            btnTurnos.Location = new Point(0, 276);
             btnTurnos.Name = "btnTurnos";
             btnTurnos.Size = new Size(170, 38);
             btnTurnos.TabIndex = 3;
@@ -134,13 +155,14 @@
             // 
             // btnPacientes
             // 
+            btnPacientes.Anchor = AnchorStyles.Left;
             btnPacientes.FlatAppearance.BorderSize = 0;
             btnPacientes.FlatStyle = FlatStyle.Flat;
             btnPacientes.Font = new Font("Segoe UI", 12F);
             btnPacientes.ForeColor = SystemColors.Window;
             btnPacientes.Image = (Image)resources.GetObject("btnPacientes.Image");
             btnPacientes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPacientes.Location = new Point(0, 225);
+            btnPacientes.Location = new Point(0, 238);
             btnPacientes.Name = "btnPacientes";
             btnPacientes.Size = new Size(170, 38);
             btnPacientes.TabIndex = 2;
@@ -151,13 +173,14 @@
             // 
             // btnClientes
             // 
+            btnClientes.Anchor = AnchorStyles.Left;
             btnClientes.FlatAppearance.BorderSize = 0;
             btnClientes.FlatStyle = FlatStyle.Flat;
             btnClientes.Font = new Font("Segoe UI", 12F);
             btnClientes.ForeColor = SystemColors.Window;
             btnClientes.Image = (Image)resources.GetObject("btnClientes.Image");
             btnClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnClientes.Location = new Point(0, 187);
+            btnClientes.Location = new Point(0, 200);
             btnClientes.Name = "btnClientes";
             btnClientes.Size = new Size(170, 38);
             btnClientes.TabIndex = 1;
@@ -166,27 +189,41 @@
             btnClientes.UseVisualStyleBackColor = true;
             btnClientes.Click += btnClientes_Click;
             // 
-            // button1
+            // btnMain
             // 
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.Window;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(0, 9);
-            button1.Name = "button1";
-            button1.Size = new Size(177, 68);
-            button1.TabIndex = 0;
-            button1.Text = "VetApp";
-            button1.TextAlign = ContentAlignment.MiddleRight;
-            button1.UseVisualStyleBackColor = true;
+            btnMain.FlatAppearance.BorderSize = 0;
+            btnMain.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnMain.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnMain.FlatStyle = FlatStyle.Flat;
+            btnMain.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMain.ForeColor = SystemColors.Window;
+            btnMain.Image = (Image)resources.GetObject("btnMain.Image");
+            btnMain.ImageAlign = ContentAlignment.MiddleLeft;
+            btnMain.Location = new Point(0, 9);
+            btnMain.Name = "btnMain";
+            btnMain.Size = new Size(177, 68);
+            btnMain.TabIndex = 0;
+            btnMain.Text = "VetApp";
+            btnMain.TextAlign = ContentAlignment.MiddleRight;
+            btnMain.UseVisualStyleBackColor = true;
+            // 
+            // lblFecha
+            // 
+            lblFecha.Anchor = AnchorStyles.Top;
+            lblFecha.AutoSize = true;
+            lblFecha.FlatStyle = FlatStyle.Flat;
+            lblFecha.Font = new Font("Segoe UI", 10F);
+            lblFecha.ForeColor = SystemColors.Window;
+            lblFecha.Location = new Point(302, 9);
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(44, 19);
+            lblFecha.TabIndex = 1;
+            lblFecha.Text = "Fecha";
             // 
             // barraTitulo
             // 
             barraTitulo.BackColor = Color.FromArgb(55, 55, 75);
+            barraTitulo.Controls.Add(lblFecha);
             barraTitulo.Controls.Add(btnMaximizar);
             barraTitulo.Controls.Add(btnMinimizar);
             barraTitulo.Controls.Add(btnNormal);
@@ -281,6 +318,11 @@
             panelContenedor.Size = new Size(854, 605);
             panelContenedor.TabIndex = 2;
             // 
+            // tmHoraFecha
+            // 
+            tmHoraFecha.Enabled = true;
+            tmHoraFecha.Tick += tmHoraFecha_Tick;
+            // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -296,6 +338,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmMain";
             menuVertical.ResumeLayout(false);
+            menuVertical.PerformLayout();
             barraTitulo.ResumeLayout(false);
             barraTitulo.PerformLayout();
             ResumeLayout(false);
@@ -311,12 +354,15 @@
         private Button btnMinimizar;
         private Button btnNormal;
         private Panel panelContenedor;
-        private Button button1;
+        private Button btnMain;
         private Button btnTurnos;
         private Button btnPacientes;
         private Button btnClientes;
         private Button btnServicios;
         private Button btnVeterinarios;
         private Button btnHistorial;
+        private Label lblHora;
+        private Label lblFecha;
+        private System.Windows.Forms.Timer tmHoraFecha;
     }
 }

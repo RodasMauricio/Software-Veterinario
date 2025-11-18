@@ -152,5 +152,12 @@ namespace Veterinaria
             AbrirFormHijo(new FrmServicio());
             btnFormColor(ref btnServicios);
         }
+
+        private void tmHoraFecha_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToString("HH:mm:ss");
+            //lblFecha.Text = DateTime.Now.ToString("dddd dd MMMM yyyy");
+            lblFecha.Text = DateTime.Now.ToLongDateString();
+        }
     }
 }
