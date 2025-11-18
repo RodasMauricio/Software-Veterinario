@@ -352,6 +352,7 @@
             dtpTurno.Name = "dtpTurno";
             dtpTurno.Size = new Size(228, 23);
             dtpTurno.TabIndex = 19;
+            dtpTurno.ValueChanged += dtpTurno_ValueChanged;
             // 
             // FrmTurno
             // 

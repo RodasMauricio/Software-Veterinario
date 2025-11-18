@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -20,8 +21,11 @@ namespace Veterinaria
         private List<Veterinario> listaVeterinario;
         private List<Servicio> listaServicio;
         private List<EstadoTurno> listaEstadoTurno;
+        private List<Turno> listaTurnoFechaSeleccionada;
         private Turno turno = null;
         private Turno turnoSeleccion;
+        private DateTime fechaHoy;
+        private DateTime fechaSeleccionada;
         public FrmTurno()
         {
             InitializeComponent();
@@ -33,6 +37,7 @@ namespace Veterinaria
         }
         private void CargarFrm()
         {
+            fechaHoy = dtpFecha.Value;
             NTurno nTurno = new NTurno();
             NPaciente nPaciente = new NPaciente();
             NVeterinario nVeterinario = new NVeterinario();
@@ -43,7 +48,7 @@ namespace Veterinaria
             listaVeterinario = nVeterinario.ListarVeterinarios();
             listaServicio = nServicio.ListarServicios();
             listaEstadoTurno = nEstadoTurno.ListarEstadoTurno();
-            dgvTurno.DataSource = listaTurno;
+            CargarTurnosHoy();
             ClassHelper.CargarCbx(cbPaciente, listaPaciente, "Id", "Nombre");
             ClassHelper.CargarCbx(cbVeterinario, listaVeterinario, "Id", "Nombre");
             ClassHelper.CargarCbx(cbServicio, listaServicio, "Id", "Nombre");
@@ -52,6 +57,34 @@ namespace Veterinaria
         private void AjustarOcultarColumnas()
         {
             dgvTurno.Columns["Notas"].Visible = false;
+        }
+        private void CargarTurnosHoy()
+        {
+            listaTurnoFechaSeleccionada = new List<Turno>();
+            foreach (Turno t in listaTurno)
+            {
+                if (t.FechaHoraInicio.Date == fechaHoy.Date)
+                {
+                    listaTurnoFechaSeleccionada.Add(t);
+                }
+            }
+            dgvTurno.DataSource = null;
+            dgvTurno.DataSource = listaTurnoFechaSeleccionada;
+            dtpTurno.Value = DateTime.Now;
+            AjustarOcultarColumnas();
+        }
+        private void TurnoFechaSeleccionada()
+        {
+            fechaSeleccionada = dtpTurno.Value;
+            listaTurnoFechaSeleccionada = new List<Turno>();
+            foreach (Turno t in listaTurno)
+            {
+                if (t.FechaHoraInicio.Date == fechaSeleccionada.Date)
+                    listaTurnoFechaSeleccionada.Add(t);
+            }
+            dgvTurno.DataSource = null;
+            dgvTurno.DataSource = listaTurnoFechaSeleccionada;
+            AjustarOcultarColumnas();
         }
         private void CargarValoresModificar()
         {
@@ -160,6 +193,7 @@ namespace Veterinaria
                         nTurno.Eliminar(turnoSeleccion.Id);
                         CargarFrm();
                         AjustarOcultarColumnas();
+                        LimpiarCarga();
                     }
                 }
                 catch (Exception)
@@ -186,6 +220,7 @@ namespace Veterinaria
                             nturno.Agregar(turno);
                         CargarFrm();
                         AjustarOcultarColumnas();
+                        LimpiarCarga();
                     }
                     catch (Exception)
                     {
@@ -205,5 +240,9 @@ namespace Veterinaria
             ClassHelper.ColorTxt(txtNotas);
         }
 
+        private void dtpTurno_ValueChanged(object sender, EventArgs e)
+        {
+            TurnoFechaSeleccionada();
+        }
     }
 }
