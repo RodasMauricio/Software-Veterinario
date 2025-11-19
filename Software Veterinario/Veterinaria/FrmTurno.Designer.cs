@@ -52,6 +52,8 @@
             txtFiltroTurno = new TextBox();
             dtpTurno = new DateTimePicker();
             btnActualizar = new Button();
+            lblHorario = new Label();
+            cbHorario = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvTurno).BeginInit();
             SuspendLayout();
             // 
@@ -107,7 +109,7 @@
             lblPaciente.Enabled = false;
             lblPaciente.Font = new Font("Segoe UI", 10F);
             lblPaciente.ForeColor = SystemColors.Window;
-            lblPaciente.Location = new Point(563, 100);
+            lblPaciente.Location = new Point(563, 79);
             lblPaciente.Name = "lblPaciente";
             lblPaciente.Size = new Size(60, 19);
             lblPaciente.TabIndex = 1;
@@ -120,7 +122,7 @@
             lblVeterinario.Enabled = false;
             lblVeterinario.Font = new Font("Segoe UI", 10F);
             lblVeterinario.ForeColor = SystemColors.Window;
-            lblVeterinario.Location = new Point(562, 153);
+            lblVeterinario.Location = new Point(562, 132);
             lblVeterinario.Name = "lblVeterinario";
             lblVeterinario.Size = new Size(75, 19);
             lblVeterinario.TabIndex = 2;
@@ -133,7 +135,7 @@
             lblServicio.Enabled = false;
             lblServicio.Font = new Font("Segoe UI", 10F);
             lblServicio.ForeColor = SystemColors.Window;
-            lblServicio.Location = new Point(562, 205);
+            lblServicio.Location = new Point(562, 184);
             lblServicio.Name = "lblServicio";
             lblServicio.Size = new Size(55, 19);
             lblServicio.TabIndex = 3;
@@ -146,7 +148,7 @@
             lblFecha.Enabled = false;
             lblFecha.Font = new Font("Segoe UI", 10F);
             lblFecha.ForeColor = SystemColors.Window;
-            lblFecha.Location = new Point(562, 258);
+            lblFecha.Location = new Point(562, 237);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(44, 19);
             lblFecha.TabIndex = 4;
@@ -159,7 +161,7 @@
             lblEstado.Enabled = false;
             lblEstado.Font = new Font("Segoe UI", 10F);
             lblEstado.ForeColor = SystemColors.Window;
-            lblEstado.Location = new Point(562, 310);
+            lblEstado.Location = new Point(562, 342);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(50, 19);
             lblEstado.TabIndex = 5;
@@ -172,7 +174,7 @@
             lblNotas.Enabled = false;
             lblNotas.Font = new Font("Segoe UI", 10F);
             lblNotas.ForeColor = SystemColors.Window;
-            lblNotas.Location = new Point(562, 363);
+            lblNotas.Location = new Point(562, 397);
             lblNotas.Name = "lblNotas";
             lblNotas.Size = new Size(45, 19);
             lblNotas.TabIndex = 6;
@@ -182,12 +184,15 @@
             // 
             cbPaciente.Anchor = AnchorStyles.Right;
             cbPaciente.BackColor = Color.FromArgb(120, 120, 160);
+            cbPaciente.DropDownHeight = 90;
             cbPaciente.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPaciente.Enabled = false;
             cbPaciente.Font = new Font("Segoe UI", 10F);
             cbPaciente.ForeColor = SystemColors.Window;
             cbPaciente.FormattingEnabled = true;
-            cbPaciente.Location = new Point(567, 122);
+            cbPaciente.IntegralHeight = false;
+            cbPaciente.Location = new Point(567, 101);
+            cbPaciente.MaxDropDownItems = 5;
             cbPaciente.Name = "cbPaciente";
             cbPaciente.Size = new Size(255, 25);
             cbPaciente.TabIndex = 7;
@@ -196,12 +201,15 @@
             // 
             cbVeterinario.Anchor = AnchorStyles.Right;
             cbVeterinario.BackColor = Color.FromArgb(120, 120, 160);
+            cbVeterinario.DropDownHeight = 90;
             cbVeterinario.DropDownStyle = ComboBoxStyle.DropDownList;
             cbVeterinario.Enabled = false;
             cbVeterinario.Font = new Font("Segoe UI", 10F);
             cbVeterinario.ForeColor = SystemColors.Window;
             cbVeterinario.FormattingEnabled = true;
-            cbVeterinario.Location = new Point(567, 176);
+            cbVeterinario.IntegralHeight = false;
+            cbVeterinario.Location = new Point(567, 155);
+            cbVeterinario.MaxDropDownItems = 5;
             cbVeterinario.Name = "cbVeterinario";
             cbVeterinario.Size = new Size(255, 25);
             cbVeterinario.TabIndex = 8;
@@ -210,12 +218,15 @@
             // 
             cbServicio.Anchor = AnchorStyles.Right;
             cbServicio.BackColor = Color.FromArgb(120, 120, 160);
+            cbServicio.DropDownHeight = 90;
             cbServicio.DropDownStyle = ComboBoxStyle.DropDownList;
             cbServicio.Enabled = false;
             cbServicio.Font = new Font("Segoe UI", 10F);
             cbServicio.ForeColor = SystemColors.Window;
             cbServicio.FormattingEnabled = true;
-            cbServicio.Location = new Point(567, 228);
+            cbServicio.IntegralHeight = false;
+            cbServicio.Location = new Point(567, 207);
+            cbServicio.MaxDropDownItems = 5;
             cbServicio.Name = "cbServicio";
             cbServicio.Size = new Size(255, 25);
             cbServicio.TabIndex = 9;
@@ -224,12 +235,15 @@
             // 
             cbEstado.Anchor = AnchorStyles.Right;
             cbEstado.BackColor = Color.FromArgb(120, 120, 160);
+            cbEstado.DropDownHeight = 90;
             cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.Enabled = false;
             cbEstado.Font = new Font("Segoe UI", 10F);
             cbEstado.ForeColor = SystemColors.Window;
             cbEstado.FormattingEnabled = true;
-            cbEstado.Location = new Point(567, 331);
+            cbEstado.IntegralHeight = false;
+            cbEstado.Location = new Point(567, 363);
+            cbEstado.MaxDropDownItems = 5;
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(255, 25);
             cbEstado.TabIndex = 10;
@@ -242,7 +256,7 @@
             txtNotas.Enabled = false;
             txtNotas.Font = new Font("Segoe UI", 10F);
             txtNotas.ForeColor = SystemColors.Window;
-            txtNotas.Location = new Point(567, 384);
+            txtNotas.Location = new Point(567, 419);
             txtNotas.MaxLength = 250;
             txtNotas.Multiline = true;
             txtNotas.Name = "txtNotas";
@@ -254,7 +268,7 @@
             // 
             dtpFecha.Anchor = AnchorStyles.Right;
             dtpFecha.Enabled = false;
-            dtpFecha.Location = new Point(567, 280);
+            dtpFecha.Location = new Point(567, 259);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(255, 23);
             dtpFecha.TabIndex = 12;
@@ -373,12 +387,42 @@
             btnActualizar.UseVisualStyleBackColor = false;
             btnActualizar.Click += btnActualizar_Click;
             // 
+            // lblHorario
+            // 
+            lblHorario.AutoSize = true;
+            lblHorario.Enabled = false;
+            lblHorario.Font = new Font("Segoe UI", 10F);
+            lblHorario.ForeColor = SystemColors.Window;
+            lblHorario.Location = new Point(562, 289);
+            lblHorario.Name = "lblHorario";
+            lblHorario.Size = new Size(55, 19);
+            lblHorario.TabIndex = 21;
+            lblHorario.Text = "Horario";
+            // 
+            // cbHorario
+            // 
+            cbHorario.BackColor = Color.FromArgb(120, 120, 160);
+            cbHorario.DropDownHeight = 90;
+            cbHorario.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbHorario.Enabled = false;
+            cbHorario.Font = new Font("Segoe UI", 10F);
+            cbHorario.ForeColor = SystemColors.Window;
+            cbHorario.FormattingEnabled = true;
+            cbHorario.IntegralHeight = false;
+            cbHorario.Location = new Point(567, 310);
+            cbHorario.MaxDropDownItems = 5;
+            cbHorario.Name = "cbHorario";
+            cbHorario.Size = new Size(255, 25);
+            cbHorario.TabIndex = 22;
+            // 
             // FrmTurno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 60, 80);
             ClientSize = new Size(854, 605);
+            Controls.Add(cbHorario);
+            Controls.Add(lblHorario);
             Controls.Add(btnActualizar);
             Controls.Add(dtpTurno);
             Controls.Add(txtFiltroTurno);
@@ -432,5 +476,7 @@
         private TextBox txtFiltroTurno;
         private DateTimePicker dtpTurno;
         private Button btnActualizar;
+        private Label lblHorario;
+        private ComboBox cbHorario;
     }
 }

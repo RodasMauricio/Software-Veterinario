@@ -392,12 +392,15 @@
             // 
             cbEspecie.Anchor = AnchorStyles.Right;
             cbEspecie.BackColor = Color.FromArgb(120, 120, 160);
+            cbEspecie.DropDownHeight = 90;
             cbEspecie.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEspecie.Enabled = false;
             cbEspecie.Font = new Font("Segoe UI", 10F);
             cbEspecie.ForeColor = SystemColors.Window;
             cbEspecie.FormattingEnabled = true;
+            cbEspecie.IntegralHeight = false;
             cbEspecie.Location = new Point(571, 153);
+            cbEspecie.MaxDropDownItems = 5;
             cbEspecie.Name = "cbEspecie";
             cbEspecie.Size = new Size(228, 25);
             cbEspecie.TabIndex = 21;
@@ -406,12 +409,15 @@
             // 
             cbRaza.Anchor = AnchorStyles.Right;
             cbRaza.BackColor = Color.FromArgb(120, 120, 160);
+            cbRaza.DropDownHeight = 90;
             cbRaza.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRaza.Enabled = false;
             cbRaza.Font = new Font("Segoe UI", 10F);
             cbRaza.ForeColor = SystemColors.Window;
             cbRaza.FormattingEnabled = true;
+            cbRaza.IntegralHeight = false;
             cbRaza.Location = new Point(571, 195);
+            cbRaza.MaxDropDownItems = 5;
             cbRaza.Name = "cbRaza";
             cbRaza.Size = new Size(228, 25);
             cbRaza.TabIndex = 22;
@@ -420,12 +426,15 @@
             // 
             cbCliente.Anchor = AnchorStyles.Right;
             cbCliente.BackColor = Color.FromArgb(120, 120, 160);
+            cbCliente.DropDownHeight = 90;
             cbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCliente.Enabled = false;
             cbCliente.Font = new Font("Segoe UI", 10F);
             cbCliente.ForeColor = SystemColors.Window;
             cbCliente.FormattingEnabled = true;
+            cbCliente.IntegralHeight = false;
             cbCliente.Location = new Point(571, 237);
+            cbCliente.MaxDropDownItems = 5;
             cbCliente.Name = "cbCliente";
             cbCliente.Size = new Size(228, 25);
             cbCliente.TabIndex = 23;

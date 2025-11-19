@@ -5,6 +5,7 @@ using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,7 @@ namespace Veterinaria
             ClassHelper.CargarCbx(cbVeterinario, listaVeterinario, "Id", "Nombre");
             ClassHelper.CargarCbx(cbServicio, listaServicio, "Id", "Nombre");
             ClassHelper.CargarCbx(cbEstado, listaEstadoTurno, "Id", "Descripcion");
+            CargarHorario();
         }
         private void AjustarOcultarColumnas()
         {
@@ -75,6 +77,17 @@ namespace Veterinaria
             dgvTurno.DataSource = listaTurnoFechaSeleccionada;
             dtpTurno.Value = DateTime.Now;
             AjustarOcultarColumnas();
+        }
+        private void CargarHorario()
+        {
+            cbHorario.Items.Clear();
+            DateTime hora = new DateTime(1, 1, 1, 7, 0, 0);
+            DateTime fin = new DateTime(1, 1, 1, 14, 45, 0);
+            while (hora <= fin)
+            {
+                cbHorario.Items.Add(hora.ToString("HH:mm"));
+                hora = hora.AddMinutes(15);
+            }
         }
         private void TurnoFechaSeleccionada()
         {
@@ -118,7 +131,7 @@ namespace Veterinaria
         private void LimpiarCarga()
         {
             dtpFecha.Value = DateTime.Now;
-            ClassHelper.LimpiarCbx(cbPaciente, cbVeterinario, cbServicio, cbEstado);
+            ClassHelper.LimpiarCbx(cbPaciente, cbVeterinario, cbServicio, cbHorario, cbEstado);
             ClassHelper.LimpiarTxt(txtNotas);
             btnAceptar.Text = "Aceptar";
         }
@@ -130,8 +143,8 @@ namespace Veterinaria
 
         private void BloqueoAgregarModificar(bool v)
         {
-            ClassHelper.HabilitarLbl(v, lblPaciente, lblVeterinario, lblServicio, lblFecha, lblEstado, lblNotas);
-            ClassHelper.HabilitarControles(v, cbPaciente, cbVeterinario, cbServicio, dtpFecha, cbEstado, txtNotas, btnAceptar);
+            ClassHelper.HabilitarLbl(v, lblPaciente, lblVeterinario, lblServicio, lblFecha,lblHorario, lblEstado, lblNotas);
+            ClassHelper.HabilitarControles(v, cbPaciente, cbVeterinario, cbServicio, dtpFecha, cbHorario, cbEstado, txtNotas, btnAceptar);
         }
 
         private void txtFiltroTurno_TextChanged(object sender, EventArgs e)
