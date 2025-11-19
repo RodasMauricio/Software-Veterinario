@@ -16,7 +16,7 @@ namespace Negocio
                 List<Turno> listaTurnos = new List<Turno>();
                 try
                 {
-                    datos.Consulta("Select T.Id, P.Id IdPaciente, P.Nombre Paciente, V.Id IdVeterinario, V.Nombre Veterinario, S.Id IdServicio, S.Nombre Servicio, T.FechaHoraInicio, E.Id IdEstado, E.Descripcion Estado, T.NotasInternas From TURNOS T, PACIENTES P, VETERINARIOS V, SERVICIOS S, ESTADOS_TURNO E Where T.IdPaciente = P.Id And T.IdVeterinario = V.Id And T.IdServicio = S.Id And T.IdEstado = E.Id");
+                    datos.Consulta("Select T.Id, P.Id IdPaciente, P.Nombre Paciente, V.Id IdVeterinario, V.Nombre Veterinario, S.Id IdServicio, S.Nombre Servicio, T.FechaHoraInicio, E.Id IdEstado, E.Descripcion Estado, T.NotasInternas From TURNOS T, PACIENTES P, VETERINARIOS V, SERVICIOS S, ESTADOS_TURNO E Where T.IdPaciente = P.Id And T.IdVeterinario = V.Id And T.IdServicio = S.Id And T.IdEstado = E.Id ORDER BY FechaHoraInicio ASC");
                     datos.EjecutarConsulta();
                     while (datos.Lector.Read())
                     {

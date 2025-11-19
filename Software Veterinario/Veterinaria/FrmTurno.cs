@@ -108,6 +108,9 @@ namespace Veterinaria
             cbVeterinario.SelectedValue = turno.Veterinario.Id;
             cbServicio.SelectedValue = turno.Servicio.Id;
             dtpFecha.Value = turno.FechaHoraInicio;
+            int i = cbHorario.FindStringExact(turno.FechaHoraInicio.ToString("HH:mm"));
+            if (i != -1)
+                cbHorario.SelectedIndex = i;
             cbEstado.SelectedValue = turno.Estado.Id;
             txtNotas.Text = turno.Notas;
         }
@@ -124,7 +127,9 @@ namespace Veterinaria
             turno.Paciente = (Paciente)cbPaciente.SelectedItem;
             turno.Veterinario = (Veterinario)cbVeterinario.SelectedItem;
             turno.Servicio = (Servicio)cbServicio.SelectedItem;
-            turno.FechaHoraInicio = dtpFecha.Value;
+            DateTime fecha = dtpFecha.Value.Date;
+            TimeSpan horaSeleccion = TimeSpan.Parse(cbHorario.SelectedItem.ToString());
+            turno.FechaHoraInicio = fecha.Add(horaSeleccion);
             turno.Estado = (EstadoTurno)cbEstado.SelectedItem;
             turno.Notas = txtNotas.Text;
         }
@@ -222,7 +227,7 @@ namespace Veterinaria
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (cbPaciente.SelectedIndex != -1 && cbVeterinario.SelectedIndex != -1 && cbServicio.SelectedIndex != -1 && cbEstado.SelectedIndex != -1 && txtNotas.Text != "")
+            if (cbPaciente.SelectedIndex != -1 && cbVeterinario.SelectedIndex != -1 && cbServicio.SelectedIndex != -1 && cbHorario.SelectedIndex != -1 && cbEstado.SelectedIndex != -1 && txtNotas.Text != "")
             {
                 DialogResult r = MessageBox.Show($"¿Desea {btnAceptar.Text} este turno?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r == DialogResult.Yes)
@@ -244,6 +249,10 @@ namespace Veterinaria
                         throw;
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Faltan datos por ingresar.\nRevise (Paciente - Veterinario - Servicio - Fecha - Horario - Estado)");
             }
         }
         private void btnCancelar_Click(object sender, EventArgs e)

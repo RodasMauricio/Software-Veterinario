@@ -389,6 +389,7 @@
             // 
             // lblHorario
             // 
+            lblHorario.Anchor = AnchorStyles.Right;
             lblHorario.AutoSize = true;
             lblHorario.Enabled = false;
             lblHorario.Font = new Font("Segoe UI", 10F);
@@ -401,6 +402,7 @@
             // 
             // cbHorario
             // 
+            cbHorario.Anchor = AnchorStyles.Right;
             cbHorario.BackColor = Color.FromArgb(120, 120, 160);
             cbHorario.DropDownHeight = 90;
             cbHorario.DropDownStyle = ComboBoxStyle.DropDownList;
