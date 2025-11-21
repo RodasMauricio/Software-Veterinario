@@ -64,6 +64,7 @@
             // dgvPaciente
             // 
             dgvPaciente.AllowUserToResizeColumns = false;
+            dgvPaciente.AllowUserToResizeRows = false;
             dgvPaciente.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvPaciente.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPaciente.BackgroundColor = Color.FromArgb(120, 120, 160);

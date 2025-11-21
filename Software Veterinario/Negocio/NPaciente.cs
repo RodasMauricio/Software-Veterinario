@@ -16,7 +16,10 @@ namespace Negocio
                 List<Paciente> listaPacientes = new List<Paciente>();
                 try
                 {
-                    datos.Consulta("Select P.Id, P.Nombre, E.Id IdEspecie, E.Descripcion Especie, R.Id IdRaza, R.Descripcion Raza, C.Id IdCliente, C.Nombre Cliente, P.FechaNacimiento, P.Sexo, P.ColorPelaje, P.Peso, P.ObservacionesGenerales, P.Activo From PACIENTES P, ESPECIES E, RAZAS R, CLIENTES C Where P.IdEspecie = E.Id and P.IdRaza = R.Id and P.IdCliente = C.Id and P.Activo = 1");
+                    //
+
+                    //Select P.Id, P.Nombre, E.Id IdEspecie, E.Descripcion Especie, R.Id IdRaza, R.Descripcion Raza, C.Id IdCliente, C.Nombre Cliente, P.FechaNacimiento, P.Sexo, P.ColorPelaje, P.Peso, P.ObservacionesGenerales, P.Activo From PACIENTES P, ESPECIES E, RAZAS R, CLIENTES C Where P.IdEspecie = E.Id and P.IdRaza = R.Id and P.IdCliente = C.Id and P.Activo = 1
+                    datos.Consulta("Select P.Id, P.Nombre, E.Id IdEspecie, E.Descripcion Especie, R.Id IdRaza, R.Descripcion Raza, C.Id IdCliente, C.Nombre Cliente, P.FechaNacimiento, P.Sexo, P.ColorPelaje, P.Peso, P.ObservacionesGenerales, P.Activo From PACIENTES P, ESPECIES E, RAZAS R, CLIENTES C Where P.IdEspecie = E.Id and P.IdRaza = R.Id and P.IdCliente = C.Id and P.Activo = 1 and C.Activo = 1");
                     datos.EjecutarConsulta();
                     while (datos.Lector.Read())
                     {

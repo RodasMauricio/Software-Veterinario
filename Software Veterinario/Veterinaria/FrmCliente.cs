@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ClientModel;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -172,6 +173,13 @@ namespace Veterinaria
                     DialogResult r = MessageBox.Show($"¿Desea eliminar este cliente ({clienteSeleccion.Nombre})?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (r == DialogResult.Yes)
                     {
+                        int n = CantidadPacientes();
+                        if (n > 0)
+                        {
+                            DialogResult x = MessageBox.Show($"Al eliminar a este cliente, también se eliminará al paciente asociado. ¿Desea continuar?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (!(x == DialogResult.Yes))
+                                return;
+                        }
                         NCliente nCliente = new NCliente();
                         nCliente.Eliminar(clienteSeleccion.Id);
                         CargarFrm();
