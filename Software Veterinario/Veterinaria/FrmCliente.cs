@@ -58,7 +58,7 @@ namespace Veterinaria
         }
         private int CantidadPacientes()
         {
-            listaPaciente = nPaciente.ListarPacientes();
+            listaPaciente = nPaciente.ListarPacientes(1);
             nombrePacientes = null;
             nombrePacientes = new List<string>();
             int cont = 0;
@@ -177,8 +177,16 @@ namespace Veterinaria
                         if (n > 0)
                         {
                             DialogResult x = MessageBox.Show($"Al eliminar a este cliente, también se eliminará al paciente asociado. ¿Desea continuar?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (!(x == DialogResult.Yes))
+                            if (x == DialogResult.No)
                                 return;
+                            foreach (Paciente p in listaPaciente)
+                            {
+                                if (clienteSeleccion.Id == p.Cliente.Id)
+                                {
+                                    NPaciente nPaciente = new NPaciente();
+                                    nPaciente.Eliminar(p.Id);
+                                }
+                            }
                         }
                         NCliente nCliente = new NCliente();
                         nCliente.Eliminar(clienteSeleccion.Id);

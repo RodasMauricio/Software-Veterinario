@@ -9,14 +9,16 @@ namespace Negocio
 {
     public class NPaciente
     {
-        public List<Paciente> ListarPacientes()
+        public List<Paciente> ListarPacientes(byte a)
         {
             using (AccesoDatos datos = new AccesoDatos())
             {
                 List<Paciente> listaPacientes = new List<Paciente>();
                 try
                 {
-                    datos.Consulta("Select P.Id, P.Nombre, E.Id IdEspecie, E.Descripcion Especie, R.Id IdRaza, R.Descripcion Raza, C.Id IdCliente, C.Nombre Cliente, P.FechaNacimiento, P.Sexo, P.ColorPelaje, P.Peso, P.ObservacionesGenerales, P.Activo From PACIENTES P, ESPECIES E, RAZAS R, CLIENTES C Where P.IdEspecie = E.Id and P.IdRaza = R.Id and P.IdCliente = C.Id and P.Activo = 1 and C.Activo = 1");
+                    string consulta = $"Select P.Id, P.Nombre, E.Id IdEspecie, E.Descripcion Especie, R.Id IdRaza, R.Descripcion Raza, C.Id IdCliente, C.Nombre Cliente, P.FechaNacimiento, P.Sexo, P.ColorPelaje, P.Peso, P.ObservacionesGenerales, P.Activo From PACIENTES P, ESPECIES E, RAZAS R, CLIENTES C Where P.IdEspecie = E.Id and P.IdRaza = R.Id and P.IdCliente = C.Id and P.Activo = {a}";
+
+                    datos.Consulta(consulta);
                     datos.EjecutarConsulta();
                     while (datos.Lector.Read())
                     {
@@ -122,6 +124,22 @@ namespace Negocio
             }
         }
 
-
+        public void Recuperar(int id)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Update PACIENTES set Activo = @Activo Where Id = @Id");
+                    datos.Parametros("@Activo", 1);
+                    datos.Parametros("@Id", id);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

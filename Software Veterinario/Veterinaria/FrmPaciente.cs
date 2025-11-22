@@ -35,7 +35,7 @@ namespace Veterinaria
             NEspecie nEspecie = new NEspecie();
             NRaza nRaza = new NRaza();
             NCliente nCliente = new NCliente();
-            listaPaciente = nPaciente.ListarPacientes();
+            listaPaciente = nPaciente.ListarPacientes(1);
             dgvPaciente.DataSource = listaPaciente;
             AjustarOcultarColumnas();
             ClassHelper.CargarCbx(cbEspecie, nEspecie.ListarEspecies(), "Id", "Descripcion");
@@ -269,6 +269,12 @@ namespace Veterinaria
             }
         }
 
-
+        private void btnEliminados_Click(object sender, EventArgs e)
+        {
+            FrmPacienteEliminado ventana = new FrmPacienteEliminado();
+            ventana.ShowDialog();
+            CargarFrm();
+            AjustarOcultarColumnas();
+        }
     }
 }

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            panel1 = new Panel();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            pnBarra = new Panel();
             dgvClienteEliminado = new DataGridView();
             txtFiltroClienteEliminado = new TextBox();
             lblX = new Label();
@@ -39,13 +39,13 @@
             ((System.ComponentModel.ISupportInitialize)dgvClienteEliminado).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // pnBarra
             // 
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(669, 30);
-            panel1.TabIndex = 1;
+            pnBarra.Dock = DockStyle.Top;
+            pnBarra.Location = new Point(0, 0);
+            pnBarra.Name = "pnBarra";
+            pnBarra.Size = new Size(669, 30);
+            pnBarra.TabIndex = 1;
             // 
             // dgvClienteEliminado
             // 
@@ -56,36 +56,36 @@
             dgvClienteEliminado.BackgroundColor = Color.FromArgb(120, 120, 160);
             dgvClienteEliminado.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             dgvClienteEliminado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(40, 40, 60);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(40, 40, 60);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Window;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvClienteEliminado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(40, 40, 60);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(40, 40, 60);
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvClienteEliminado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvClienteEliminado.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(74, 74, 91);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(120, 120, 160);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Window;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvClienteEliminado.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(74, 74, 91);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(120, 120, 160);
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvClienteEliminado.DefaultCellStyle = dataGridViewCellStyle5;
             dgvClienteEliminado.EnableHeadersVisualStyles = false;
             dgvClienteEliminado.Location = new Point(13, 73);
             dgvClienteEliminado.MultiSelect = false;
             dgvClienteEliminado.Name = "dgvClienteEliminado";
             dgvClienteEliminado.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(74, 74, 91);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(120, 120, 160);
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvClienteEliminado.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(74, 74, 91);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(120, 120, 160);
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvClienteEliminado.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvClienteEliminado.RowHeadersVisible = false;
             dgvClienteEliminado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvClienteEliminado.Size = new Size(644, 410);
@@ -141,7 +141,7 @@
             Controls.Add(lblX);
             Controls.Add(txtFiltroClienteEliminado);
             Controls.Add(dgvClienteEliminado);
-            Controls.Add(panel1);
+            Controls.Add(pnBarra);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmClienteEliminado";
             StartPosition = FormStartPosition.CenterScreen;
@@ -152,7 +152,7 @@
         }
 
         #endregion
-        private Panel panel1;
+        private Panel pnBarra;
         private DataGridView dgvClienteEliminado;
         private TextBox txtFiltroClienteEliminado;
         private Label lblX;

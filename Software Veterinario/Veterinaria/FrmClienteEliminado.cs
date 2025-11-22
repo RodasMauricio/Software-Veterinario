@@ -84,16 +84,22 @@ namespace Veterinaria
         {
             if (dgvClienteEliminado.Rows.Count > 0)
             {
-                SeleccionCliente();
-                DialogResult r = MessageBox.Show($"¿Desea recuperar este cliente eliminado ({clienteSeleccion.Nombre})?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (r == DialogResult.Yes)
+                try
                 {
-                    NCliente nCliente = new NCliente();
-                    clienteSeleccion.Activo = true;
-                    nCliente.Recuperar(clienteSeleccion.Id);
-                    MessageBox.Show("¡Cliente recuperado!");
-                    CargarFrm();
-                    AjustarOcultarColumnas();
+                    SeleccionCliente();
+                    DialogResult r = MessageBox.Show($"¿Desea recuperar este cliente eliminado ({clienteSeleccion.Nombre})?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (r == DialogResult.Yes)
+                    {
+                        NCliente nCliente = new NCliente();
+                        nCliente.Recuperar(clienteSeleccion.Id);
+                        MessageBox.Show("¡Cliente recuperado!");
+                        CargarFrm();
+                        AjustarOcultarColumnas();
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
                 }
             }
         }

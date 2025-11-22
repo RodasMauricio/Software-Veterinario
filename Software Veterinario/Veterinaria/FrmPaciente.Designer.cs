@@ -58,6 +58,7 @@
             dtpFechaNacimiento = new DateTimePicker();
             btnAgregarEspecie = new Button();
             btnAgregarRaza = new Button();
+            btnEliminados = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPaciente).BeginInit();
             SuspendLayout();
             // 
@@ -474,12 +475,28 @@
             btnAgregarRaza.UseVisualStyleBackColor = true;
             btnAgregarRaza.Click += btnAgregarRaza_Click;
             // 
+            // btnEliminados
+            // 
+            btnEliminados.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnEliminados.BackColor = Color.FromArgb(120, 120, 160);
+            btnEliminados.FlatAppearance.BorderSize = 0;
+            btnEliminados.FlatStyle = FlatStyle.Flat;
+            btnEliminados.ForeColor = SystemColors.Window;
+            btnEliminados.Location = new Point(12, 572);
+            btnEliminados.Name = "btnEliminados";
+            btnEliminados.Size = new Size(75, 23);
+            btnEliminados.TabIndex = 27;
+            btnEliminados.Text = "Eliminados";
+            btnEliminados.UseVisualStyleBackColor = false;
+            btnEliminados.Click += btnEliminados_Click;
+            // 
             // FrmPaciente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 60, 80);
             ClientSize = new Size(854, 605);
+            Controls.Add(btnEliminados);
             Controls.Add(btnAgregarRaza);
             Controls.Add(btnAgregarEspecie);
             Controls.Add(dtpFechaNacimiento);
@@ -545,5 +562,6 @@
         private DateTimePicker dtpFechaNacimiento;
         private Button btnAgregarEspecie;
         private Button btnAgregarRaza;
+        private Button btnEliminados;
     }
 }

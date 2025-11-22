@@ -9,14 +9,14 @@ namespace Negocio
 {
     public class NCliente
     {
-        public List<Cliente> ListarClientes(byte id)
+        public List<Cliente> ListarClientes(byte a)
         {
             using (AccesoDatos datos = new AccesoDatos())
             {
                 List<Cliente> listaClientes = new List<Cliente>();
                 try
                 {
-                    datos.Consulta($"Select C.Id, C.Nombre, C.DNI_CUIT, C.Email, C.Telefono, C.Direccion, C.Localidad, C.Activo From CLIENTES C Where C.Activo = {id}");
+                    datos.Consulta($"Select C.Id, C.Nombre, C.DNI_CUIT, C.Email, C.Telefono, C.Direccion, C.Localidad, C.Activo From CLIENTES C Where C.Activo = {a}");
                     datos.EjecutarConsulta();
 
                     while (datos.Lector.Read())

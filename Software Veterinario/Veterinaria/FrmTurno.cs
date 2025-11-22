@@ -45,7 +45,7 @@ namespace Veterinaria
             NServicio nServicio = new NServicio();
             NEstadoTurno nEstadoTurno = new NEstadoTurno();
             listaTurno = nTurno.ListarTurnos();
-            listaPaciente = nPaciente.ListarPacientes();
+            listaPaciente = nPaciente.ListarPacientes(1);
             listaVeterinario = nVeterinario.ListarVeterinarios();
             listaServicio = nServicio.ListarServicios();
             listaEstadoTurno = nEstadoTurno.ListarEstadoTurno();
@@ -274,6 +274,7 @@ namespace Veterinaria
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             CargarTurnosHoy();
+            AjustarOcultarColumnas();
         }
     }
 }
