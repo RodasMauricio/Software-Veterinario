@@ -39,7 +39,7 @@ namespace Veterinaria
         {
             NCliente nCliente = new NCliente();
             nPaciente = new NPaciente();
-            listaCliente = nCliente.ListarClientes();
+            listaCliente = nCliente.ListarClientes(1);
             dgvCliente.DataSource = listaCliente;
         }
         private void AjustarOcultarColumnas()
@@ -275,6 +275,14 @@ namespace Veterinaria
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnEliminados_Click(object sender, EventArgs e)
+        {
+            FrmClienteEliminado ventana = new FrmClienteEliminado();
+            ventana.ShowDialog();
+            CargarFrm();
+            AjustarOcultarColumnas();
         }
     }
 }

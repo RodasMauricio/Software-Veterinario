@@ -52,6 +52,7 @@
             btnEliminar = new Button();
             lblPacientes = new Label();
             btnPaciente = new Button();
+            btnEliminados = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCliente).BeginInit();
             SuspendLayout();
             // 
@@ -362,11 +363,11 @@
             // 
             // lblPacientes
             // 
-            lblPacientes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblPacientes.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblPacientes.AutoSize = true;
             lblPacientes.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblPacientes.ForeColor = SystemColors.Window;
-            lblPacientes.Location = new Point(12, 579);
+            lblPacientes.Location = new Point(371, 21);
             lblPacientes.Name = "lblPacientes";
             lblPacientes.Size = new Size(139, 15);
             lblPacientes.TabIndex = 19;
@@ -374,17 +375,31 @@
             // 
             // btnPaciente
             // 
-            btnPaciente.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnPaciente.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnPaciente.BackColor = Color.FromArgb(120, 120, 160);
             btnPaciente.FlatAppearance.BorderColor = Color.White;
             btnPaciente.FlatStyle = FlatStyle.Flat;
-            btnPaciente.Location = new Point(148, 575);
+            btnPaciente.Location = new Point(507, 17);
             btnPaciente.Name = "btnPaciente";
-            btnPaciente.Size = new Size(27, 23);
+            btnPaciente.Size = new Size(27, 27);
             btnPaciente.TabIndex = 20;
             btnPaciente.Text = "0";
             btnPaciente.UseVisualStyleBackColor = false;
             btnPaciente.Click += btnPaciente_Click;
+            // 
+            // btnEliminados
+            // 
+            btnEliminados.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnEliminados.BackColor = Color.FromArgb(120, 120, 160);
+            btnEliminados.FlatAppearance.BorderSize = 0;
+            btnEliminados.FlatStyle = FlatStyle.Flat;
+            btnEliminados.Location = new Point(12, 572);
+            btnEliminados.Name = "btnEliminados";
+            btnEliminados.Size = new Size(75, 23);
+            btnEliminados.TabIndex = 21;
+            btnEliminados.Text = "Eliminados";
+            btnEliminados.UseVisualStyleBackColor = false;
+            btnEliminados.Click += btnEliminados_Click;
             // 
             // FrmCliente
             // 
@@ -392,6 +407,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 60, 80);
             ClientSize = new Size(854, 605);
+            Controls.Add(btnEliminados);
             Controls.Add(btnPaciente);
             Controls.Add(lblPacientes);
             Controls.Add(btnEliminar);
@@ -446,5 +462,6 @@
         private Button btnEliminar;
         private Label lblPacientes;
         private Button btnPaciente;
+        private Button btnEliminados;
     }
 }

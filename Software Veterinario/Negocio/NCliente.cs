@@ -9,14 +9,14 @@ namespace Negocio
 {
     public class NCliente
     {
-        public List<Cliente> ListarClientes()
+        public List<Cliente> ListarClientes(byte id)
         {
             using (AccesoDatos datos = new AccesoDatos())
             {
                 List<Cliente> listaClientes = new List<Cliente>();
                 try
                 {
-                    datos.Consulta("Select C.Id, C.Nombre, C.DNI_CUIT, C.Email, C.Telefono, C.Direccion, C.Localidad, C.Activo From CLIENTES C Where C.Activo = 1");
+                    datos.Consulta($"Select C.Id, C.Nombre, C.DNI_CUIT, C.Email, C.Telefono, C.Direccion, C.Localidad, C.Activo From CLIENTES C Where C.Activo = {id}");
                     datos.EjecutarConsulta();
 
                     while (datos.Lector.Read())
@@ -96,6 +96,24 @@ namespace Negocio
                 {
                     datos.Consulta("Update CLIENTES set Activo = @Activo Where Id = @Id");
                     datos.Parametros("@Activo", 0);
+                    datos.Parametros("@Id", id);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+    
+        public void Recuperar(int id)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Update CLIENTES set Activo = @Activo Where Id = @Id");
+                    datos.Parametros("@Activo", 1);
                     datos.Parametros("@Id", id);
                     datos.EjecutarComando();
                 }

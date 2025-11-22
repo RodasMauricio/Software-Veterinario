@@ -40,7 +40,7 @@ namespace Veterinaria
             AjustarOcultarColumnas();
             ClassHelper.CargarCbx(cbEspecie, nEspecie.ListarEspecies(), "Id", "Descripcion");
             ClassHelper.CargarCbx(cbRaza, nRaza.ListarRazas(), "Id", "Descripcion");
-            ClassHelper.CargarCbx(cbCliente, nCliente.ListarClientes(), "Id", "Nombre");
+            ClassHelper.CargarCbx(cbCliente, nCliente.ListarClientes(1), "Id", "Nombre");
         }
         private void AjustarOcultarColumnas()
         {
