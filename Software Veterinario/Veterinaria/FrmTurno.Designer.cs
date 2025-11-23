@@ -54,6 +54,7 @@
             btnActualizar = new Button();
             lblHorario = new Label();
             cbHorario = new ComboBox();
+            txtFiltroPaciente = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvTurno).BeginInit();
             SuspendLayout();
             // 
@@ -356,6 +357,7 @@
             txtFiltroTurno.Font = new Font("Segoe UI", 10F);
             txtFiltroTurno.ForeColor = SystemColors.Window;
             txtFiltroTurno.Location = new Point(12, 11);
+            txtFiltroTurno.MaxLength = 100;
             txtFiltroTurno.Name = "txtFiltroTurno";
             txtFiltroTurno.Size = new Size(261, 25);
             txtFiltroTurno.TabIndex = 18;
@@ -417,12 +419,27 @@
             cbHorario.Size = new Size(255, 25);
             cbHorario.TabIndex = 22;
             // 
+            // txtFiltroPaciente
+            // 
+            txtFiltroPaciente.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            txtFiltroPaciente.BackColor = Color.FromArgb(120, 120, 160);
+            txtFiltroPaciente.BorderStyle = BorderStyle.FixedSingle;
+            txtFiltroPaciente.Font = new Font("Segoe UI", 10F);
+            txtFiltroPaciente.ForeColor = SystemColors.Window;
+            txtFiltroPaciente.Location = new Point(274, 572);
+            txtFiltroPaciente.MaxLength = 100;
+            txtFiltroPaciente.Name = "txtFiltroPaciente";
+            txtFiltroPaciente.Size = new Size(261, 25);
+            txtFiltroPaciente.TabIndex = 23;
+            txtFiltroPaciente.TextChanged += txtFiltroPaciente_TextChanged;
+            // 
             // FrmTurno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 60, 80);
             ClientSize = new Size(854, 605);
+            Controls.Add(txtFiltroPaciente);
             Controls.Add(cbHorario);
             Controls.Add(lblHorario);
             Controls.Add(btnActualizar);
@@ -480,5 +497,6 @@
         private Button btnActualizar;
         private Label lblHorario;
         private ComboBox cbHorario;
+        private TextBox txtFiltroPaciente;
     }
 }

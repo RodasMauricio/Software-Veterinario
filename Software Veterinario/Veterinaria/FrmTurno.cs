@@ -148,7 +148,7 @@ namespace Veterinaria
 
         private void BloqueoAgregarModificar(bool v)
         {
-            ClassHelper.HabilitarLbl(v, lblPaciente, lblVeterinario, lblServicio, lblFecha,lblHorario, lblEstado, lblNotas);
+            ClassHelper.HabilitarLbl(v, lblPaciente, lblVeterinario, lblServicio, lblFecha, lblHorario, lblEstado, lblNotas);
             ClassHelper.HabilitarControles(v, cbPaciente, cbVeterinario, cbServicio, dtpFecha, cbHorario, cbEstado, txtNotas, btnAceptar);
         }
 
@@ -158,7 +158,6 @@ namespace Veterinaria
             List<Turno> filtroRapido;
             string filtro = txtFiltroTurno.Text.ToUpper();
             filtroRapido = listaTurnoFechaSeleccionada.FindAll(x => x.Id.ToString().ToUpper().Contains(filtro) || x.Paciente.Nombre.ToUpper().Contains(filtro));
-            //filtroRapido = listaTurno.FindAll();
 
             dgvTurno.DataSource = null;
             dgvTurno.DataSource = filtroRapido;
@@ -227,7 +226,7 @@ namespace Veterinaria
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (cbPaciente.SelectedIndex != -1 && cbVeterinario.SelectedIndex != -1 && cbServicio.SelectedIndex != -1 && cbHorario.SelectedIndex != -1 && cbEstado.SelectedIndex != -1 && txtNotas.Text != "")
+            if (cbPaciente.SelectedIndex != -1 && cbVeterinario.SelectedIndex != -1 && cbServicio.SelectedIndex != -1 && cbHorario.SelectedIndex != -1 && cbEstado.SelectedIndex != -1)
             {
                 DialogResult r = MessageBox.Show($"¿Desea {btnAceptar.Text} este turno?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r == DialogResult.Yes)
@@ -273,7 +272,21 @@ namespace Veterinaria
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            ClassHelper.LimpiarTxt( txtFiltroTurno, txtFiltroPaciente);
             CargarTurnosHoy();
+            AjustarOcultarColumnas();
+        }
+
+        private void txtFiltroPaciente_TextChanged(object sender, EventArgs e)
+        {
+            ClassHelper.ColorTxt(txtFiltroPaciente);
+
+            List<Turno> filtroTurnoPaciente;
+            string filtro = txtFiltroPaciente.Text.ToUpper();
+            filtroTurnoPaciente = listaTurno.FindAll(x => x.Paciente.Nombre.ToUpper().Contains(filtro) || x.Veterinario.Nombre.ToUpper().Contains(filtro));
+
+            dgvTurno.DataSource = null;
+            dgvTurno.DataSource = filtroTurnoPaciente;
             AjustarOcultarColumnas();
         }
     }
