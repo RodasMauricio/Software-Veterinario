@@ -46,7 +46,7 @@ namespace Veterinaria
             txtMotivoConsulta.Text = historial.MotivoConsulta;
             txtDiagnostico.Text = historial.Diagnostico;
             txtTratamiento.Text = historial.Tratamiento;
-            txtPrecioFinal.Text = historial.PrecioFinal.ToString();
+            txtPrecioFinal.Text = historial.PrecioFinal.ToString("N0");
         }
         private void EstadoBotones()
         {
@@ -69,7 +69,8 @@ namespace Veterinaria
             historial.MotivoConsulta = txtMotivoConsulta.Text;
             historial.Diagnostico = txtDiagnostico.Text;
             historial.Tratamiento = txtTratamiento.Text;
-            historial.PrecioFinal = decimal.Parse(txtPrecioFinal.Text);
+            if (txtPrecioFinal.Text != "")
+                historial.PrecioFinal = decimal.Parse(txtPrecioFinal.Text);
         }
         private void LimpiarCarga()
         {

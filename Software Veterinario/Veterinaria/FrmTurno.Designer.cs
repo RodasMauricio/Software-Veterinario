@@ -42,7 +42,6 @@
             cbVeterinario = new ComboBox();
             cbServicio = new ComboBox();
             cbEstado = new ComboBox();
-            txtNotas = new TextBox();
             dtpFecha = new DateTimePicker();
             btnAgregar = new Button();
             btnModificar = new Button();
@@ -55,6 +54,7 @@
             lblHorario = new Label();
             cbHorario = new ComboBox();
             txtFiltroPaciente = new TextBox();
+            txtNotas = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvTurno).BeginInit();
             SuspendLayout();
             // 
@@ -249,22 +249,6 @@
             cbEstado.Size = new Size(255, 25);
             cbEstado.TabIndex = 10;
             // 
-            // txtNotas
-            // 
-            txtNotas.Anchor = AnchorStyles.Right;
-            txtNotas.BackColor = Color.FromArgb(120, 120, 160);
-            txtNotas.BorderStyle = BorderStyle.FixedSingle;
-            txtNotas.Enabled = false;
-            txtNotas.Font = new Font("Segoe UI", 10F);
-            txtNotas.ForeColor = SystemColors.Window;
-            txtNotas.Location = new Point(567, 419);
-            txtNotas.MaxLength = 250;
-            txtNotas.Multiline = true;
-            txtNotas.Name = "txtNotas";
-            txtNotas.Size = new Size(255, 75);
-            txtNotas.TabIndex = 11;
-            txtNotas.TextChanged += txtNotas_TextChanged;
-            // 
             // dtpFecha
             // 
             dtpFecha.Anchor = AnchorStyles.Right;
@@ -433,6 +417,22 @@
             txtFiltroPaciente.TabIndex = 23;
             txtFiltroPaciente.TextChanged += txtFiltroPaciente_TextChanged;
             // 
+            // txtNotas
+            // 
+            txtNotas.Anchor = AnchorStyles.Right;
+            txtNotas.BackColor = Color.FromArgb(120, 120, 160);
+            txtNotas.BorderStyle = BorderStyle.FixedSingle;
+            txtNotas.Enabled = false;
+            txtNotas.Font = new Font("Segoe UI", 10F);
+            txtNotas.ForeColor = SystemColors.Window;
+            txtNotas.Location = new Point(567, 419);
+            txtNotas.MaxLength = 250;
+            txtNotas.Multiline = true;
+            txtNotas.Name = "txtNotas";
+            txtNotas.Size = new Size(255, 75);
+            txtNotas.TabIndex = 11;
+            txtNotas.TextChanged += txtNotas_TextChanged;
+            // 
             // FrmTurno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -485,7 +485,6 @@
         private ComboBox cbVeterinario;
         private ComboBox cbServicio;
         private ComboBox cbEstado;
-        private TextBox txtNotas;
         private DateTimePicker dtpFecha;
         private Button btnAgregar;
         private Button btnModificar;
@@ -498,5 +497,6 @@
         private Label lblHorario;
         private ComboBox cbHorario;
         private TextBox txtFiltroPaciente;
+        private TextBox txtNotas;
     }
 }

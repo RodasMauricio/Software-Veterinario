@@ -45,7 +45,9 @@
             btnEliminar = new Button();
             btnAceptar = new Button();
             btnCancelar = new Button();
-            txtFiltroVeterinario = new TextBox();
+            btnRecuperar = new Button();
+            btnEliminados = new Button();
+            btnActualizar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvVeterinario).BeginInit();
             SuspendLayout();
             // 
@@ -284,17 +286,52 @@
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // txtFiltroVeterinario
+            // btnRecuperar
             // 
-            txtFiltroVeterinario.BackColor = Color.FromArgb(120, 120, 160);
-            txtFiltroVeterinario.BorderStyle = BorderStyle.FixedSingle;
-            txtFiltroVeterinario.Font = new Font("Segoe UI", 10F);
-            txtFiltroVeterinario.ForeColor = SystemColors.Window;
-            txtFiltroVeterinario.Location = new Point(12, 9);
-            txtFiltroVeterinario.Name = "txtFiltroVeterinario";
-            txtFiltroVeterinario.Size = new Size(261, 25);
-            txtFiltroVeterinario.TabIndex = 14;
-            txtFiltroVeterinario.TextChanged += txtFiltroVeterinario_TextChanged;
+            btnRecuperar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRecuperar.BackColor = Color.SeaGreen;
+            btnRecuperar.FlatAppearance.BorderSize = 0;
+            btnRecuperar.FlatStyle = FlatStyle.Flat;
+            btnRecuperar.ForeColor = SystemColors.Window;
+            btnRecuperar.Location = new Point(460, 17);
+            btnRecuperar.Name = "btnRecuperar";
+            btnRecuperar.Size = new Size(75, 23);
+            btnRecuperar.TabIndex = 26;
+            btnRecuperar.Text = "Recuperar";
+            btnRecuperar.UseVisualStyleBackColor = false;
+            btnRecuperar.Visible = false;
+            btnRecuperar.Click += btnRecuperar_Click;
+            // 
+            // btnEliminados
+            // 
+            btnEliminados.BackColor = Color.FromArgb(120, 120, 160);
+            btnEliminados.FlatAppearance.BorderSize = 0;
+            btnEliminados.FlatStyle = FlatStyle.Flat;
+            btnEliminados.ForeColor = SystemColors.Window;
+            btnEliminados.Location = new Point(12, 17);
+            btnEliminados.Name = "btnEliminados";
+            btnEliminados.Size = new Size(75, 23);
+            btnEliminados.TabIndex = 27;
+            btnEliminados.Text = "Eliminados";
+            btnEliminados.UseVisualStyleBackColor = false;
+            btnEliminados.Click += btnEliminados_Click;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnActualizar.BackColor = Color.FromArgb(120, 120, 160);
+            btnActualizar.FlatAppearance.BorderSize = 0;
+            btnActualizar.FlatStyle = FlatStyle.Flat;
+            btnActualizar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnActualizar.ForeColor = SystemColors.Window;
+            btnActualizar.Location = new Point(12, 572);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(22, 27);
+            btnActualizar.TabIndex = 28;
+            btnActualizar.Text = "↻";
+            btnActualizar.TextAlign = ContentAlignment.TopCenter;
+            btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // FrmVeterinario
             // 
@@ -302,7 +339,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 60, 80);
             ClientSize = new Size(854, 605);
-            Controls.Add(txtFiltroVeterinario);
+            Controls.Add(btnActualizar);
+            Controls.Add(btnEliminados);
+            Controls.Add(btnRecuperar);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(btnEliminar);
@@ -342,6 +381,8 @@
         private Button btnEliminar;
         private Button btnAceptar;
         private Button btnCancelar;
-        private TextBox txtFiltroVeterinario;
+        private Button btnRecuperar;
+        private Button btnEliminados;
+        private Button btnActualizar;
     }
 }

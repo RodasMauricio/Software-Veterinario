@@ -9,14 +9,14 @@ namespace Negocio
 {
     public class NVeterinario
     {
-        public List<Veterinario> ListarVeterinarios()
+        public List<Veterinario> ListarVeterinarios(byte a)
         {
             using (AccesoDatos datos = new AccesoDatos())
             {
                 List<Veterinario> listaVeterinarios = new List<Veterinario>();
                 try
                 {
-                    datos.Consulta("Select V.Id, V.Nombre, V.Matricula, V.Email, V.Telefono From VETERINARIOS V");
+                    datos.Consulta($"Select V.Id, V.Nombre, V.Matricula, V.Email, V.Telefono, V.Activo From VETERINARIOS V Where V.Activo = {a}");
                     datos.EjecutarConsulta();
                     while (datos.Lector.Read())
                     {
@@ -26,6 +26,7 @@ namespace Negocio
                         v.Matricula = (string)datos.Lector["Matricula"];
                         v.Email = (string)datos.Lector["Email"];
                         v.Telefono = (string)datos.Lector["Telefono"];
+                        v.Activo = (bool)datos.Lector["Activo"];
                         listaVeterinarios.Add(v);
                     }
                     return listaVeterinarios;
@@ -82,7 +83,25 @@ namespace Negocio
             {
                 try
                 {
-                    datos.Consulta("Delete From VETERINARIOS Where Id = @Id");
+                    datos.Consulta("Update VETERINARIOS set Activo = @Activo Where Id = @Id");
+                    datos.Parametros("@Activo", 0);
+                    datos.Parametros("@Id", id);
+                    datos.EjecutarConsulta();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+        public void Recuperar(int id)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Update VETERINARIOS set Activo = @Activo Where Id = @Id");
+                    datos.Parametros("@Activo", 1);
                     datos.Parametros("@Id", id);
                     datos.EjecutarConsulta();
                 }

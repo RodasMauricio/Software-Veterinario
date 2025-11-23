@@ -25,17 +25,18 @@ namespace Veterinaria
 
         private void FrmVeterinario_Load(object sender, EventArgs e)
         {
-            CargarFrm();
+            CargarFrm(1);
             AjustarOcultarColumnas();
         }
-        private void CargarFrm()
+        private void CargarFrm(byte a)
         {
             NVeterinario nVeterinario = new NVeterinario();
-            listaVeterinario = nVeterinario.ListarVeterinarios();
+            listaVeterinario = nVeterinario.ListarVeterinarios(a);
             dgvVeterinario.DataSource = listaVeterinario;
         }
         private void AjustarOcultarColumnas()
         {
+            dgvVeterinario.Columns["Activo"].Visible = false;
             dgvVeterinario.Columns["Id"].Width = 50;
             dgvVeterinario.Columns["Matricula"].Width = 90;
             dgvVeterinario.Columns["Telefono"].Width = 110;
@@ -89,27 +90,19 @@ namespace Veterinaria
         }
 
 
-        private void txtFiltroVeterinario_TextChanged(object sender, EventArgs e)
-        {
-            ClassHelper.ColorTxt(txtFiltroVeterinario);
-            List<Veterinario> filtroRapido;
-            string filtro = txtFiltroVeterinario.Text.ToUpper();
-            filtroRapido = listaVeterinario.FindAll(x => x.Nombre.ToUpper().Contains(filtro));
-
-            dgvVeterinario.DataSource = null;
-            dgvVeterinario.DataSource = filtroRapido;
-            AjustarOcultarColumnas();
-        }
         private void dgvVeterinario_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
                 if (dgvVeterinario.Rows.Count > 0)
                 {
-                    SeleccionVeterinario();
-                    LimpiarCarga();
-                    BloqueoAgregarModificar(false);
-                    EstadoBotones();
+                    if (btnEliminados.Enabled != false)
+                    {
+                        SeleccionVeterinario();
+                        LimpiarCarga();
+                        BloqueoAgregarModificar(false);
+                        EstadoBotones();
+                    }
                 }
             }
             catch (Exception)
@@ -118,6 +111,39 @@ namespace Veterinaria
             }
         }
 
+        private void btnEliminados_Click(object sender, EventArgs e)
+        {
+            CargarFrm(0);
+            AjustarOcultarColumnas();
+            btnRecuperar.Visible = true;
+            btnAgregar.Enabled = false;
+            btnModificar.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnEliminados.Enabled = false;
+        }
+        private void btnRecuperar_Click(object sender, EventArgs e)
+        {
+            if (dgvVeterinario.Rows.Count > 0)
+            {
+                try
+                {
+                    SeleccionVeterinario();
+                    DialogResult r = MessageBox.Show($"¿Desea recuperar este veterinario ({veterinarioSeleccion.Nombre})?", "Recuperar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (r == DialogResult.Yes)
+                    {
+                        NVeterinario nVeterinario = new NVeterinario();
+                        nVeterinario.Recuperar(veterinarioSeleccion.Id);
+                        CargarFrm(0);
+                        AjustarOcultarColumnas();
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -158,8 +184,8 @@ namespace Veterinaria
                     if (r == DialogResult.Yes)
                     {
                         NVeterinario nVeterinario = new NVeterinario();
-                        nVeterinario.Eliminar(veterinario.Id);
-                        CargarFrm();
+                        nVeterinario.Eliminar(veterinarioSeleccion.Id);
+                        CargarFrm(1);
                     }
                 }
                 catch (Exception)
@@ -182,7 +208,7 @@ namespace Veterinaria
                         nVeterinario.Modificar(veterinario);
                     else
                         nVeterinario.Agregar(veterinario);
-                    CargarFrm();
+                    CargarFrm(1);
                     AjustarOcultarColumnas();
                 }
 
@@ -224,5 +250,18 @@ namespace Veterinaria
                 e.Handled = true;
             }
         }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            CargarFrm(1);
+            AjustarOcultarColumnas();
+            btnRecuperar.Visible = false;
+            btnAgregar.Enabled = true;
+            btnModificar.Enabled = true;
+            btnEliminar.Enabled = true;
+            btnCancelar.Enabled = true;
+            btnEliminados.Enabled = true;
+        }
+
     }
 }

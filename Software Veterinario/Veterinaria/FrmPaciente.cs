@@ -252,7 +252,6 @@ namespace Veterinaria
         }
         private void txtPeso_TextChanged(object sender, EventArgs e)
         {
-
             ClassHelper.ColorTxt(txtPeso);
         }
         private void txtObservaciones_TextChanged(object sender, EventArgs e)

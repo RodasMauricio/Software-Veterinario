@@ -46,8 +46,8 @@ namespace Veterinaria
             NEstadoTurno nEstadoTurno = new NEstadoTurno();
             listaTurno = nTurno.ListarTurnos();
             listaPaciente = nPaciente.ListarPacientes(1);
-            listaVeterinario = nVeterinario.ListarVeterinarios();
-            listaServicio = nServicio.ListarServicios();
+            listaVeterinario = nVeterinario.ListarVeterinarios(1);
+            listaServicio = nServicio.ListarServicios(1);
             listaEstadoTurno = nEstadoTurno.ListarEstadoTurno();
             CargarTurnosHoy();
             ClassHelper.CargarCbx(cbPaciente, listaPaciente, "Id", "Nombre");

@@ -203,7 +203,7 @@
             lblNombre.Enabled = false;
             lblNombre.Font = new Font("Segoe UI", 10F);
             lblNombre.ForeColor = SystemColors.Window;
-            lblNombre.Location = new Point(567, 93);
+            lblNombre.Location = new Point(567, 86);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(59, 19);
             lblNombre.TabIndex = 7;
@@ -216,7 +216,7 @@
             lblEspecie.Enabled = false;
             lblEspecie.Font = new Font("Segoe UI", 10F);
             lblEspecie.ForeColor = SystemColors.Window;
-            lblEspecie.Location = new Point(567, 135);
+            lblEspecie.Location = new Point(567, 128);
             lblEspecie.Name = "lblEspecie";
             lblEspecie.Size = new Size(53, 19);
             lblEspecie.TabIndex = 8;
@@ -229,7 +229,7 @@
             lblRaza.Enabled = false;
             lblRaza.Font = new Font("Segoe UI", 10F);
             lblRaza.ForeColor = SystemColors.Window;
-            lblRaza.Location = new Point(567, 178);
+            lblRaza.Location = new Point(567, 171);
             lblRaza.Name = "lblRaza";
             lblRaza.Size = new Size(37, 19);
             lblRaza.TabIndex = 9;
@@ -242,7 +242,7 @@
             lblCliente.Enabled = false;
             lblCliente.Font = new Font("Segoe UI", 10F);
             lblCliente.ForeColor = SystemColors.Window;
-            lblCliente.Location = new Point(567, 220);
+            lblCliente.Location = new Point(567, 213);
             lblCliente.Name = "lblCliente";
             lblCliente.Size = new Size(51, 19);
             lblCliente.TabIndex = 10;
@@ -255,7 +255,7 @@
             lblFechaNacimiento.Enabled = false;
             lblFechaNacimiento.Font = new Font("Segoe UI", 10F);
             lblFechaNacimiento.ForeColor = SystemColors.Window;
-            lblFechaNacimiento.Location = new Point(567, 262);
+            lblFechaNacimiento.Location = new Point(567, 255);
             lblFechaNacimiento.Name = "lblFechaNacimiento";
             lblFechaNacimiento.Size = new Size(136, 19);
             lblFechaNacimiento.TabIndex = 11;
@@ -268,7 +268,7 @@
             lblSexo.Enabled = false;
             lblSexo.Font = new Font("Segoe UI", 10F);
             lblSexo.ForeColor = SystemColors.Window;
-            lblSexo.Location = new Point(567, 304);
+            lblSexo.Location = new Point(567, 297);
             lblSexo.Name = "lblSexo";
             lblSexo.Size = new Size(37, 19);
             lblSexo.TabIndex = 12;
@@ -281,7 +281,7 @@
             lblColorPelaje.Enabled = false;
             lblColorPelaje.Font = new Font("Segoe UI", 10F);
             lblColorPelaje.ForeColor = SystemColors.Window;
-            lblColorPelaje.Location = new Point(567, 346);
+            lblColorPelaje.Location = new Point(567, 339);
             lblColorPelaje.Name = "lblColorPelaje";
             lblColorPelaje.Size = new Size(81, 19);
             lblColorPelaje.TabIndex = 13;
@@ -294,7 +294,7 @@
             lblPeso.Enabled = false;
             lblPeso.Font = new Font("Segoe UI", 10F);
             lblPeso.ForeColor = SystemColors.Window;
-            lblPeso.Location = new Point(567, 391);
+            lblPeso.Location = new Point(567, 384);
             lblPeso.Name = "lblPeso";
             lblPeso.Size = new Size(37, 19);
             lblPeso.TabIndex = 14;
@@ -307,7 +307,7 @@
             lblObservaciones.Enabled = false;
             lblObservaciones.Font = new Font("Segoe UI", 10F);
             lblObservaciones.ForeColor = SystemColors.Window;
-            lblObservaciones.Location = new Point(566, 437);
+            lblObservaciones.Location = new Point(566, 430);
             lblObservaciones.Name = "lblObservaciones";
             lblObservaciones.Size = new Size(98, 19);
             lblObservaciones.TabIndex = 15;
@@ -321,7 +321,7 @@
             txtNombre.Enabled = false;
             txtNombre.Font = new Font("Segoe UI", 10F);
             txtNombre.ForeColor = SystemColors.Window;
-            txtNombre.Location = new Point(571, 111);
+            txtNombre.Location = new Point(571, 104);
             txtNombre.MaxLength = 50;
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(228, 25);
@@ -336,7 +336,7 @@
             txtSexo.Enabled = false;
             txtSexo.Font = new Font("Segoe UI", 10F);
             txtSexo.ForeColor = SystemColors.Window;
-            txtSexo.Location = new Point(571, 322);
+            txtSexo.Location = new Point(571, 315);
             txtSexo.MaxLength = 1;
             txtSexo.Name = "txtSexo";
             txtSexo.Size = new Size(228, 25);
@@ -351,7 +351,7 @@
             txtColorPelaje.Enabled = false;
             txtColorPelaje.Font = new Font("Segoe UI", 10F);
             txtColorPelaje.ForeColor = SystemColors.Window;
-            txtColorPelaje.Location = new Point(571, 366);
+            txtColorPelaje.Location = new Point(571, 359);
             txtColorPelaje.MaxLength = 50;
             txtColorPelaje.Name = "txtColorPelaje";
             txtColorPelaje.Size = new Size(228, 25);
@@ -366,7 +366,7 @@
             txtPeso.Enabled = false;
             txtPeso.Font = new Font("Segoe UI", 10F);
             txtPeso.ForeColor = SystemColors.Window;
-            txtPeso.Location = new Point(571, 410);
+            txtPeso.Location = new Point(571, 403);
             txtPeso.MaxLength = 50;
             txtPeso.Name = "txtPeso";
             txtPeso.ShortcutsEnabled = false;
@@ -383,10 +383,11 @@
             txtObservaciones.Enabled = false;
             txtObservaciones.Font = new Font("Segoe UI", 10F);
             txtObservaciones.ForeColor = SystemColors.Window;
-            txtObservaciones.Location = new Point(571, 455);
+            txtObservaciones.Location = new Point(571, 448);
             txtObservaciones.MaxLength = 500;
+            txtObservaciones.Multiline = true;
             txtObservaciones.Name = "txtObservaciones";
-            txtObservaciones.Size = new Size(228, 25);
+            txtObservaciones.Size = new Size(228, 54);
             txtObservaciones.TabIndex = 20;
             txtObservaciones.TextChanged += txtObservaciones_TextChanged;
             // 
@@ -401,7 +402,7 @@
             cbEspecie.ForeColor = SystemColors.Window;
             cbEspecie.FormattingEnabled = true;
             cbEspecie.IntegralHeight = false;
-            cbEspecie.Location = new Point(571, 153);
+            cbEspecie.Location = new Point(571, 146);
             cbEspecie.MaxDropDownItems = 5;
             cbEspecie.Name = "cbEspecie";
             cbEspecie.Size = new Size(228, 25);
@@ -418,7 +419,7 @@
             cbRaza.ForeColor = SystemColors.Window;
             cbRaza.FormattingEnabled = true;
             cbRaza.IntegralHeight = false;
-            cbRaza.Location = new Point(571, 195);
+            cbRaza.Location = new Point(571, 188);
             cbRaza.MaxDropDownItems = 5;
             cbRaza.Name = "cbRaza";
             cbRaza.Size = new Size(228, 25);
@@ -435,7 +436,7 @@
             cbCliente.ForeColor = SystemColors.Window;
             cbCliente.FormattingEnabled = true;
             cbCliente.IntegralHeight = false;
-            cbCliente.Location = new Point(571, 237);
+            cbCliente.Location = new Point(571, 230);
             cbCliente.MaxDropDownItems = 5;
             cbCliente.Name = "cbCliente";
             cbCliente.Size = new Size(228, 25);
@@ -446,7 +447,7 @@
             dtpFechaNacimiento.Anchor = AnchorStyles.Right;
             dtpFechaNacimiento.CalendarFont = new Font("Segoe UI", 10F);
             dtpFechaNacimiento.Enabled = false;
-            dtpFechaNacimiento.Location = new Point(571, 280);
+            dtpFechaNacimiento.Location = new Point(571, 273);
             dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             dtpFechaNacimiento.Size = new Size(228, 23);
             dtpFechaNacimiento.TabIndex = 24;
@@ -455,7 +456,7 @@
             // 
             btnAgregarEspecie.Anchor = AnchorStyles.Right;
             btnAgregarEspecie.Enabled = false;
-            btnAgregarEspecie.Location = new Point(805, 154);
+            btnAgregarEspecie.Location = new Point(805, 147);
             btnAgregarEspecie.Name = "btnAgregarEspecie";
             btnAgregarEspecie.Size = new Size(21, 23);
             btnAgregarEspecie.TabIndex = 25;
@@ -467,7 +468,7 @@
             // 
             btnAgregarRaza.Anchor = AnchorStyles.Right;
             btnAgregarRaza.Enabled = false;
-            btnAgregarRaza.Location = new Point(805, 196);
+            btnAgregarRaza.Location = new Point(805, 189);
             btnAgregarRaza.Name = "btnAgregarRaza";
             btnAgregarRaza.Size = new Size(21, 23);
             btnAgregarRaza.TabIndex = 26;
