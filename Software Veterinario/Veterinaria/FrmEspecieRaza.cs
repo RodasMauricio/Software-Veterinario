@@ -199,15 +199,25 @@ namespace Veterinaria
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            LimpiarCarga();
-            SeleccionPropiedad();
-            if (esRaza == false)
-                especie = especieSeleccion;
-            else
-                raza = razaSeleccion;
-            BloqueoAgregarModificar(true);
-            CargarValoresModificar();
-            btnAceptar.Text = "Modificar";
+            if (dgvPropiedad.Rows.Count > 0)
+            {
+                try
+                {
+                    LimpiarCarga();
+                    SeleccionPropiedad();
+                    if (esRaza == false)
+                        especie = especieSeleccion;
+                    else
+                        raza = razaSeleccion;
+                    BloqueoAgregarModificar(true);
+                    CargarValoresModificar();
+                    btnAceptar.Text = "Modificar";
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -309,6 +319,11 @@ namespace Veterinaria
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
             ClassHelper.ColorTxt(txtDescripcion);
+        }
+
+        private void FrmEspecieRaza_SizeChanged(object sender, EventArgs e)
+        {
+            AjustarOcultarColumnas();
         }
     }
 }

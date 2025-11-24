@@ -191,12 +191,22 @@ namespace Veterinaria
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            LimpiarCarga();
-            SeleccionTurno();
-            turno = turnoSeleccion;
-            BloqueoAgregarModificar(true);
-            CargarValoresModificar();
-            btnAceptar.Text = "Modificar";
+            if (dgvTurno.Rows.Count > 0)
+            {
+                try
+                {
+                    LimpiarCarga();
+                    SeleccionTurno();
+                    turno = turnoSeleccion;
+                    BloqueoAgregarModificar(true);
+                    CargarValoresModificar();
+                    btnAceptar.Text = "Modificar";
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -272,7 +282,7 @@ namespace Veterinaria
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            ClassHelper.LimpiarTxt( txtFiltroTurno, txtFiltroPaciente);
+            ClassHelper.LimpiarTxt(txtFiltroTurno, txtFiltroPaciente);
             CargarTurnosHoy();
             AjustarOcultarColumnas();
         }
@@ -287,6 +297,11 @@ namespace Veterinaria
 
             dgvTurno.DataSource = null;
             dgvTurno.DataSource = filtroTurnoPaciente;
+            AjustarOcultarColumnas();
+        }
+
+        private void FrmTurno_SizeChanged(object sender, EventArgs e)
+        {
             AjustarOcultarColumnas();
         }
     }

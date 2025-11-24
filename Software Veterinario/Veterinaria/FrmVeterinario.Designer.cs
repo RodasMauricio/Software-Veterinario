@@ -360,6 +360,7 @@
             Name = "FrmVeterinario";
             Text = "FrmVeterinario";
             Load += FrmVeterinario_Load;
+            SizeChanged += FrmVeterinario_SizeChanged;
             ((System.ComponentModel.ISupportInitialize)dgvVeterinario).EndInit();
             ResumeLayout(false);
             PerformLayout();

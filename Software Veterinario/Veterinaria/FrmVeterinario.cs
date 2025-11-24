@@ -263,5 +263,9 @@ namespace Veterinaria
             btnEliminados.Enabled = true;
         }
 
+        private void FrmVeterinario_SizeChanged(object sender, EventArgs e)
+        {
+            AjustarOcultarColumnas();
+        }
     }
 }

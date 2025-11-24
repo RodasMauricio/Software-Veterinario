@@ -264,5 +264,10 @@ namespace Veterinaria
                 e.Handled = true;
             }
         }
+
+        private void FrmServicio_SizeChanged(object sender, EventArgs e)
+        {
+            AjustarOcultarColumnas();
+        }
     }
 }

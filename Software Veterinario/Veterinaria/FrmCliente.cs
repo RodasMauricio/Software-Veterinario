@@ -154,12 +154,22 @@ namespace Veterinaria
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            LimpiarCarga();
-            SeleccionCliente();
-            cliente = clienteSeleccion;
-            BloqueoAgregarModificar(true);
-            CargarValoresModificar();
-            btnAceptar.Text = "Modificar";
+            if (dgvCliente.Rows.Count > 0)
+            {
+                try
+                {
+                    LimpiarCarga();
+                    SeleccionCliente();
+                    cliente = clienteSeleccion;
+                    BloqueoAgregarModificar(true);
+                    CargarValoresModificar();
+                    btnAceptar.Text = "Modificar";
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -265,8 +275,11 @@ namespace Veterinaria
 
         private void btnPaciente_Click(object sender, EventArgs e)
         {
-            string nombres = string.Join("\n", nombrePacientes);
-            MessageBox.Show("Id - Nombre:\n" + nombres, "Pacientes");
+            if (dgvCliente.Rows.Count > 0)
+            {
+                string nombres = string.Join("\n", nombrePacientes);
+                MessageBox.Show("Id - Nombre:\n" + nombres, "Pacientes");
+            }
         }
 
         private void txtDniCuit_KeyPress(object sender, KeyPressEventArgs e)

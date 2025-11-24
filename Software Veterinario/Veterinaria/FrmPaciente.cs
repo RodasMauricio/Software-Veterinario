@@ -33,13 +33,13 @@ namespace Veterinaria
         {
             NPaciente nPaciente = new NPaciente();
             NEspecie nEspecie = new NEspecie();
-            NRaza nRaza = new NRaza();
+            //NRaza nRaza = new NRaza();
             NCliente nCliente = new NCliente();
             listaPaciente = nPaciente.ListarPacientes(1);
             dgvPaciente.DataSource = listaPaciente;
             AjustarOcultarColumnas();
             ClassHelper.CargarCbx(cbEspecie, nEspecie.ListarEspecies(), "Id", "Descripcion");
-            ClassHelper.CargarCbx(cbRaza, nRaza.ListarRazas(), "Id", "Descripcion");
+            //ClassHelper.CargarCbx(cbRaza, nRaza.ListarRazas(), "Id", "Descripcion");
             ClassHelper.CargarCbx(cbCliente, nCliente.ListarClientes(1), "Id", "Nombre");
         }
         private void AjustarOcultarColumnas()
@@ -97,10 +97,7 @@ namespace Veterinaria
         }
         private void SeleccionPaciente()
         {
-            if (dgvPaciente.CurrentRow != null)
-                pacienteSeleccion = (Paciente)dgvPaciente.CurrentRow.DataBoundItem;
-            else
-                pacienteSeleccion = (Paciente)dgvPaciente.Rows[0].DataBoundItem;
+            pacienteSeleccion = (Paciente)dgvPaciente.CurrentRow.DataBoundItem;
         }
 
         private void BloqueoAgregarModificar(bool v)
@@ -147,18 +144,21 @@ namespace Veterinaria
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            try
+            if (dgvPaciente.Rows.Count > 0)
             {
-                LimpiarCarga();
-                SeleccionPaciente();
-                paciente = pacienteSeleccion;
-                BloqueoAgregarModificar(true);
-                CargarValoresModificar();
-                btnAceptar.Text = "Modificar";
-            }
-            catch (Exception)
-            {
-                throw;
+                try
+                {
+                    LimpiarCarga();
+                    SeleccionPaciente();
+                    paciente = pacienteSeleccion;
+                    BloqueoAgregarModificar(true);
+                    CargarValoresModificar();
+                    btnAceptar.Text = "Modificar";
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
         }
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -226,11 +226,15 @@ namespace Veterinaria
         {
             FrmEspecieRaza ventana = new FrmEspecieRaza();
             ventana.ShowDialog();
+            CargarFrm();
+            AjustarOcultarColumnas();
         }
         private void btnAgregarRaza_Click(object sender, EventArgs e)
         {
             FrmEspecieRaza ventana = new FrmEspecieRaza(1);
             ventana.ShowDialog();
+            CargarFrm();
+            AjustarOcultarColumnas();
         }
 
 
@@ -273,6 +277,29 @@ namespace Veterinaria
             FrmPacienteEliminado ventana = new FrmPacienteEliminado();
             ventana.ShowDialog();
             CargarFrm();
+            AjustarOcultarColumnas();
+        }
+
+        private void cbEspecie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbEspecie.SelectedIndex > -1)
+            {
+                string especie = cbEspecie.SelectedItem.ToString();
+                NRaza nRaza = new NRaza();
+                List<Raza> listaRaza = nRaza.ListarRazas();
+                List<Raza> listaRazaAcorde = new List<Raza>();
+                foreach (var i in listaRaza)
+                {
+                    if (especie == i.Especie.Descripcion)
+                        listaRazaAcorde.Add(i);
+                }
+                ClassHelper.CargarCbx(cbRaza, listaRazaAcorde, "Id", "Descripcion");
+
+            }
+        }
+
+        private void FrmPaciente_SizeChanged(object sender, EventArgs e)
+        {
             AjustarOcultarColumnas();
         }
     }

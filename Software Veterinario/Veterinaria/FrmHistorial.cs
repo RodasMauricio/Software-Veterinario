@@ -142,12 +142,22 @@ namespace Veterinaria
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            LimpiarCarga();
-            SeleccionHistorial();
-            historial = historialSeleccion;
-            BloqueoAgregarModificar(true);
-            CargarValoresModificar();
-            btnAceptar.Text = "Modificar";
+            if (dgvHistorial.Rows.Count > 0)
+            {
+                try
+                {
+                    LimpiarCarga();
+                    SeleccionHistorial();
+                    historial = historialSeleccion;
+                    BloqueoAgregarModificar(true);
+                    CargarValoresModificar();
+                    btnAceptar.Text = "Modificar";
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -268,6 +278,11 @@ namespace Veterinaria
                     e.Value = string.Format("{0:C0}", e.Value);
                 }
             }
+        }
+
+        private void FrmHistorial_SizeChanged(object sender, EventArgs e)
+        {
+            AjustarOcultarColumnas();
         }
     }
 }

@@ -467,6 +467,7 @@
             Name = "FrmTurno";
             Text = "FrmTurno";
             Load += FrmTurno_Load;
+            SizeChanged += FrmTurno_SizeChanged;
             ((System.ComponentModel.ISupportInitialize)dgvTurno).EndInit();
             ResumeLayout(false);
             PerformLayout();

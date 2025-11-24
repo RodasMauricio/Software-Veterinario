@@ -356,6 +356,7 @@
             Name = "FrmHistorial";
             Text = "FrmHistorial";
             Load += FrmHistorial_Load;
+            SizeChanged += FrmHistorial_SizeChanged;
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).EndInit();
             ResumeLayout(false);
             PerformLayout();

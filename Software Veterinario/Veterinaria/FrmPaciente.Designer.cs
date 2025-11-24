@@ -407,6 +407,7 @@
             cbEspecie.Name = "cbEspecie";
             cbEspecie.Size = new Size(228, 25);
             cbEspecie.TabIndex = 21;
+            cbEspecie.SelectedIndexChanged += cbEspecie_SelectedIndexChanged;
             // 
             // cbRaza
             // 
@@ -529,6 +530,7 @@
             Name = "FrmPaciente";
             Text = "FrmPaciente";
             Load += FrmPaciente_Load;
+            SizeChanged += FrmPaciente_SizeChanged;
             ((System.ComponentModel.ISupportInitialize)dgvPaciente).EndInit();
             ResumeLayout(false);
             PerformLayout();

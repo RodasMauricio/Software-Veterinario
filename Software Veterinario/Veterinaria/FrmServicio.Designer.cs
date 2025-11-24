@@ -330,6 +330,7 @@
             Name = "FrmServicio";
             Text = "FrmServicio";
             Load += FrmServicio_Load;
+            SizeChanged += FrmServicio_SizeChanged;
             ((System.ComponentModel.ISupportInitialize)dgvServicio).EndInit();
             ResumeLayout(false);
             PerformLayout();
