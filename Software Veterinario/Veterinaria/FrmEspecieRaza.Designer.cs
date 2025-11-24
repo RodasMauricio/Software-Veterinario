@@ -278,7 +278,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmEspecieRaza";
             Load += FrmEspecieRaza_Load;
-            SizeChanged += FrmEspecieRaza_SizeChanged;
             ((System.ComponentModel.ISupportInitialize)dgvPropiedad).EndInit();
             barraTitulo.ResumeLayout(false);
             barraTitulo.PerformLayout();

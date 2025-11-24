@@ -321,9 +321,5 @@ namespace Veterinaria
             ClassHelper.ColorTxt(txtDescripcion);
         }
 
-        private void FrmEspecieRaza_SizeChanged(object sender, EventArgs e)
-        {
-            AjustarOcultarColumnas();
-        }
     }
 }

@@ -38,8 +38,6 @@ namespace Veterinaria
         {
             dgvVeterinario.Columns["Activo"].Visible = false;
             dgvVeterinario.Columns["Id"].Width = 50;
-            dgvVeterinario.Columns["Matricula"].Width = 90;
-            dgvVeterinario.Columns["Telefono"].Width = 110;
         }
         private void CargarValoresModificar()
         {
