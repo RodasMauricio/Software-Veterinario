@@ -106,6 +106,7 @@
             dgvPaciente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPaciente.Size = new Size(523, 520);
             dgvPaciente.TabIndex = 0;
+            dgvPaciente.CellFormatting += dgvPaciente_CellFormatting;
             dgvPaciente.SelectionChanged += dgvPaciente_SelectionChanged;
             // 
             // txtFiltroPaciente
@@ -373,7 +374,6 @@
             txtPeso.Size = new Size(228, 25);
             txtPeso.TabIndex = 19;
             txtPeso.TextChanged += txtPeso_TextChanged;
-            txtPeso.KeyPress += txtPeso_KeyPress;
             // 
             // txtObservaciones
             // 

@@ -117,6 +117,12 @@ namespace Veterinaria
             dgvPaciente.DataSource = filtroRapido;
             AjustarOcultarColumnas();
         }
+
+        private void dgvPaciente_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            dgvPaciente.Columns["Peso"].DefaultCellStyle.Format = "0.00 kg";
+        }
+
         private void dgvPaciente_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -188,7 +194,7 @@ namespace Veterinaria
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text != "" && cbEspecie.SelectedIndex != -1 && cbCliente.SelectedIndex != -1 && txtPeso.Text != "")
+            if (txtNombre.Text != "" && cbEspecie.SelectedIndex != -1 && cbCliente.SelectedIndex != -1 && cbRaza.SelectedIndex != -1 && txtPeso.Text != "")
             {
                 DialogResult r = MessageBox.Show($"¿Desea {btnAceptar.Text} este paciente ({txtNombre.Text})?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r == DialogResult.Yes)
@@ -264,13 +270,6 @@ namespace Veterinaria
 
         }
 
-        private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsDigit(e.KeyChar)) && e.KeyChar != 8)
-            {
-                e.Handled = true;
-            }
-        }
 
         private void btnEliminados_Click(object sender, EventArgs e)
         {
@@ -302,5 +301,6 @@ namespace Veterinaria
         {
             AjustarOcultarColumnas();
         }
+
     }
 }

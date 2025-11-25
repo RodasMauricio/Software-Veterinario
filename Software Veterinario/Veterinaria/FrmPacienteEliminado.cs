@@ -89,7 +89,7 @@ namespace Veterinaria
                 try
                 {
                     SeleccionPaciente();
-                    DialogResult r = MessageBox.Show($"¿Desea recuperar este pacient eliminado ({pacienteSeleccion.Nombre})?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult r = MessageBox.Show($"¿Desea recuperar este paciente eliminado ({pacienteSeleccion.Nombre})?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (r == DialogResult.Yes)
                     {
                         NPaciente nPaciente = new NPaciente();

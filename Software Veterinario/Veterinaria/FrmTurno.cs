@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Dominio;
+using Microsoft.VisualBasic.Logging;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
@@ -10,8 +13,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Dominio;
-using Negocio;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Veterinaria
 {
@@ -261,7 +263,8 @@ namespace Veterinaria
             }
             else
             {
-                MessageBox.Show("Faltan datos por ingresar.\nRevise (Paciente - Veterinario - Servicio - Fecha - Horario - Estado)");
+                
+                MessageBox.Show("Debe completar los campos necesarios (Paciente - Veterinario - Servicio - Fecha - Horario - Estado)");
             }
         }
         private void btnCancelar_Click(object sender, EventArgs e)
