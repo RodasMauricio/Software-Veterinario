@@ -13,7 +13,6 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Veterinaria
 {
@@ -29,6 +28,7 @@ namespace Veterinaria
         private Turno turnoSeleccion;
         private DateTime fechaHoy;
         private DateTime fechaSeleccionada;
+
         public FrmTurno()
         {
             InitializeComponent();

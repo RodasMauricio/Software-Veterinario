@@ -130,7 +130,7 @@
             btnHistorial.Name = "btnHistorial";
             btnHistorial.Size = new Size(170, 38);
             btnHistorial.TabIndex = 4;
-            btnHistorial.Text = "Historial";
+            btnHistorial.Text = "Historiales";
             btnHistorial.TextAlign = ContentAlignment.MiddleRight;
             btnHistorial.UseVisualStyleBackColor = true;
             btnHistorial.Click += btnHistorial_Click;

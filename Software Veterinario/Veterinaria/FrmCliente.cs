@@ -45,7 +45,7 @@ namespace Veterinaria
         private void AjustarOcultarColumnas()
         {
             dgvCliente.Columns["Activo"].Visible = false;
-            dgvCliente.Columns["Id"].Width = 50;
+            dgvCliente.Columns["Id"].Width = 40;
         }
         private void CargarValoresModificar()
         {

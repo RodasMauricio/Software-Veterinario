@@ -80,6 +80,7 @@
             dgvHistorial.EnableHeadersVisualStyles = false;
             dgvHistorial.Location = new Point(12, 46);
             dgvHistorial.Name = "dgvHistorial";
+            dgvHistorial.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(74, 74, 91);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
